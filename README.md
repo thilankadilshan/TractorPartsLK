@@ -1,10 +1,12 @@
 # TractorPartsLK
  A Web Platform for  Connecting Sri Lankan Farmers with Trusted  Tractor Spare Part Suppliers
 
-colours
+colours >>>>>>>>>>>>>>>>>>>>>>>>
 
-3D52A0
-7091E6
-8697C4
-adbbda
-ede8f5
+#3da065
+#70e67e
+#86c498
+#addaad
+#e8f5e9
+
+folder structure >>>>>>>>>>>>>>>
