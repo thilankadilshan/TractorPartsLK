@@ -1,0 +1,14 @@
+.nav-bar {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;  /* Customize color */
+}
+
+.nav-bar a:hover {
+    color: #1D4F28;  /* Change color on hover */
+}

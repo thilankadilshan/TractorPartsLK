@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #E8F5EA;  /* Light background */
+    padding: 10px;
+}
+
+.logo {
+    height: 50px;  /* Adjust size as needed */
+}
+
+.title {
+    font-size: 24px;
+    color: #1D4F28;  /* Your preferred color */
+    margin-left: 10px;
+}
