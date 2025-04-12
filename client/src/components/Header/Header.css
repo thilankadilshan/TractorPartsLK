@@ -1,0 +1,57 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #E8F5EA;
+    padding: 12px 24px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    gap: 16px;
+    z-index: 1000;
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1D4F28;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    white-space: nowrap;
+}
+
+/* Responsive: Stack elements on smaller screens */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .branding {
+        justify-content: center;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .logo {
+        height: 40px;
+    }
+}
