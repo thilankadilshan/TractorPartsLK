@@ -24,7 +24,7 @@ const Login = ({ onSwitch }) => {
         <img src={cog1} alt="cog1" className="cog" />
         <img src={cog2} alt="cog2" className="cog reverse" />
       </div>
-      <h2>Login</h2>
+      <h2>Login TracktorpartsLk</h2>
       <form className="form" onSubmit={handleLogin}>
         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
