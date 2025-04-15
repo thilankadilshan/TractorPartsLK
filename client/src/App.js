@@ -1,16 +1,20 @@
+// client/src/App.js
 import React from 'react';
-import Header from './components/Header/Header';
-import HeroSection from './components/HeroSection/HeroSection';
+import { useLocation } from 'react-router-dom';
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import AppRoutes from './routes/AppRoutes';
 import './App.css';
 
-
-
 const App = () => {
+    const location = useLocation();
+    const hideHeaderAndHero = location.pathname === '/login' || location.pathname === '/register';
+
     return (
         <div>
-            <Header />
-            {/* Additional components can be added here */}
-            <HeroSection />
+            {!hideHeaderAndHero && <Header />}
+            {!hideHeaderAndHero && <HeroSection />}
+            <AppRoutes />
         </div>
     );
 };

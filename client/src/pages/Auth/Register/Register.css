@@ -1,0 +1,72 @@
+.auth-container {
+    width: 35%;
+    min-width: 320px;
+    max-width: 600px;
+    margin: 5% auto;
+    padding: 2rem;
+    background: #fff;
+    border: 3px solid #1D4F28;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #1D4F28;
+    position: relative;
+    transition: transform 0.7s ease-in-out;
+  }
+  
+  .auth-form h2 {
+    text-align: center;
+    color: #1D4F28;
+    margin-bottom: 1rem;
+  }
+  
+  .auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .auth-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1D4F28;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  
+  .auth-form button:hover {
+    background-color: #145c1f;
+  }
+  
+  .auth-switch {
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: #1D4F28;
+    font-weight: bold;
+  }
+  
+  .cog {
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    width: 50px;
+    height: 50px;
+    animation: spin 3s linear infinite;
+  }
+  
+  .cog.second {
+    top: -15px;
+    left: 20px;
+    width: 40px;
+    animation-direction: reverse;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
