@@ -1,17 +1,22 @@
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from '../pages/Auth/Login/Login';
-import Register from '../pages/Auth/Register/Register';
+// client/src/routes/AppRoutes.jsx
+import { Routes, Route, Navigate } from 'react-router-dom';
+import AuthForm from '../pages/Auth/AuthForm';
+// import other pages if needed (e.g., Home, Dashboard)
 
 function AppRoutes() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        {/* Add your main app routes */}
-      </Routes>
-    </Router>
+    <Routes>
+      {/* Main Auth Flip Form */}
+      <Route path="/auth" element={<AuthForm />} />
+
+      {/* Optional Redirects from /login and /register to /auth */}
+      <Route path="/login" element={<Navigate to="/auth" />} />
+      <Route path="/register" element={<Navigate to="/auth" />} />
+
+      {/* Add other routes here */}
+      {/* Example: <Route path="/" element={<Home />} /> */}
+      {/* Example: <Route path="/dashboard" element={<Dashboard />} /> */}
+    </Routes>
   );
 }
 

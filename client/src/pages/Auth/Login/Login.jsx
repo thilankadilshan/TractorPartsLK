@@ -1,47 +1,41 @@
-// client/src/pages/Auth/Login/Login.jsx
 import React, { useState } from 'react';
 import './Login.css';
-import cogs from '../../../assets/cogs.svg';
-import { useNavigate } from 'react-router-dom';
+import cog1 from '../../../assets/cogs/cog1.svg';
+import cog2 from '../../../assets/cogs/cog2.svg';
 
-function Login() {
+const Login = ({ onSwitch }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [error, setError] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (!email || !password) return alert('Please fill in all fields.');
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) return alert('Invalid email format');
-    alert('Login successful!');
+    if (!email || !password) {
+      setError('Please fill in both fields.');
+      return;
+    }
+    console.log('Logging in:', { email, password });
+    setError('');
   };
 
   return (
-    <div className="auth-container">
-      <img src={cogs} className="cog" alt="cog" />
-      <img src={cogs} className="cog second" alt="cog2" />
-      <form className="auth-form" onSubmit={handleLogin}>
-        <h2>Login</h2>
-        <input
-          type="email"
-          placeholder="Email Address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+    <div className="form-container">
+      <div className="cog-container">
+        <img src={cog1} alt="cog1" className="cog" />
+        <img src={cog2} alt="cog2" className="cog reverse" />
+      </div>
+      <h2>Login</h2>
+      <form className="form" onSubmit={handleLogin}>
+        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        {error && <p className="error">{error}</p>}
         <button type="submit">Login</button>
-        <div className="auth-switch" onClick={() => navigate('/register')}>
-          Don’t have an account? Register
-        </div>
       </form>
+      <p className="switch-text">
+        Don’t have an account? <span onClick={onSwitch}>Register</span>
+      </p>
     </div>
   );
-}
+};
 
 export default Login;

@@ -1,72 +1,86 @@
-.auth-container {
-    width: 35%;
-    min-width: 320px;
-    max-width: 600px;
-    margin: 5% auto;
-    padding: 2rem;
-    background: #fff;
-    border: 3px solid #1D4F28;
-    border-radius: 15px;
-    box-shadow: 0 0 15px #1D4F28;
-    position: relative;
-    transition: transform 0.7s ease-in-out;
+.form-container {
+  background: white;
+  border: 3px solid #1D4F28;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 20px #1D4F28;
+  position: relative;
+  height: 100%;
+}
+
+h2 {
+  text-align: center;
+  color: #1D4F28;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form button {
+  background-color: #1D4F28;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #166b2e;
+}
+
+.error {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.switch-text {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 14px;
+}
+
+.switch-text span {
+  color: #1D4F28;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Cogs */
+.cog-container {
+  position: absolute;
+  top: -35px;
+  left: -35px;
+  display: flex;
+  gap: 10px;
+}
+
+.cog {
+  width: 50px;
+  height: 50px;
+  animation: spin 6s linear infinite;
+}
+
+.cog.reverse {
+  animation-direction: reverse;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .auth-form h2 {
-    text-align: center;
-    color: #1D4F28;
-    margin-bottom: 1rem;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .auth-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-  
-  .auth-form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #1D4F28;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    margin-top: 15px;
-    cursor: pointer;
-  }
-  
-  .auth-form button:hover {
-    background-color: #145c1f;
-  }
-  
-  .auth-switch {
-    margin-top: 10px;
-    text-align: center;
-    cursor: pointer;
-    color: #1D4F28;
-    font-weight: bold;
-  }
-  
-  .cog {
-    position: absolute;
-    top: -25px;
-    left: -25px;
-    width: 50px;
-    height: 50px;
-    animation: spin 3s linear infinite;
-  }
-  
-  .cog.second {
-    top: -15px;
-    left: 20px;
-    width: 40px;
-    animation-direction: reverse;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
+}
