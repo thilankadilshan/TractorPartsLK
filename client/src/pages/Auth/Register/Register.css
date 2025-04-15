@@ -1,9 +1,9 @@
 .form-container {
   background: white;
-  border: 3px solid #1D4F28;
+  border: 3px solid #00ff37;
   border-radius: 10px;
   padding: 2rem;
-  box-shadow: 0 0 20px #1D4F28;
+  box-shadow: 0 0 20px #00ff37;
   position: relative;
   height: 100%;
 }
@@ -37,7 +37,7 @@ h2 {
 }
 
 .form button:hover {
-  background-color: #166b2e;
+  background-color: #28bf53;
 }
 
 .error {
@@ -52,7 +52,7 @@ h2 {
 }
 
 .switch-text span {
-  color: #1D4F28;
+  color: #00d92f;
   font-weight: bold;
   cursor: pointer;
 }
