@@ -2,15 +2,22 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./TractorBrands.css";
 
+// ✅ Correct image imports
+import tafeImg from "../../assets/brands/tafe.jpg";
+import mahindraImg from "../../assets/brands/mahindra.png";
+import sonalikaImg from "../../assets/brands/sonalika.webp";
+import johnDeereImg from "../../assets/brands/john-deere.png";
+
+// ✅ Use the imported image variables
 const brands = [
-  { name: "TAFE", logo: "/assets/brands/tafe.png", link: "/brands/tafe" },
-  { name: "Mahindra", logo: "/assets/brands/mahindra.png", link: "/brands/mahindra" },
-  { name: "Sonalika", logo: "/assets/brands/sonalika.png", link: "/brands/sonalika" },
-  { name: "John Deere", logo: "/assets/brands/john-deere.png", link: "/brands/john-deere" },
-  { name: "TAFE", logo: "/assets/brands/tafe.png", link: "/brands/tafe" },
-  { name: "Mahindra", logo: "/assets/brands/mahindra.png", link: "/brands/mahindra" },
-  { name: "Sonalika", logo: "/assets/brands/sonalika.png", link: "/brands/sonalika" },
-  { name: "John Deere", logo: "/assets/brands/john-deere.png", link: "/brands/john-deere" },
+  { name: "TAFE", logo: tafeImg, link: "/brands/tafe" },
+  { name: "Mahindra", logo: mahindraImg, link: "/brands/mahindra" },
+  { name: "Sonalika", logo: sonalikaImg, link: "/brands/sonalika" },
+  { name: "John Deere", logo: johnDeereImg, link: "/brands/john-deere" },
+  { name: "TAFE", logo: tafeImg, link: "/brands/tafe" },
+  { name: "Mahindra", logo: mahindraImg, link: "/brands/mahindra" },
+  { name: "Sonalika", logo: sonalikaImg, link: "/brands/sonalika" },
+  { name: "John Deere", logo: johnDeereImg, link: "/brands/john-deere" },
 ];
 
 const TractorBrands = () => {
