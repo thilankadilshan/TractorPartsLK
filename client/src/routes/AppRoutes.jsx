@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import AuthForm from "../pages/Auth/AuthForm";
 import Homepage from "../pages/Buyer/HomePage/HomePage";
-import NotFound from "../pages/NotFound";
+import NotFound404 from "../pages/404/NotFound404";
+// import NotFound from "../pages/NotFound";
 import Spinner from "../components/Loader/Spinner";
 import TafePage from "../pages/Brands/TafePage";
 import MahindraPage from "../pages/Brands/MahindraPage";
@@ -38,7 +39,8 @@ const AppRoutes = () => {
       <Route path="/register" element={<Navigate to="/auth" />} />
 
       {/* 404 */}
-      <Route path="*" element={<NotFound />} />
+      {/* <Route path="*" element={<NotFound />} /> */}
+      <Route path="*" element={<NotFound404 />} />
     </Routes>
   );
 };

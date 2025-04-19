@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: 'Arvo', serif;
+  text-align: center;
+
+  .four_zero_four_bg {
+    background-image: url('https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif');
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    h1 {
+      font-size: 80px;
+    }
+  }
+
+  .contant_box_404 {
+    margin-top: -50px;
+
+    .h2 {
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .link_404 {
+      color: #fff !important;
+      padding: 10px 20px;
+      background: #39ac31;
+      margin: 20px 0;
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s;
+
+      &:hover {
+        background: #2e8b2e;
+      }
+    }
+  }
+}
