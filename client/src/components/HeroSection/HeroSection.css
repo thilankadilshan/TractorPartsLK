@@ -1,10 +1,12 @@
 .hero-container {
-    width: 100%;
-    position: relative;
-    padding-top: 33.33%; /*  3:1 ratio (1200x400) */
-    max-height: 400px;   /* Optional: locks in max height */
-    margin-bottom: 1rem;
-  }
+  width: 100%;
+  position: relative;
+  padding-top: 33.33%;
+  /*  3:1 ratio (1200x400) */
+  max-height: 400px;
+  /* Optional: locks in max height */
+
+}
 
 .hero-swiper {
   position: absolute;
@@ -22,9 +24,7 @@
   object-fit: contain;
 }
 
-  
-  .swiper-slide-active .hero-image {
-    transform: scale(1.02);
-  }
-  
 
+.swiper-slide-active .hero-image {
+  transform: scale(1.02);
+}

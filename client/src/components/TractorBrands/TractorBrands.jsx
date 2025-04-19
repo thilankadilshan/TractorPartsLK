@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./TractorBrands.css";
 import tafeImg from "../../assets/brands/tafe.jpg";
 import mahindraImg from "../../assets/brands/mahindra.png";
-import sonalikaImg from "../../assets/brands/sonalika.webp";
+import sonalikaImg from "../../assets/brands/sonalika.jpg";
 import johnDeereImg from "../../assets/brands/john-deere.png";
 
 const brands = [
@@ -23,7 +23,7 @@ const TractorBrands = () => {
   return (
     <div className="tractor-brands-section">
       <h2 className="section-title">TRACTOR BRANDS</h2>
-      <div className="brand-grid">
+      <div className="brand-flex-container">
         {brands.map((brand, index) => (
           <div
             key={index}
