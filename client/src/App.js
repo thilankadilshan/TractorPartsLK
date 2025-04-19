@@ -1,18 +1,8 @@
 import React from 'react';
-import Header from './components/Header/Header';
-import HeroSection from './components/HeroSection/HeroSection';
-import './App.css';
-
-
+import AppRoutes from './routes/AppRoutes';
 
 const App = () => {
-    return (
-        <div>
-            <Header />
-            {/* Additional components can be added here */}
-            <HeroSection />
-        </div>
-    );
+  return <AppRoutes />;
 };
 
 export default App;

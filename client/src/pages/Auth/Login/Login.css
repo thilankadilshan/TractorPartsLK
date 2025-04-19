@@ -1,0 +1,146 @@
+/* Default styles - desktop/tablet */
+.body {
+  touch-action: manipulation;
+}
+
+.form-container {
+  background: rgb(244, 255, 244);
+  border: 3px solid #00ff37;
+  border-radius: 5px;
+  padding: 2rem;
+  box-shadow: 0 0 20px #00ff37;
+  position: relative;
+  height: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  color: #1D4F28;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form button {
+  background-color: #1D4F28;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.form button:hover {
+  background-color: #28bf53;
+}
+
+.error {
+  color: red;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.switch-text {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 14px;
+}
+
+.switch-text span {
+  color: #00d92f;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Cogs */
+.cog-container {
+  position: absolute;
+  top: -35px;
+  left: -35px;
+  display: flex;
+  gap: 10px;
+}
+
+.cog1 {
+  width: 70px;
+  height: 70px;
+  animation: spin 6s linear infinite;
+}
+
+.cog2 {
+  width: 50px;
+  height: 50px;
+  margin-top: 45px;
+  margin-left: -25px;
+  animation: spin 6s linear infinite;
+  animation-direction: reverse;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------------------
+   📱 Mobile: iPhone 14 Pro Max (and similar)
+---------------------- */
+@media (max-width: 430px) {
+  .form-container {
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 50%;
+    box-shadow: 0 0 10px #00ff37;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .form input,
+  .form button {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+
+  .switch-text {
+    font-size: 13px;
+  }
+
+  .cog-container {
+    top: -25px;
+    left: -25px;
+  }
+
+  .cog1 {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cog2 {
+    width: 35px;
+    height: 35px;
+    margin-top: 30px;
+    margin-left: -15px;
+  }
+}
