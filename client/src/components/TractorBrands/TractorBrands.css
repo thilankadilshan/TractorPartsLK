@@ -1,0 +1,58 @@
+.tractor-brands-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #e6f3ea;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #184c35;
+  }
+  
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+    justify-items: center;
+  }
+  
+  .brand-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 180px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .brand-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 128, 0, 0.25);
+  }
+  
+  .brand-logo {
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+  
+  .learn-more {
+    background-color: #1e90ff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .learn-more:hover {
+    background-color: #0074d9;
+  }
+  
