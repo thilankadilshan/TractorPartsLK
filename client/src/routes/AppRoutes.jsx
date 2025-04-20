@@ -38,7 +38,6 @@ const AppRoutes = () => {
       <Route path="/login" element={<Navigate to="/auth" />} />
       <Route path="/register" element={<Navigate to="/auth" />} />
 
-      {/* 404 */}
       {/* <Route path="*" element={<NotFound />} /> */}
       <Route path="*" element={<NotFound404 />} />
     </Routes>

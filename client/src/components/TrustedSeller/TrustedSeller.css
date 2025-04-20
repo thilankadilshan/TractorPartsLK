@@ -1,0 +1,61 @@
+.trusted-sellers {
+    text-align: center;
+    padding: 2rem;
+}
+
+.trusted-sellers h2 {
+    font-size: 2rem;
+    color: #214d26;
+    margin-bottom: 1.5rem;
+}
+
+.seller-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.seller-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.seller-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.seller-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.seller-card:hover img {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+.shop-btn {
+    margin-top: auto;
+    background-color: #2d6a4f;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.shop-btn:hover {
+    background-color: #1b4332;
+}
