@@ -3,10 +3,10 @@ import "./TrustedSeller.css";
 import { useNavigate } from "react-router-dom";
 
 // Import images directly (since they're inside src/assets/sellers)
-import nandhaLogo from "../../assets/sellers/nandha.png";
+import nandhaLogo from "../../assets/sellers/nandha.jpg";
 import brownsLogo from "../../assets/sellers/browns.png";
-import asianLogo from "../../assets/sellers/asian.png";
-import avrLogo from "../../assets/sellers/avr.png";
+import asianLogo from "../../assets/sellers/asian.jpg";
+import avrLogo from "../../assets/sellers/avr.jpg";
 
 const sellers = [
   { name: "Nandha Trac Group", logo: nandhaLogo, link: "/sellers/nandha" },
