@@ -13,8 +13,8 @@ const Dashboard = () => {
       <HeroSection />
       <TractorBrands />
       <TrustedSeller />
-      <ContactUs />
       <AboutUs />
+      <ContactUs />
       {/* Your other content */}
     </div>
   );
