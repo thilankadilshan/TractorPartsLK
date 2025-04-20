@@ -1,8 +1,8 @@
 import React from "react";
-import "./TrustedSeller.css";
 import { useNavigate } from "react-router-dom";
+import "./TrustedSeller.css";
 
-// Import images directly (since they're inside src/assets/sellers)
+// Image imports (inside src/assets/sellers/)
 import nandhaLogo from "../../assets/sellers/nandha.jpg";
 import brownsLogo from "../../assets/sellers/browns.png";
 import asianLogo from "../../assets/sellers/asian.jpg";
@@ -13,31 +13,31 @@ const sellers = [
   { name: "Browns Agriculture", logo: brownsLogo, link: "/sellers/browns" },
   { name: "Asian Global Ltd", logo: asianLogo, link: "/sellers/asian" },
   { name: "AVR Holdings", logo: avrLogo, link: "/sellers/avr" },
+  { name: "Nandha Trac Group", logo: nandhaLogo, link: "/sellers/nandha" },
+  { name: "Browns Agriculture", logo: brownsLogo, link: "/sellers/browns" },
+  { name: "Asian Global Ltd", logo: asianLogo, link: "/sellers/asian" },
+  { name: "AVR Holdings", logo: avrLogo, link: "/sellers/avr" },
 ];
 
 const TrustedSeller = () => {
   const navigate = useNavigate();
 
-  const handleClick = (link) => {
-    navigate(link);
-  };
-
   return (
-    <section className="trusted-sellers">
-      <h2>Trusted Sellers</h2>
-      <div className="seller-grid">
+    <div className="trusted-sellers-section">
+      <h2 className="section-title">TRUSTED SELLERS</h2>
+      <div className="seller-flex-container">
         {sellers.map((seller, index) => (
           <div
-            className="seller-card"
             key={index}
-            onClick={() => handleClick(seller.link)}
+            className="seller-card"
+            onClick={() => navigate(seller.link)}
           >
-            <img src={seller.logo} alt={seller.name} />
+            <img src={seller.logo} alt={seller.name} className="seller-logo" />
             <button className="shop-btn">Shop</button>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
