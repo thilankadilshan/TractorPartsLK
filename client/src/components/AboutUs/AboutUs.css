@@ -1,0 +1,142 @@
+.aboutus-wrapper {
+    background: linear-gradient(135deg, #e6f3ea, #f5fff6);
+    padding: 60px 30px;
+}
+
+.aboutus-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.aboutus-content {
+    flex: 1;
+    min-width: 300px;
+    max-width: 650px;
+}
+
+.section-title {
+    font-size: 2.6rem;
+    color: #1b4332;
+    margin-bottom: 10px;
+    font-weight: 700;
+    position: relative;
+    animation: slideDown 1s ease forwards;
+}
+
+.section-subtitle {
+    font-size: 1.5rem;
+    color: #2d6a4f;
+    margin-bottom: 20px;
+    font-weight: 600;
+    animation: slideUp 1s ease 0.2s forwards;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    animation: fadeIn 1.2s ease 0.4s forwards;
+}
+
+.aboutus-image {
+    flex: 1;
+    text-align: center;
+    max-width: 600px;
+    opacity: 0;
+    animation: fadeInRight 1s ease 0.5s forwards;
+}
+
+.aboutus-image img {
+    max-width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* === Animations === */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        transform: scale(0.98);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fade-in-left {
+    opacity: 0;
+    animation: slideDown 1s ease forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    animation: fadeInRight 1s ease forwards;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .aboutus-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .section-description {
+        font-size: 1rem;
+    }
+
+    .aboutus-image {
+        margin-top: 20px;
+    }
+}

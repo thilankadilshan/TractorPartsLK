@@ -4,6 +4,7 @@ import Header from "../../../components/Header/Header";
 import TractorBrands from "../../../components/TractorBrands/TractorBrands";
 import TrustedSeller from "../../../components/TrustedSeller/TrustedSeller";
 import ContactUs from "../../../components/ContactUs/ContactUs";
+import AboutUs from "../../../components/AboutUs/AboutUs";
 
 const Dashboard = () => {
   return (
@@ -13,6 +14,7 @@ const Dashboard = () => {
       <TractorBrands />
       <TrustedSeller />
       <ContactUs />
+      <AboutUs />
       {/* Your other content */}
     </div>
   );

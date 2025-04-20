@@ -24,6 +24,8 @@ const AppRoutes = () => {
 
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/home" />} />
+
       {/* Buyer section */}
       <Route path="/home" element={<Homepage />} />
 
