@@ -1,30 +1,42 @@
-// src/pages/Brand/BrandPage.jsx
-
 import React from "react";
-import { useParams } from "react-router-dom";
-import brandData from "../../utils/brandData";
-import "./BrandPage.css";
+import { useParams, useNavigate } from "react-router-dom";
+import { brandData } from "../../utils/brandData";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import "./BrandPage.css"; // Create this CSS file for styling
 
 const BrandPage = () => {
   const { brandName } = useParams();
+  const navigate = useNavigate();
   const brand = brandData[brandName];
 
   if (!brand) {
-    return <h2>Brand not found</h2>;
+    return <div className="not-found">Brand not found</div>;
   }
 
   return (
-    <div className="brand-detail-page">
-      <h2>{brand.name}</h2>
-      <img src={brand.image} alt={brand.name} className="brand-main-image" />
-      <p>{brand.description}</p>
-      <h3>Popular Models</h3>
-      <ul>
-        {brand.models.map((model, index) => (
-          <li key={index}>{model}</li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Header />
+      <div className="brand-page-container">
+        <h1 className="brand-title">{brand.name} Tractors</h1>
+        <p className="brand-description">{brand.description}</p>
+
+        <h2 className="models-heading">Models Available In Sri Lanka</h2>
+        <div className="models-grid">
+          {brand.models.map((model, index) => (
+            <div
+              key={index}
+              className="model-card"
+              onClick={() => navigate(model.link)}
+            >
+              <img src={model.image} alt={model.name} className="model-image" />
+              <h3 className="model-name">{model.name}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 };
 

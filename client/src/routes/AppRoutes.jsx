@@ -5,6 +5,7 @@ import Homepage from "../pages/Buyer/HomePage/HomePage";
 import NotFound404 from "../pages/404/NotFound404";
 import Spinner from "../components/Loader/Spinner";
 import BrandPage from "../pages/Brand/BrandPage"; // Import the dynamic brand page
+import ModelPage from "../pages/Model/ModelPage";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -27,6 +28,7 @@ const AppRoutes = () => {
 
       {/* Tractor Brand Pages - dynamic route */}
       <Route path="/brands/:brandName" element={<BrandPage />} />
+      <Route path="/models/:modelName" element={<ModelPage />} />
 
       {/* Auth */}
       <Route path="/auth" element={<AuthForm />} />
