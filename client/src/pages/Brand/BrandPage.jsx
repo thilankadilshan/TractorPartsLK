@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { brandData } from "../../utils/brandData";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import "./BrandPage.css"; // Create this CSS file for styling
+import "./BrandPage.css";
 
 const BrandPage = () => {
   const { brandName } = useParams();
@@ -17,9 +17,18 @@ const BrandPage = () => {
   return (
     <>
       <Header />
-      <div className="brand-page-container">
-        <h1 className="brand-title">{brand.name} Tractors</h1>
-        <p className="brand-description">{brand.description}</p>
+      <div className="brand-page-wrapper">
+        <div className="brand-intro-container">
+          <div className="brand-intro-content fade-in-left">
+            <h1 className="brand-title">{brand.name} Tractors</h1>
+            <h3 className="brand-subtitle"> {brand.subtitle}</h3>
+            <p className="brand-description">{brand.description}</p>
+          </div>
+
+          <div className="brand-image-container fade-in-right">
+            <img src={brand.image} alt={`${brand.name} tractors`} />
+          </div>
+        </div>
 
         <h2 className="models-heading">Models Available In Sri Lanka</h2>
         <div className="models-grid">

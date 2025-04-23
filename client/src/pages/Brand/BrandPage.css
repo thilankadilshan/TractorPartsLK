@@ -1,29 +1,70 @@
-.brand-page-container {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #ffffff;
+.brand-page-wrapper {
+    background: #ffffff;
+    padding: 60px 30px;
+}
+
+.brand-intro-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto 60px;
+}
+
+.brand-intro-content {
+    flex: 1;
+    min-width: 300px;
+    max-width: 650px;
 }
 
 .brand-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #184c35;
+    font-size: 2.6rem;
+    color: #1b4332;
+    margin-bottom: 10px;
+    font-weight: 700;
+    animation: slideDown 1s ease forwards;
+}
+
+.brand-subtitle {
+    font-size: 1.5rem;
+    color: #2d6a4f;
+    margin-bottom: 20px;
+    font-weight: 600;
+    animation: slideUp 1s ease 0.2s forwards;
 }
 
 .brand-description {
-    font-size: 1.2rem;
-    color: #4a4a4a;
-    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    animation: fadeIn 1.2s ease 0.4s forwards;
 }
 
+.brand-image-container {
+    flex: 1;
+    text-align: center;
+    max-width: 600px;
+    opacity: 0;
+    animation: fadeInRight 1s ease 0.5s forwards;
+}
+
+.brand-image-container img {
+    max-width: 100%;
+    border-radius: 16px;
+}
+
+/* === Models Section (same layout but improved image style) === */
 .models-heading {
     font-size: 2rem;
-    margin: 2rem 0 3rem;
+    font-weight: bold;
     color: #184c35;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-/* Card Grid */
 .models-grid {
     display: flex;
     flex-wrap: wrap;
@@ -33,19 +74,18 @@
     margin: 0 auto;
 }
 
-/* Individual Model Card */
 .model-card {
     background-color: #ffffff;
     border: 1px solid #60905c;
     border-radius: 12px;
     padding: 20px 10px;
-    width: 230px;
-    height: 260px;
+    box-shadow: 0 4px 12px rgba(48, 255, 1, 0.47);
+    width: 250px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(48, 255, 1, 0.47);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -58,9 +98,8 @@
     width: 200px;
     height: 200px;
     object-fit: contain;
-    margin-top: 10px;
-    margin-bottom: 15px;
     transition: transform 0.3s ease;
+    margin-bottom: 15px;
 }
 
 .model-card:hover .model-image {
@@ -68,9 +107,91 @@
 }
 
 .model-name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #1b4332;
+    font-size: 1.1rem;
+    font-weight: bold;
     text-align: center;
-    margin-top: auto;
+    color: #2d6a4f;
+}
+
+/* === Animations === */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        transform: scale(0.98);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fade-in-left {
+    opacity: 0;
+    animation: slideDown 1s ease forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    animation: fadeInRight 1s ease forwards;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .brand-intro-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .brand-title {
+        font-size: 2rem;
+    }
+
+    .brand-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .brand-description {
+        font-size: 1rem;
+    }
+
+    .brand-image-container {
+        margin-top: 20px;
+    }
 }
