@@ -4,10 +4,7 @@ import AuthForm from "../pages/Auth/AuthForm";
 import Homepage from "../pages/Buyer/HomePage/HomePage";
 import NotFound404 from "../pages/404/NotFound404";
 import Spinner from "../components/Loader/Spinner";
-import TafePage from "../pages/Brands/TafePage";
-import MahindraPage from "../pages/Brands/MahindraPage";
-import SonalikaPage from "../pages/Brands/SonalikaPage";
-import JohnDeerePage from "../pages/Brands/JohnDeerePage";
+import BrandPage from "../pages/Brand/BrandPage"; // Import the dynamic brand page
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -28,18 +25,15 @@ const AppRoutes = () => {
       {/* Buyer section */}
       <Route path="/home" element={<Homepage />} />
 
-      {/* Tractor Brand Pages */}
-      <Route path="/brands/tafe" element={<TafePage />} />
-      <Route path="/brands/mahindra" element={<MahindraPage />} />
-      <Route path="/brands/sonalika" element={<SonalikaPage />} />
-      <Route path="/brands/john-deere" element={<JohnDeerePage />} />
+      {/* Tractor Brand Pages - dynamic route */}
+      <Route path="/brands/:brandName" element={<BrandPage />} />
 
       {/* Auth */}
       <Route path="/auth" element={<AuthForm />} />
       <Route path="/login" element={<Navigate to="/auth" />} />
       <Route path="/register" element={<Navigate to="/auth" />} />
 
-      {/* <Route path="*" element={<NotFound />} /> */}
+      {/* 404 Not Found */}
       <Route path="*" element={<NotFound404 />} />
     </Routes>
   );
