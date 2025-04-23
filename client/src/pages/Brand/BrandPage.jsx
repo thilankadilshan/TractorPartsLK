@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { brandData } from "../../utils/brandData";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -11,7 +11,7 @@ const BrandPage = () => {
   const brand = brandData[brandName];
 
   if (!brand) {
-    return <div className="not-found">Brand not found</div>;
+    return <Navigate to="/404" />;
   }
 
   return (

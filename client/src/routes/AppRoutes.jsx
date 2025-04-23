@@ -36,7 +36,8 @@ const AppRoutes = () => {
       <Route path="/register" element={<Navigate to="/auth" />} />
 
       {/* 404 Not Found */}
-      <Route path="*" element={<NotFound404 />} />
+      <Route path="/404" element={<NotFound404 />} />
+      <Route path="*" element={<Navigate to="/404" />} />
     </Routes>
   );
 };
