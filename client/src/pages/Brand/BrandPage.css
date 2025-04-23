@@ -1,55 +1,76 @@
 .brand-page-container {
-    padding: 2rem;
+    padding: 40px 20px;
     text-align: center;
+    background-color: #ffffff;
 }
 
 .brand-title {
     font-size: 2.5rem;
+    font-weight: bold;
     margin-bottom: 0.5rem;
-    color: #2c3e50;
+    color: #184c35;
 }
 
 .brand-description {
     font-size: 1.2rem;
-    color: #555;
+    color: #4a4a4a;
     margin-bottom: 2rem;
 }
 
 .models-heading {
     font-size: 2rem;
-    margin: 2rem 0 1rem;
-    color: #34495e;
+    margin: 2rem 0 3rem;
+    color: #184c35;
 }
 
+/* Card Grid */
 .models-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Individual Model Card */
 .model-card {
-    background-color: #fff;
+    background-color: #ffffff;
+    border: 1px solid #60905c;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 10px;
+    width: 230px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     cursor: pointer;
-    overflow: hidden;
-    transition: transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(48, 255, 1, 0.47);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .model-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 .model-image {
-    width: 100%;
+    width: 200px;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.model-card:hover .model-image {
+    transform: rotate(-2deg) scale(1.05);
 }
 
 .model-name {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
-    padding: 1rem;
-    color: #333;
+    color: #1b4332;
+    text-align: center;
+    margin-top: auto;
 }
