@@ -22,16 +22,19 @@ const Footer = () => {
           <h3 className="footer-title">Quick Links</h3>
           <ul className="footer-links">
             <li>
-              <a href="/">Home</a>
+              <a href="/home">Home</a>
             </li>
             <li>
-              <a href="/shop">Shop</a>
+              <a href="/shop">Shops</a>
             </li>
             <li>
-              <a href="/about">About</a>
+              <a href="parts">Parts</a>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <a href="/events">Events</a>
+            </li>
+            <li>
+              <a href="/login">Login</a>
             </li>
           </ul>
         </div>
@@ -40,9 +43,9 @@ const Footer = () => {
         <div className="footer-col">
           <h3 className="footer-title">Contact Us</h3>
           <ul className="footer-contact">
-            <li>Email: info@tractorspares.lk</li>
-            <li>Phone: +94 77 123 4567</li>
-            <li>Kurunegala, Sri Lanka</li>
+            <li>Email: tractorpartslk@gmail.com</li>
+            <li>Phone: +94 714592141</li>
+            <li>Homagama, Sri Lanka</li>
           </ul>
         </div>
 
