@@ -10,11 +10,11 @@ const brands = [
   { name: "TAFE", logo: tafeImg, link: "/brands/tafe" },
   { name: "Mahindra", logo: mahindraImg, link: "/brands/mahindra" },
   { name: "Sonalika", logo: sonalikaImg, link: "/brands/sonalika" },
-  { name: "JohnDeere", logo: johnDeereImg, link: "/brands/johndeere" },
+  { name: "John Deere", logo: johnDeereImg, link: "/brands/johndeere" },
   { name: "TAFE", logo: tafeImg, link: "/brands/tafe" },
   { name: "Mahindra", logo: mahindraImg, link: "/brands/mahindra" },
   { name: "Sonalika", logo: sonalikaImg, link: "/brands/sonalika" },
-  { name: "JohnDeere", logo: johnDeereImg, link: "/brands/johndeere" },
+  { name: "John Deere", logo: johnDeereImg, link: "/brands/johndeere" },
 ];
 
 const TractorBrands = () => {

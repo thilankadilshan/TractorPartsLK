@@ -11,6 +11,8 @@ import tafe8515 from "../assets/models/tafe/tafe-8515.jpg";
 import tafe9515 from "../assets/models/tafe/tafe-9515.jpg";
 import tafeDynatrack from "../assets/models/tafe/tafe-dynatrack.jpg";
 
+// sonalika
+import sonalikaimg from "../assets/brands/sonalika.jpg"
 
 
 export const brandData = {
@@ -35,8 +37,8 @@ export const brandData = {
 
     sonalika: {
         name: "Sonalika",
-        logo: tafeImg,
-        subtitle: "Trusted Power for Sri Lankan Farmers",
+        logo: sonalikaimg,
+        subtitle: "Empowering Agriculture: Sonalika's Vision",
         description: "Sonalika, one of India's leading tractor brands and the top exporter from the country, is on a transformative journey to become a Mega Agri Brand with a vision of Leading Agri Evolution. The company is committed to innovating across the agri value chain, focusing on farm mechanization with a technologically superior range of heavy-duty tractors (20-120HP), offering diverse crop-centric agri implements, and financing innovative agri technologies through its agri incubation initiatives. Additionally, Sonalika is dedicated to corporate social responsibility, supporting women, children, and farming communities to bring about positive societal change. The brand also bridges the gap between farm and market with processed agri outputs. With its World No.1 Integrated Tractor Manufacturing Plant in Hoshiarpur, Punjab, Sonalika meets global demands for agri mechanization, winning the loyalty of over 1.7 million farmers across 150+ countries. The company has received numerous accolades, including the Global Agriculture Leadership Award and the Innovative Leadership Award, and has been chosen by the Government of India to play a key role in NITI Aayog's initiative to double farmers' income by 2022.",
         image: tafecover,
         models: [
