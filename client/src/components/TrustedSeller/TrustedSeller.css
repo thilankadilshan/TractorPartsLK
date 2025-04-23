@@ -1,0 +1,70 @@
+.trusted-sellers-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #184c35;
+}
+
+.seller-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.seller-card {
+    background-color: #e6f3ea;
+    border: 1px solid #60905c;
+    border-radius: 12px;
+    padding: 20px 10px;
+    box-shadow: 0 4px 12px rgba(48, 255, 1, 0.47);
+    width: 190px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.seller-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.seller-logo {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.seller-card:hover .seller-logo {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+.shop-btn {
+    margin-top: auto;
+    background-color: #2d6a4f;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: background-color 0.3s;
+}
+
+.shop-btn:hover {
+    background-color: #1b4332;
+}
