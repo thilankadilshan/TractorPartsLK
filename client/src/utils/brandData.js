@@ -11,16 +11,26 @@ import tafe8515 from "../assets/models/tafe/tafe-8515.jpg";
 import tafe9515 from "../assets/models/tafe/tafe-9515.jpg";
 import tafeDynatrack from "../assets/models/tafe/tafe-dynatrack.jpg";
 
+//mahidra
+
+import mahindraimg from "../assets/brands/mahindra.png"
+import mahindracover from "../assets/models/mahindra/mahindracover.png"
+
 // sonalika
 import sonalikaimg from "../assets/brands/sonalika.jpg"
+import sonalikacover from "../assets/models/sonalika/sonalikacover.png"
+
+//johndeer
+import johndeereimg from "../assets/brands/johndeere.png"
+import johndeerecover from "../assets/models/johndeer/johndeercover.png"
 
 
 export const brandData = {
     tafe: {
-        name: "TAFE",
+        name: "Tafe",
         logo: tafeImg,
         subtitle: "Trusted Power for Sri Lankan Farmers",
-        description: "Tractors and Farm Equipment Limited or TAFE, is an Indian tractor manufacturer founded in Chennai, India in 1960. It is the third-largest tractor manufacturer in the world by volume and the second-largest in India, with a market share of 23% and annual sales of over 180,000 tractors, both locally and globally.  TAFE tractors are tough, durable, and efficient and are known for their dependability and optimised technology.Used in Africa, Sri Lanka, Bangladesh, and parts of Europe, Tafe tractors have proven their worth in tough terrains and varied soil conditions. Browns Group PLC is the sole dealer for TAFE tractors in Sri Lanka.The brand enjoys an enviable market share of more than 50%.TAFE is the third largest tractor manufacturer in the world.Built on Massey Ferguson’s technology platform, Tafe’s research- led designs offer economy in operation and uncompromised performance. Browns Group offers brand- new TAFE tractors for affordable prices",
+        description: "Tractors and Farm Equipment Limited (TAFE), founded in Chennai in 1960, is the third-largest tractor manufacturer globally and the second-largest in India, holding a 23% market share with annual sales exceeding 180,000 tractors. Known for their toughness, durability, and efficiency, TAFE tractors are utilized in diverse terrains across Africa, Sri Lanka, Bangladesh, and parts of Europe. In Sri Lanka, Browns Group PLC serves as the sole dealer, enjoying a market share of over 50%. Built on Massey Ferguson’s technology platform, TAFE's research-driven designs ensure economical operation and high performance, with Browns Group offering brand-new TAFE tractors at affordable prices.",
         image: tafecover,
         models: [
             { name: "TAFE 45 DI DRUM BRAKE", image: tafe45Drum, link: "/models/tafe-45-drum-brake" },
@@ -39,8 +49,8 @@ export const brandData = {
         name: "Sonalika",
         logo: sonalikaimg,
         subtitle: "Empowering Agriculture: Sonalika's Vision",
-        description: "Sonalika, one of India's leading tractor brands and the top exporter from the country, is on a transformative journey to become a Mega Agri Brand with a vision of Leading Agri Evolution. The company is committed to innovating across the agri value chain, focusing on farm mechanization with a technologically superior range of heavy-duty tractors (20-120HP), offering diverse crop-centric agri implements, and financing innovative agri technologies through its agri incubation initiatives. Additionally, Sonalika is dedicated to corporate social responsibility, supporting women, children, and farming communities to bring about positive societal change. The brand also bridges the gap between farm and market with processed agri outputs. With its World No.1 Integrated Tractor Manufacturing Plant in Hoshiarpur, Punjab, Sonalika meets global demands for agri mechanization, winning the loyalty of over 1.7 million farmers across 150+ countries. The company has received numerous accolades, including the Global Agriculture Leadership Award and the Innovative Leadership Award, and has been chosen by the Government of India to play a key role in NITI Aayog's initiative to double farmers' income by 2022.",
-        image: tafecover,
+        description: "Sonalika, a leading tractor brand and top exporter from India, aims to become a Mega Agri Brand with its vision of Leading Agri Evolution. The company focuses on innovating the agri value chain through a range of technologically advanced heavy-duty tractors (20-120HP), diverse crop-centric implements, and financing innovative agri technologies. Committed to corporate social responsibility, Sonalika supports women, children, and farming communities while bridging the gap between farm and market with processed agri outputs. With its World No.1 Integrated Tractor Manufacturing Plant in Hoshiarpur, Punjab, Sonalika serves over 1.7 million farmers in 150+ countries. The company has received multiple accolades, including the Global Agriculture Leadership Award, and plays a key role in NITI Aayog's initiative to double farmers' income by 2022.",
+        image: sonalikacover,
         models: [
             { name: "TAFE 45 DI DRUM BRAKE", image: tafe45Drum, link: "/models/tafe-45-drum-brake" },
             { name: "TAFE 45 DI DISC BRAKE", image: tafe45Disc, link: "/models/tafe-45-disc-brake" },
@@ -55,11 +65,11 @@ export const brandData = {
     },
 
     mahindra: {
-        name: "TAFE",
-        logo: tafeImg,
-        subtitle: "Trusted Power for Sri Lankan Farmers",
-        description: "Tractors and Farm Equipment Limited or TAFE, is an Indian tractor manufacturer founded in Chennai, India in 1960. It is the third-largest tractor manufacturer in the world by volume and the second-largest in India, with a market share of 23% and annual sales of over 180,000 tractors, both locally and globally.  TAFE tractors are tough, durable, and efficient and are known for their dependability and optimised technology.Used in Africa, Sri Lanka, Bangladesh, and parts of Europe, Tafe tractors have proven their worth in tough terrains and varied soil conditions. Browns Group PLC is the sole dealer for TAFE tractors in Sri Lanka.The brand enjoys an enviable market share of more than 50%.TAFE is the third largest tractor manufacturer in the world.Built on Massey Ferguson’s technology platform, Tafe’s research- led designs offer economy in operation and uncompromised performance. Browns Group offers brand- new TAFE tractors for affordable prices",
-        image: tafecover,
+        name: "Mahindra",
+        logo: mahindraimg,
+        subtitle: "Empowering Sri Lankan Farmers with Reliable Solutions",
+        description: "For over 15 years, Mahindra Tractors has supported Sri Lankan farmers, particularly with our popular 35-50 HP models known for paddy applications and various farming tasks. With reliable service and an expanding sales network, Mahindra has established a strong presence in the country. Recognized for their fuel efficiency and dependability, our tractors are used for puddling, cultivating, ploughing, and more. We continue to earn the trust of Sri Lankan farmers, helping them grow stronger every day. Our products are sold and serviced through Diesel and Motor Engineering PLC (DIMO), headquartered in Colombo.",
+        image: mahindracover,
         models: [
             { name: "TAFE 45 DI DRUM BRAKE", image: tafe45Drum, link: "/models/tafe-45-drum-brake" },
             { name: "TAFE 45 DI DISC BRAKE", image: tafe45Disc, link: "/models/tafe-45-disc-brake" },
@@ -74,11 +84,11 @@ export const brandData = {
     },
 
     johndeere: {
-        name: "TAFE",
-        logo: tafeImg,
-        subtitle: "Trusted Power for Sri Lankan Farmers",
-        description: "Tractors and Farm Equipment Limited or TAFE, is an Indian tractor manufacturer founded in Chennai, India in 1960. It is the third-largest tractor manufacturer in the world by volume and the second-largest in India, with a market share of 23% and annual sales of over 180,000 tractors, both locally and globally.  TAFE tractors are tough, durable, and efficient and are known for their dependability and optimised technology.Used in Africa, Sri Lanka, Bangladesh, and parts of Europe, Tafe tractors have proven their worth in tough terrains and varied soil conditions. Browns Group PLC is the sole dealer for TAFE tractors in Sri Lanka.The brand enjoys an enviable market share of more than 50%.TAFE is the third largest tractor manufacturer in the world.Built on Massey Ferguson’s technology platform, Tafe’s research- led designs offer economy in operation and uncompromised performance. Browns Group offers brand- new TAFE tractors for affordable prices",
-        image: tafecover,
+        name: "Jhon Deer",
+        logo: johndeereimg,
+        subtitle: "Driving Agricultural Innovation",
+        description: "John Deere tractors are renowned for their power and efficiency, catering to various agricultural needs. The company offers a wide range of models, including the D and E series, with features designed to enhance productivity and ease of use in farming operations. The tractors are equipped with advanced technology, such as GPS guidance systems and precision agriculture tools, which help farmers optimize their operations. Additionally, John Deere focuses on sustainability, incorporating fuel-efficient engines and environmentally friendly practices in their manufacturing processes. The brand also provides extensive support and service options, ensuring that customers have access to maintenance and repair resources.",
+        image: johndeerecover,
         models: [
             { name: "TAFE 45 DI DRUM BRAKE", image: tafe45Drum, link: "/models/tafe-45-drum-brake" },
             { name: "TAFE 45 DI DISC BRAKE", image: tafe45Disc, link: "/models/tafe-45-disc-brake" },
