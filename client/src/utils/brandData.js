@@ -38,6 +38,13 @@ import jd5045d from "../assets/models/johndeere/jd-5045d-wrt.jpg";
 import jd5047d from "../assets/models/johndeere/5047d.jpg";
 import jd5050d from "../assets/models/johndeere/5050d.jpg";
 
+// kubuta 
+import kubotaImg from "../assets/brands/kubota.png";
+import kubotacover from "../assets/models/kubota/kubotacover.png";
+import kubotaL4508 from "../assets/models/kubota/l4508-4wd.png";
+import kubotaEK3471 from "../assets/models/kubota/ek3-471-4wd.png";
+import kubotaL3408 from "../assets/models/kubota/l3408-4wd.png";
+
 
 export const brandData = {
     tafe: {
@@ -100,6 +107,19 @@ export const brandData = {
             { name: "John Deere JD-5045D-WRT", image: jd5045d, link: "/models/jd-5045d-wrt" },
             { name: "John Deere 5047D", image: jd5047d, link: "/models/5047d" },
             { name: "John Deere 5050D", image: jd5050d, link: "/models/5050d" },
+        ],
+    },
+
+    kubota: {
+        name: "Kubota",
+        logo: kubotaImg,
+        subtitle: "Japanese Precision, Engineered for Productivity",
+        description: "Kubota is a globally respected Japanese brand, renowned for its compact and high-performing agricultural machinery. Designed for power, efficiency, and ease of use, Kubota tractors are ideal for a wide range of farming applications. In Sri Lanka, Kubota has become a preferred choice for farmers seeking reliable and innovative farming solutions.",
+        image: kubotacover,
+        models: [
+            { name: "Kubota L4508 4WD", image: kubotaL4508, link: "/models/l4508-4wd" },
+            { name: "EK3 - 471 4WD", image: kubotaEK3471, link: "/models/ek3-471-4wd" },
+            { name: "Kubota L3408 4WD", image: kubotaL3408, link: "/models/l3408-4wd" },
         ],
     },
 

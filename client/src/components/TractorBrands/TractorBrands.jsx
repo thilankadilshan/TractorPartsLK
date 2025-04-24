@@ -5,13 +5,14 @@ import tafeImg from "../../assets/brands/tafe.jpg";
 import mahindraImg from "../../assets/brands/mahindra.png";
 import sonalikaImg from "../../assets/brands/sonalika.jpg";
 import johnDeereImg from "../../assets/brands/johndeere.png";
+import kubotaImg from "../../assets/brands/kubota.png";
 
 const brands = [
   { name: "TAFE", logo: tafeImg, link: "/brands/tafe" },
   { name: "Mahindra", logo: mahindraImg, link: "/brands/mahindra" },
   { name: "Sonalika", logo: sonalikaImg, link: "/brands/sonalika" },
   { name: "John Deere", logo: johnDeereImg, link: "/brands/johndeere" },
-  { name: "TAFE", logo: tafeImg, link: "/brands/tafe" },
+  { name: "Kubota", logo: kubotaImg, link: "/brands/kubota" },
   { name: "Mahindra", logo: mahindraImg, link: "/brands/mahindra" },
   { name: "Sonalika", logo: sonalikaImg, link: "/brands/sonalika" },
   { name: "John Deere", logo: johnDeereImg, link: "/brands/johndeere" },
