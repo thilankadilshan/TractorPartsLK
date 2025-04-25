@@ -11,7 +11,7 @@
     gap: 8px;
     text-decoration: none;
     font-weight: 600;
-    color: white;
+    color: #1f2937;
     position: relative;
     transition: color 0.3s ease;
 }
@@ -23,14 +23,14 @@
     bottom: -4px;
     width: 0%;
     height: 2px;
-    background: #00ff37;
+    background: #059669;
     transition: width 0.3s ease;
 }
 
 .nav-bar a:hover,
 .nav-bar a:active,
 .nav-bar a:focus {
-    color: #00ff37;
+    color: #059669;
 }
 
 .nav-bar a:hover::after,
@@ -40,7 +40,7 @@
 }
 
 .nav-bar a.active {
-    color: #00ff37;
+    color: #059669;
 }
 
 .nav-bar a.active::after {
