@@ -15,8 +15,6 @@ const brands = [
   { name: "John Deere", logo: johnDeereImg, link: "/brands/johndeere" },
   { name: "Kubota", logo: kubotaImg, link: "/brands/kubota" },
   { name: "Massey Fergusonpng", logo: masseyImg, link: "/brands/massey" },
-  { name: "Sonalika", logo: sonalikaImg, link: "/brands/sonalika" },
-  { name: "John Deere", logo: johnDeereImg, link: "/brands/johndeere" },
 ];
 
 const TractorBrands = () => {
