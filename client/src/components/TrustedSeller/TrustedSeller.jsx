@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./TrustedSeller.css";
 
-// Image imports (inside src/assets/sellers/)
+// Image imports
 import nandhaLogo from "../../assets/sellers/nandha.jpg";
 import brownsLogo from "../../assets/sellers/browns.png";
 import asianLogo from "../../assets/sellers/asian.jpg";
@@ -24,12 +24,13 @@ const TrustedSeller = () => {
 
   return (
     <div className="trusted-sellers-section">
-      <h2 className="section-title">TRUSTED SELLERS</h2>
+      <h2 className="section-title block">TRUSTED SELLERS</h2>{" "}
+      {/* Added block class here */}
       <div className="seller-flex-container">
         {sellers.map((seller, index) => (
           <div
             key={index}
-            className="seller-card"
+            className="seller-card block"
             onClick={() => navigate(seller.link)}
           >
             <img src={seller.logo} alt={seller.name} className="seller-logo" />

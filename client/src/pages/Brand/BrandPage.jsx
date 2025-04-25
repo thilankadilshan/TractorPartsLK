@@ -20,6 +20,11 @@ const BrandPage = () => {
       <div className="brand-page-wrapper">
         <div className="brand-intro-container">
           <div className="brand-intro-content fade-in-left">
+            <img
+              src={brand.logo}
+              alt={`${brand.name} logo`}
+              className="brand-logo"
+            />
             <h1 className="brand-title">{brand.name} Tractors</h1>
             <h3 className="brand-subtitle"> {brand.subtitle}</h3>
             <p className="brand-description">{brand.description}</p>
