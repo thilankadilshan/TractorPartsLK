@@ -45,6 +45,17 @@ import kubotaL4508 from "../assets/models/kubota/l4508-4wd.png";
 import kubotaEK3471 from "../assets/models/kubota/ek3-471-4wd.png";
 import kubotaL3408 from "../assets/models/kubota/l3408-4wd.png";
 
+// hanessy
+import masseyImg from "../assets/brands/massey.png";
+import masseycover from "../assets/models/massey/masseycover.png";
+import mf1552 from "../assets/models/massey/1552.jpg";
+import mf1650e from "../assets/models/massey/1650e.jpg";
+import mf4708 from "../assets/models/massey/4708.jpg";
+import mf5710 from "../assets/models/massey/5710.jpg";
+import mf6713 from "../assets/models/massey/6713.jpg";
+import mf7615 from "../assets/models/massey/7615.jpg";
+
+
 
 export const brandData = {
     tafe: {
@@ -120,6 +131,22 @@ export const brandData = {
             { name: "Kubota L4508 4WD", image: kubotaL4508, link: "/models/l4508-4wd" },
             { name: "EK3 - 471 4WD", image: kubotaEK3471, link: "/models/ek3-471-4wd" },
             { name: "Kubota L3408 4WD", image: kubotaL3408, link: "/models/l3408-4wd" },
+        ],
+    },
+
+    massey: {
+        name: "Massey Ferguson",
+        logo: masseyImg,
+        subtitle: "Performance That Farmers Trust Worldwide",
+        description: "Massey Ferguson Limited is a leading Canadian-British agriculture machinery manufacturer. Founded in 1953 through the merger of Massey-Harris (Canada) and the Ferguson Company (UK), Massey Ferguson is globally known for its durability, reliability, and high-performance equipment. With a broad product line—including tractors, planters, combine harvesters, balers, and material handling machines—Massey Ferguson serves farmers across the world. In Sri Lanka, the Browns Group was the first to introduce Massey Ferguson and continues to offer a wide range of tractors tailored to local agricultural needs. Massey Ferguson machines are ergonomically designed with powerful, fuel-efficient engines and smooth gear transmission for superior performance in the field.",
+        image: masseycover,
+        models: [
+            { name: "Massey Ferguson 1552", image: mf1552, link: "/models/1552" },
+            { name: "Massey Ferguson 1650E", image: mf1650e, link: "/models/1650e" },
+            { name: "Massey Ferguson 4708", image: mf4708, link: "/models/4708" },
+            { name: "Massey Ferguson 5710", image: mf5710, link: "/models/5710" },
+            { name: "Massey Ferguson 6713", image: mf6713, link: "/models/6713" },
+            { name: "Massey Ferguson 7615", image: mf7615, link: "/models/7615" },
         ],
     },
 
