@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import AuthForm from "../pages/Auth/AuthForm";
-import Homepage from "../pages/Buyer/HomePage/HomePage";
 import NotFound404 from "../pages/404/NotFound404";
 import Spinner from "../components/Loader/Spinner";
-import BrandPage from "../pages/Brand/BrandPage";
 import AIChatButton from "../components/AIChatButton/AIChatButton"; // Import AIChatButton
+import AuthForm from "../pages/Auth/AuthForm";
+import Homepage from "../pages/Buyer/HomePage/HomePage";
+import BrandPage from "../pages/Brand/BrandPage";
+import ShopsPage from "../pages/Buyer/Shops/ShopsPage";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -26,6 +27,7 @@ const AppRoutes = () => {
 
         {/* Buyer section */}
         <Route path="/home" element={<Homepage />} />
+        <Route path="/shop" element={<ShopsPage />} />
 
         {/* Tractor Brand Pages */}
         <Route path="/brands/:brandName" element={<BrandPage />} />

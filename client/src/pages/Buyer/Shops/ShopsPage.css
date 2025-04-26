@@ -1,0 +1,12 @@
+.shops-page {
+    min-height: 100vh;
+    background-image: url('../../../assets/bg1.jpg');
+    /* 👈 Correct path for Vite */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* stays fixed */
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
