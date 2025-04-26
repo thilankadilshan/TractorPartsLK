@@ -2,29 +2,58 @@
   width: 100%;
   position: relative;
   padding-top: 33.33%;
-  /*  3:1 ratio (1200x400) */
+  /* 3:1 ratio */
   max-height: 400px;
-  /* Optional: locks in max height */
-
+  overflow: hidden;
+  background-color: #ffffff;
 }
 
 .hero-swiper {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
-  border-radius: none;
-  overflow: hidden;
+  height: 100%;
 }
 
 .hero-image {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  /* Show full image without cut */
+  object-position: center;
+  transition: transform 0.5s ease;
 }
 
+/* Hide mobile images by default */
+.mobile-banner {
+  display: none;
+}
 
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hero-container {
+    padding-top: 56.25%;
+    /* 16:9 ratio (9/16 = 0.5625) */
+    max-height: 300px;
+  }
+
+  /* Switch images for mobile */
+  .desktop-banner {
+    display: none;
+  }
+
+  .mobile-banner {
+    display: block;
+  }
+
+  /* Mobile image also object-fit: contain */
+  .mobile-banner {
+    object-fit: contain;
+  }
+}
+
+/* Zoom Animation on Active Slide */
 .swiper-slide-active .hero-image {
   transform: scale(1.02);
 }
