@@ -1,0 +1,148 @@
+/* Stats Section */
+.stats-section {
+    max-width: 100%;
+    padding: 80px 20px;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    /* Adds a nice blur effect to the background */
+
+}
+
+.stats-header {
+    margin-bottom: 50px;
+}
+
+.stats-header h2 {
+    color: #ffd700;
+}
+
+.stats-header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.stats-header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.stats-container {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Each Stat Item */
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    /* Transparent card with white tint */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    /* Light border */
+    border-radius: 12px;
+    padding: 40px 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    /* 👇 Zoom + Rotate scroll animation */
+    opacity: 0;
+    transform: scale(0.5) rotate(-15deg);
+    animation: zoomRotate 0.8s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 20% cover 30%;
+}
+
+/* Hover effect */
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05) rotate(0deg);
+}
+
+/* Image/Icon inside card */
+.stat-item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffd700;
+    /* Golden numbers */
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Scroll Zoom+Rotate Animation */
+@keyframes zoomRotate {
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Section FadeIn (optional) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-container {
+        gap: 30px;
+    }
+
+    .stat-item {
+        width: 200px;
+        padding: 30px 20px;
+    }
+
+    .stat-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .stat-number {
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding-right: 30px;
+    }
+
+    .stat-item {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,110 @@
+.ai-chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ai-chat-button {
+    display: flex;
+    align-items: center;
+    background-color: #22c55e;
+    /* Green */
+    border: none;
+    border-radius: 30px;
+    padding: 5px 10px 5px 5px;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+    animation: boomBoom 3s infinite;
+    transition: all 0.3s ease;
+}
+
+.circle-icon {
+    background: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    position: relative;
+    border: 2px solid #00ff5e;
+    /* Darker Green Border */
+}
+
+.chat-icon {
+    color: #22c55e;
+    /* Green icon */
+    font-size: 20px;
+}
+
+.chat-text {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: -5px;
+}
+
+/* Boom Boom + Vibrate Animation */
+@keyframes boomBoom {
+    0% {
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 0 0 0 rgb(0, 255, 94);
+        /* Green Glow */
+    }
+
+    5% {
+        transform: scale(1.15) rotate(2deg);
+        box-shadow: 0 0 15px 8px rgb(0, 255, 94);
+    }
+
+    10% {
+        transform: scale(0.98) rotate(-2deg);
+        box-shadow: 0 0 20px 12px rgb(0, 255, 94);
+    }
+
+    15% {
+        transform: scale(1.1) rotate(1deg);
+        box-shadow: 0 0 10px 6px rgb(0, 255, 94);
+    }
+
+    20% {
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 0 0 0 rgb(0, 255, 94);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 0 0 0 rgb(0, 255, 94);
+    }
+}
+
+/* Tooltip */
+.tooltip {
+    background-color: black;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin-bottom: 8px;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.ai-chat-container:hover .tooltip {
+    opacity: 1;
+}
+
+/* Hover */
+.ai-chat-button:hover {
+    background-color: #16a34a;
+    /* Darker Green on Hover */
+}

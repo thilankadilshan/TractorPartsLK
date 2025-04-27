@@ -1,0 +1,146 @@
+.how-it-works {
+    padding: 80px 20px;
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    /* Adds a nice blur effect to the background */
+}
+
+.how-it-works h2 {
+    color: aliceblue;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+    font-weight: bold;
+    animation: slideFade 0.8s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+
+
+.step {
+    background: rgba(255, 255, 255, 0.1);
+    /* Transparent card with white tint */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    /* Light border */
+    border-radius: 12px;
+    padding: 40px 30px;
+    width: 280px;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    animation: zoomInRotate 0.8s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
+}
+
+.step:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+    /* Darker background on hover */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    /* Shadow effect */
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.step h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* Scroll animation for title */
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll animation for each card */
+@keyframes zoomInRotate {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotate(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* 👇 Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .how-it-works {
+        padding: 60px 15px;
+    }
+
+    .section-title {
+        font-size: 2.4rem;
+    }
+
+    .steps {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .step {
+        width: 100%;
+        max-width: 350px;
+        padding: 30px 20px;
+    }
+
+    .step h3 {
+        font-size: 1.6rem;
+    }
+
+    .step p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .step {
+        width: 100%;
+        max-width: 320px;
+        margin-left: 20px;
+    }
+
+    .step h3 {
+        font-size: 1.5rem;
+    }
+
+    .step p {
+        font-size: 0.9rem;
+    }
+}

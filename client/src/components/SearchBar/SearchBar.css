@@ -3,7 +3,8 @@
     align-items: center;
     background-color: white;
     border-radius: 30px;
-    padding: 4px 10px; /* reduced padding */
+    padding: 4px 10px;
+    /* reduced padding */
     width: 350px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease-in-out;
@@ -17,7 +18,8 @@
     border: none;
     outline: none;
     flex-grow: 1;
-    padding: 6px;  /* slightly smaller input padding */
+    padding: 6px;
+    /* slightly smaller input padding */
     font-size: 0.95rem;
     font-family: inherit;
     color: #333;
@@ -30,7 +32,8 @@
     border: none;
     cursor: pointer;
     margin-left: 6px;
-    padding: 6px; /* smaller buttons */
+    padding: 6px;
+    /* smaller buttons */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -41,4 +44,12 @@
 
 .icon-btn:hover {
     background-color: #333;
+}
+
+
+@media (max-width: 768px) {
+    .search-bar {
+        width: 100%;
+        margin-top: 10px;
+    }
 }

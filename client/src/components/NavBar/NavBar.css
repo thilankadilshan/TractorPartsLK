@@ -1,68 +1,60 @@
 .nav-bar {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 40px;
-    padding: 16px 32px;
+    gap: 32px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    position: sticky;
-    top: 0;
-    z-index: 999;
 }
 
 .nav-bar a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     text-decoration: none;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #1f2937;
     position: relative;
     transition: color 0.3s ease;
 }
 
-.nav-bar a:hover {
-    color: #1D4F28;
-}
-
-/* Cart icon styling */
-.cart-link {
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    color: #1a1a1a;
-    transition: color 0.3s ease;
-}
-
-.cart-link:hover {
-    color: #1D4F28;
-}
-
-/* Optional: Cart badge (if needed in future) */
-.cart-link::after {
-    content: attr(data-count);
-    display: none; /* You can set this to 'inline-block' if using badges */
-    background-color: red;
-    color: white;
-    font-size: 0.7rem;
-    border-radius: 50%;
-    padding: 2px 6px;
+.nav-bar a::after {
+    content: '';
     position: absolute;
-    top: -6px;
-    right: -10px;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: #059669;
+    transition: width 0.3s ease;
 }
 
-/* Responsive: Stack links on small screens */
-@media (max-width: 768px) {
-    .nav-bar {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 12px 16px;
-        gap: 16px;
-    }
+.nav-bar a:hover,
+.nav-bar a:active,
+.nav-bar a:focus {
+    color: #059669;
+}
 
-    .nav-bar a {
-        font-size: 0.95rem;
-    }
+.nav-bar a:hover::after,
+.nav-bar a:active::after,
+.nav-bar a:focus::after {
+    width: 100%;
+}
 
-    .cart-link {
-        font-size: 1.2rem;
-    }
+.nav-bar a.active {
+    color: #059669;
+}
+
+.nav-bar a.active::after {
+    width: 100%;
+}
+
+.nav-icon {
+    display: inline-flex;
+    font-size: 1rem;
+}
+
+/* Mobile layout */
+.nav-bar.mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
 }

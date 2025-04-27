@@ -1,15 +1,24 @@
+/* Header.css */
+
 .header {
+    position: sticky;
+    top: 0;
+    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #E8F5EA;
-    padding: 12px 24px;
+    background: linear-gradient(90deg, #ffffff 0%, #62ff84 100%);
+    padding: 5px 24px;
     flex-wrap: wrap;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     gap: 16px;
     z-index: 1000;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 12px 24px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    /* subtle glass effect */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+/* Branding section */
 .branding {
     display: flex;
     align-items: center;
@@ -21,37 +30,114 @@
     height: 60px;
     width: auto;
     object-fit: contain;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
 .logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .title {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #1D4F28;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1d4f28;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     white-space: nowrap;
 }
 
-/* Responsive: Stack elements on smaller screens */
+/* Navigation and actions */
+.nav-actions {
+    display: none;
+}
+
+/* Animate mobile search popup */
+.popup-search {
+    padding-top: -30px;
+    padding-bottom: 10px;
+    width: 100%;
+    animation: fadeDown 0.3s ease-in-out;
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    /* 👈 use 100vh for full screen height */
+    width: 220px;
+    background-color: #ffffff;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+
+@keyframes slideIn {
+    from {
+        right: -250px;
+    }
+
+    to {
+        right: 0;
+    }
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+/* Sidebar close animation */
+@keyframes slideOut {
+    from {
+        right: 0;
+    }
+
+    to {
+        right: -250px;
+    }
+}
+
+.sidebar.slide-out {
+    animation: slideOut 0.3s ease-in-out forwards;
+}
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: stretch;
+    .desktop-search {
+        display: none;
     }
 
-    .branding {
-        justify-content: center;
+    .nav-actions {
+        display: flex;
+        gap: 12px;
     }
 
-    .title {
-        font-size: 1.3rem;
+    .mobile-only {
+        display: flex !important;
     }
 
-    .logo {
-        height: 40px;
+    .nav-bar.desktop {
+        display: none;
     }
 }

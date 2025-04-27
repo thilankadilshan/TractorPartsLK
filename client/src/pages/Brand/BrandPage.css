@@ -3,6 +3,7 @@
     padding: 1px 30px 30px;
 }
 
+/* === Brand Intro Section === */
 .brand-intro-container {
     display: flex;
     align-items: center;
@@ -17,21 +18,23 @@
     flex: 1;
     min-width: 300px;
     max-width: 650px;
+
+    /* 👇 Scroll animation */
+    animation: appear 0.6s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
 }
 
 .brand-logo {
     max-width: 160px;
     margin-bottom: -30px;
-    animation: fadeIn 1.2s ease 0.3s forwards;
 }
-
 
 .brand-title {
     font-size: 2.6rem;
     color: #1b4332;
     margin-bottom: 10px;
     font-weight: 700;
-    animation: slideDown 1s ease forwards;
 }
 
 .brand-subtitle {
@@ -39,7 +42,6 @@
     color: #2d6a4f;
     margin-bottom: 20px;
     font-weight: 600;
-    animation: slideUp 1s ease 0.2s forwards;
 }
 
 .brand-description {
@@ -47,15 +49,17 @@
     color: #333;
     line-height: 1.8;
     margin-bottom: 18px;
-    animation: fadeIn 1.2s ease 0.4s forwards;
 }
 
 .brand-image-container {
     flex: 1;
     text-align: center;
     max-width: 600px;
-    opacity: 0;
-    animation: fadeInRight 1s ease 0.5s forwards;
+
+    /* 👇 Scroll animation */
+    animation: appear 0.6s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
 }
 
 .brand-image-container img {
@@ -63,7 +67,7 @@
     border-radius: 16px;
 }
 
-/* === Models Section (same layout but improved image style) === */
+/* === Models Section === */
 .models-heading {
     font-size: 2rem;
     font-weight: bold;
@@ -94,6 +98,11 @@
     align-items: center;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* 👇 Scroll animation */
+    animation: appear 0.6s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
 }
 
 .model-card:hover {
@@ -120,7 +129,20 @@
     color: #2d6a4f;
 }
 
-/* === Animations === */
+/* === Scroll Keyframe Animation === */
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+/* === Old optional animations (still used by fade-in classes) === */
 @keyframes slideDown {
     from {
         transform: translateY(-20px);
@@ -169,6 +191,7 @@
     }
 }
 
+/* === Optional fade-in classes if you use them === */
 .fade-in-left {
     opacity: 0;
     animation: slideDown 1s ease forwards;
