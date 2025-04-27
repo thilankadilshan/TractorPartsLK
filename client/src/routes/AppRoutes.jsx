@@ -9,6 +9,7 @@ import BrandPage from "../pages/Brand/BrandPage";
 import ShopsPage from "../pages/Buyer/Shops/ShopsPage";
 import PartsPage from "../pages/Buyer/Parts/PartsPage";
 import EventsPage from "../pages/Buyer/Events/EventsPage";
+import Chatbot from "../components/Chatbot/Chatbot";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -32,6 +33,7 @@ const AppRoutes = () => {
         <Route path="/shop" element={<ShopsPage />} />
         <Route path="/parts" element={<PartsPage />} />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/chatbot" element={<Chatbot />} />
 
         {/* Tractor Brand Pages */}
         <Route path="/brands/:brandName" element={<BrandPage />} />
