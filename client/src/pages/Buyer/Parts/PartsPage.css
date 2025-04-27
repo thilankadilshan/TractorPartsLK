@@ -1,7 +1,7 @@
-.shops-page {
+.parts-page {
     max-width: 100%;
     min-height: 100vh;
-    background-image: url('../../../assets/bg1.jpg');
+    background-image: url('../../../assets/bg3.jpg');
     /* 👈 Correct path for Vite */
     background-size: cover;
     background-position: center;

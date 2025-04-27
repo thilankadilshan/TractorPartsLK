@@ -4,8 +4,6 @@
     text-align: center;
     background: rgba(0, 0, 0, 0.4);
     /* Semi-transparent background */
-    border-radius: 20px;
-    /* Optional, to give rounded corners */
     backdrop-filter: blur(10px);
     /* Adds a nice blur effect to the background */
 }
@@ -135,7 +133,7 @@
     .step {
         width: 100%;
         max-width: 320px;
-        padding: 25px 15px;
+        margin-left: 20px;
     }
 
     .step h3 {

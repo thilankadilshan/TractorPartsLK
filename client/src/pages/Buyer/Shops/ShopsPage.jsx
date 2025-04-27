@@ -4,6 +4,8 @@ import Header from "../../../components/Header/Header";
 import ShopBanner from "../../../components/ShopBanner/ShopBanner";
 import TrustedSeller from "../../../components/TrustedSeller/TrustedSeller";
 import HowItWorks from "../../../components/HowItWorks/HowItWorks";
+import StatsSection from "../../../components/StatsSection/StatsSection";
+import TractorBrands from "../../../components/TractorBrands/TractorBrands";
 import Footer from "../../../components/Footer/Footer";
 
 function ShopsPage() {
@@ -17,6 +19,8 @@ function ShopsPage() {
       <div id="how-it-works">
         <HowItWorks />
       </div>
+      <TractorBrands />
+      <StatsSection />
       <Footer />
     </div>
   );

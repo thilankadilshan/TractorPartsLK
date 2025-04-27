@@ -7,6 +7,8 @@ import AuthForm from "../pages/Auth/AuthForm";
 import Homepage from "../pages/Buyer/HomePage/HomePage";
 import BrandPage from "../pages/Brand/BrandPage";
 import ShopsPage from "../pages/Buyer/Shops/ShopsPage";
+import PartsPage from "../pages/Buyer/Parts/PartsPage";
+import EventsPage from "../pages/Buyer/Events/EventsPage";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -28,6 +30,8 @@ const AppRoutes = () => {
         {/* Buyer section */}
         <Route path="/home" element={<Homepage />} />
         <Route path="/shop" element={<ShopsPage />} />
+        <Route path="/parts" element={<PartsPage />} />
+        <Route path="/events" element={<EventsPage />} />
 
         {/* Tractor Brand Pages */}
         <Route path="/brands/:brandName" element={<BrandPage />} />
