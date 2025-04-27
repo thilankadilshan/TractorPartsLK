@@ -1,52 +1,124 @@
+/* Hero Banner Styles */
 .hero-banner {
     position: relative;
-    width: 100%;
-    height: 100vh;
+    height: 90vh;
+    background: none;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    color: white;
+    text-align: center;
 }
 
-.overlay {
+.hero-banner .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Dark overlay to improve text visibility */
+    z-index: 0;
+}
+
+.hero-banner .hero-content {
     z-index: 1;
+    /* Ensure text is above the overlay */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-.hero-content h1 {
+.hero-banner h1 {
     font-size: 3rem;
     margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
+.hero-banner p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    animation: fadeInUp 1.5s ease-out forwards;
 }
 
-.hero-content button {
-    background-color: #28a745;
-    color: white;
+.hero-banner .main-button,
+.hero-banner .red-button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
     border: none;
-    padding: 15px 30px;
-    font-size: 1rem;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin: 10px;
 }
 
-.hero-content button:hover {
-    background-color: #218838;
+.hero-banner .main-button {
+    background-color: #4caf50;
+    color: white;
+    animation: fadeInUp 2s ease-out forwards;
+}
+
+.hero-banner .red-button {
+    background-color: red;
+    color: white;
+    animation: fadeInUp 2.2s ease-out forwards;
+}
+
+.hero-banner .main-button:hover {
+    background-color: rgb(0, 139, 37);
+    transform: scale(1.05);
+}
+
+.hero-banner .red-button:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+}
+
+/* Scroll animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .hero-banner h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-banner p {
+        font-size: 1.1rem;
+    }
+
+    .hero-banner .main-button,
+    .hero-banner .red-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner h1 {
+        font-size: 2rem;
+    }
+
+    .hero-banner p {
+        font-size: 1rem;
+    }
+
+    .hero-banner .main-button,
+    .hero-banner .red-button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
 }
