@@ -9,11 +9,14 @@ import BrandPage from "../pages/Brand/BrandPage";
 import ShopsPage from "../pages/Buyer/Shops/ShopsPage";
 import PartsPage from "../pages/Buyer/Parts/PartsPage";
 import EventsPage from "../pages/Buyer/Events/EventsPage";
-import Chatbot from "../components/Chatbot/Chatbot";
+import Chatbot from "../components/Chatbot/Chatbot"; // Chatbot component
+
+import { useChatBot } from "../context/ChatBotContext"; // Import useChatBot
 
 const AppRoutes = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
+  const { isOpen } = useChatBot(); // 🚀 Use ChatBot context
 
   useEffect(() => {
     setLoading(true);
@@ -33,7 +36,9 @@ const AppRoutes = () => {
         <Route path="/shop" element={<ShopsPage />} />
         <Route path="/parts" element={<PartsPage />} />
         <Route path="/events" element={<EventsPage />} />
-        <Route path="/chatbot" element={<Chatbot />} />
+
+        {/* ❌ Do not show chatbot page anymore (optional: you can keep it for testing if you want) */}
+        {/* <Route path="/chatbot" element={<div />} /> */}
 
         {/* Tractor Brand Pages */}
         <Route path="/brands/:brandName" element={<BrandPage />} />
@@ -48,8 +53,11 @@ const AppRoutes = () => {
         <Route path="*" element={<Navigate to="/404" />} />
       </Routes>
 
-      {/* 🚀 Only show AIChatButton after loading finished */}
+      {/* 🚀 Show AIChatButton */}
       {!loading && <AIChatButton />}
+
+      {/* 🚀 Popup Chatbot when open */}
+      {isOpen && <Chatbot />}
     </>
   );
 };
