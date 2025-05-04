@@ -1,0 +1,31 @@
+name: Backend Node.js CI
+
+on:
+  push:
+    paths:
+      - "server/**"
+  pull_request:
+    paths:
+      - "server/**"
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server # adjust if your backend is inside a folder named `server`
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run backend server check
+        run: npm run dev
