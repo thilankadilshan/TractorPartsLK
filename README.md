@@ -103,6 +103,3 @@ TractorPartsLK/
 ├── package.json
 ├── README.md
 └── README_BACKEND.md
-
-hi
-hi
