@@ -1,0 +1,159 @@
+.search-image-page {
+    background: linear-gradient(135deg, #ffffff, #83b888);
+}
+
+
+.search-image-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: none;
+    min-height: calc(100vh - 160px);
+    max-width: 100vh;
+    /* ✅ You keep this */
+    margin: 0 auto;
+    /* ✅ This centers it */
+}
+
+/* Upload section styles */
+.upload-section {
+    flex: 1 1 45%;
+    background: white;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: border 0.3s ease;
+    position: relative;
+}
+
+.upload-section:hover {
+    border-color: #4f46e5;
+}
+
+.drop-box p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.drop-box button {
+    margin: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.drop-box button:hover {
+    background-color: #4338ca;
+}
+
+/* Camera button override */
+.camera-btn {
+    background-color: #10b981;
+}
+
+.camera-btn:hover {
+    background-color: #059669;
+}
+
+/* Camera preview styles */
+.camera-section {
+    margin-top: 1.5rem;
+}
+
+.camera-section video {
+    width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+}
+
+.camera-section button {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Preview section styles */
+.preview-section {
+    flex: 1 1 45%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.preview-image {
+    max-width: 100%;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    /* ✅ Preserve aspect ratio */
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+
+.search-btn {
+    background-color: #6366f1;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-btn:hover {
+    background-color: #4f46e5;
+}
+
+.placeholder-text {
+    color: #888;
+    font-size: 1.1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .search-image-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .upload-section,
+    .preview-section {
+        flex: 1 1 100%;
+        padding: 1.5rem;
+    }
+
+    .drop-box button,
+    .camera-section button,
+    .search-btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .camera-section video {
+        height: auto;
+    }
+}
