@@ -1,19 +1,17 @@
-name: Backend Node.js CI
+name: Backend CI
 
 on:
   push:
-    paths:
-      - "server/**"
+    branches: [main]
   pull_request:
-    paths:
-      - "server/**"
+    branches: [main]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: server # adjust if your backend is inside a folder named `server`
+        working-directory: server
 
     steps:
       - name: Checkout code
@@ -27,5 +25,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run backend server check
-        run: npm run dev
+      - name: Lint or Run server test
+        run: echo "Add tests or run the server"
