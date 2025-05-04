@@ -16,7 +16,7 @@ function EventsPage() {
       <section className="events-grid">
         <div className="event-card">
           <h3>🛠️ Tractor Maintenance Workshop</h3>
-          <p>June 10, 2025 - Punjab</p>
+          <p>June 10, 2025 - Kurunegala</p>
           <p>
             Learn basic and advanced tractor maintenance techniques from
             experts. Registration open now!
@@ -25,19 +25,43 @@ function EventsPage() {
 
         <div className="event-card">
           <h3>📣 New Spare Parts Expo</h3>
-          <p>July 1–3, 2025 - Nagpur</p>
+          <p>July 1–3, 2025 - colombo</p>
           <p>
-            India's largest tractor parts exhibition, featuring OEM suppliers
-            and discounts on bulk orders.
+            Sri Lanka's largest tractor parts exhibition, featuring OEM
+            suppliers and discounts on bulk orders.
           </p>
         </div>
 
         <div className="event-card">
           <h3>🌾 Smart Farming Demo</h3>
-          <p>May 20, 2025 - Online</p>
+          <p>May 20, 2025 - Jaffna</p>
           <p>
             Discover new tractor-compatible smart tools and GPS technologies for
             efficient field work.
+          </p>
+        </div>
+        <div className="event-card">
+          <h3>🚜 Precision Ploughing Training Camp</h3>
+          <p>June 10, 2025 - Kurunegala</p>
+          <p>
+            Learn basic and advanced tractor maintenance techniques from
+            experts. Registration open now!
+          </p>
+        </div>
+        <div className="event-card">
+          <h3>🌿 Eco-Friendly Farming Equipment Fair</h3>
+          <p>June 10, 2025 - Kurunegala</p>
+          <p>
+            Learn basic and advanced tractor maintenance techniques from
+            experts. Registration open now!
+          </p>
+        </div>
+        <div className="event-card">
+          <h3>🧰 DIY Tractor Repair Basics Seminar</h3>
+          <p>June 10, 2025 - Kurunegala</p>
+          <p>
+            Learn basic and advanced tractor maintenance techniques from
+            experts. Registration open now!
           </p>
         </div>
       </section>
