@@ -9,8 +9,8 @@ import BrandPage from "../pages/Brand/BrandPage";
 import ShopsPage from "../pages/Buyer/Shops/ShopsPage";
 import PartsPage from "../pages/Buyer/Parts/PartsPage";
 import EventsPage from "../pages/Buyer/Events/EventsPage";
+import SearchByImage from "../pages/Buyer/SearchByImage/SearchByImage";
 import Chatbot from "../components/Chatbot/Chatbot"; // Chatbot component
-
 import { useChatBot } from "../context/ChatBotContext"; // Import useChatBot
 
 const AppRoutes = () => {
@@ -36,6 +36,7 @@ const AppRoutes = () => {
         <Route path="/shop" element={<ShopsPage />} />
         <Route path="/parts" element={<PartsPage />} />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/search-by-image" element={<SearchByImage />} />
 
         {/* ❌ Do not show chatbot page anymore (optional: you can keep it for testing if you want) */}
         {/* <Route path="/chatbot" element={<div />} /> */}

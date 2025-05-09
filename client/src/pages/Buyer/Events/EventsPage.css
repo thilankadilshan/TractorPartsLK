@@ -1,0 +1,119 @@
+.events-page {
+    max-width: 100%;
+    min-height: 100vh;
+    background-image: url('../../../assets/bg5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Dark overlay with blur */
+.events-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    z-index: 0;
+}
+
+/* All content stays above overlay */
+.events-hero,
+.events-grid,
+.news-updates,
+header,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero */
+.events-hero {
+    padding: 4rem 2rem 2rem;
+    text-align: center;
+    color: white;
+}
+
+.events-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.events-hero p {
+    font-size: 1.2rem;
+}
+
+/* Event Grid */
+.events-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    width: 300px;
+    padding: 1.5rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    color: #2e7d32;
+    text-align: left;
+    transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+    transform: scale(1.03);
+}
+
+/* News Section */
+.news-updates {
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.news-updates h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.news-updates ul {
+    list-style: none;
+    padding: 0;
+}
+
+.news-updates li {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .events-hero h1 {
+        font-size: 2rem;
+    }
+
+    .events-grid {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .event-card {
+        width: 90%;
+    }
+
+    .news-updates h2 {
+        font-size: 1.5rem;
+    }
+
+    .news-updates li {
+        font-size: 1rem;
+    }
+}

@@ -4,7 +4,10 @@ import "./Chatbot.css"; // style separately
 
 const ChatBot = () => {
   const [messages, setMessages] = useState([
-    { sender: "bot", text: "Hi 👋! How can I help you today?" },
+    {
+      sender: "bot",
+      text: "Hi 👋! This is TractorPartsLK, How can I help you today?",
+    },
   ]);
   const [input, setInput] = useState("");
 

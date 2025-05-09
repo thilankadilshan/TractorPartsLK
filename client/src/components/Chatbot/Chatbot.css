@@ -1,9 +1,9 @@
 .chatbot-container {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
-    width: 300px;
-    max-height: 400px;
+    width: 350px;
+    max-height: 800px;
     background: #fff;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -36,6 +36,7 @@
     background-color: #4caf50;
     color: white;
     align-self: flex-end;
+    margin-left: 50px;
 }
 
 .chatbot-input {

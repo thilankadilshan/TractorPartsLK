@@ -95,7 +95,7 @@ TractorPartsLK/
 │ ├── uploads/ # For image uploads
 │ ├── utils/
 │ │ └── generateToken.js
-│ ├── app.js # Main Express app config
+│ ├── App.js # Main Express app config
 │ └── server.js # Server startup
 │
 ├── .env # Environment variables

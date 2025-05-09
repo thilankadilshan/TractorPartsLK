@@ -19,18 +19,20 @@ const matchFAQ = (message) => {
         return "Welcome to TractorPartsLK! 🚜 We help Sri Lankan farmers find genuine tractor spare parts easily and connect with trusted suppliers.";
     }
 
-    if (lowerMessage.includes("who are you")) {
-        return "We are TractorPartsLK, a platform connecting farmers with trusted suppliers for tractor spare parts.";
+    if (lowerMessage.includes("hi")) {
+        return "Hi, how can i help you today?";
     }
 
     if (
-        lowerMessage.includes("what do you sell") ||
+        lowerMessage.includes("how can i find tractors parts sellers in kurunegala") ||
         lowerMessage.includes("what you sell") ||
         lowerMessage.includes("sell parts") ||
         lowerMessage.includes("tractor parts")
     ) {
-        return "We specialize in tractor spare parts for Massey Ferguson, Mahindra, New Holland, and more!";
+        return "Go to the home page, navigate to the search bar, and type 'sellers in Kurunegala'.";
     }
+
+
 
     return null;
 };
@@ -48,10 +50,10 @@ router.post('/', async (req, res) => {
         return res.json({ reply: customAnswer });
     }
 
-    // Use your fine-tuned Hugging Face model
+    // Use DialoGPT-medium via Hugging Face
     try {
         const response = await axios.post(
-            'https://api-inference.huggingface.co/models/thilankadilshan/tractorsparepartschatbot1',
+            'https://api-inference.huggingface.co/models/google/flan-t5-large',
             { inputs: message },
             {
                 headers: {
@@ -59,6 +61,9 @@ router.post('/', async (req, res) => {
                 },
             }
         );
+
+        // Debug log: what does the API return?
+        console.log("HuggingFace raw response:", response.data);
 
         let generatedText = "";
 
@@ -70,14 +75,17 @@ router.post('/', async (req, res) => {
             console.error("HuggingFace error:", response.data.error);
             generatedText = "Bot is waking up! Please try again in a few seconds.";
         } else {
+            console.error("Unexpected response format:", response.data);
             generatedText = "Sorry, I didn't understand.";
         }
 
         res.json({ reply: generatedText });
 
     } catch (error) {
-        console.error('Full error info:', error?.response?.data || error.message);
-        res.status(500).json({ reply: 'Error! Please try again later.....' });
+        console.error('Hugging Face API call failed:', error?.response?.data || error.message || error);
+        res.status(500).json({
+            reply: 'The chatbot is temporarily unavailable. Please try again later.'
+        });
     }
 });
 
