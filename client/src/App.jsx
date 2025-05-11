@@ -3,6 +3,7 @@ import React from "react";
 import { ChatBotProvider } from "./context/ChatBotContext"; // only ChatBotProvider
 import AppRoutes from "./routes/AppRoutes";
 import BackToTop from "./components/BackToTop/BackToTop";
+import AdminRoutes from "./routes/AdminRoute";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <>
         <AppRoutes />
         <BackToTop />
+        <AdminRoutes />
       </>
     </ChatBotProvider>
   );
