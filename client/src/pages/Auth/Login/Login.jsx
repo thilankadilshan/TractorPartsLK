@@ -12,14 +12,39 @@ const Login = ({ onSwitch }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+
     if (!email || !password) {
       setError("Please fill in both fields.");
       return;
     }
-    console.log("Logging in:", { email, password });
-    setError("");
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        setError(data.message || "Login failed.");
+        return;
+      }
+
+      const userRole = data.user.role;
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      if (userRole === "admin") {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/"); // both user and seller go home
+      }
+    } catch (err) {
+      setError("Server error. Please try again later.");
+    }
   };
 
   return (

@@ -24,7 +24,7 @@ const Register = ({ onSwitch }) => {
     setForm({ ...form, [name]: type === "checkbox" ? checked : value });
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     const {
       firstName,
@@ -56,8 +56,25 @@ const Register = ({ onSwitch }) => {
       return;
     }
 
-    console.log("Registering:", form);
-    setError("");
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ firstName, lastName, email, password }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        setError(data.message || "Registration failed.");
+        return;
+      }
+
+      alert("Registration successful!");
+      setError("");
+      onSwitch(); // Switch to login
+    } catch (err) {
+      setError("Server error. Please try again later.");
+    }
   };
 
   return (
