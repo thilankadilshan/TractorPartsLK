@@ -1,9 +1,13 @@
+// src/components/AuthForm/Login/Login.jsx
 import React, { useState } from "react";
 import "./Login.css";
 import cog1 from "../../../assets/cogs/cog1.svg";
 import cog2 from "../../../assets/cogs/cog2.svg";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ onSwitch }) => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -40,6 +44,13 @@ const Login = ({ onSwitch }) => {
         />
         {error && <p className="error">{error}</p>}
         <button type="submit">Login</button>
+        <button
+          type="button"
+          className="home-btn"
+          onClick={() => navigate("/")}
+        >
+          Back to Home
+        </button>
       </form>
       <p className="switch-text">
         Don’t have an account? <span onClick={onSwitch}>Register</span>
