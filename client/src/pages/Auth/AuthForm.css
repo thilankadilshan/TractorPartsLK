@@ -4,7 +4,24 @@
   align-items: center;
   height: 100vh;
   perspective: 1200px;
+  background: url('../../assets/bg4.jpg') no-repeat center center/cover;
+  backdrop-filter: blur(15px);
 }
+
+.auth-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.116);
+  /* or any tint */
+  z-index: -1;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 
 .flip-card {
   width: 420px;

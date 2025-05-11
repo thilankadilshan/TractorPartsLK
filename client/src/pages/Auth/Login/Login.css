@@ -1,4 +1,4 @@
-/* Full page background image */
+/* Full page background image
 body {
   margin: 0;
   padding: 0;
@@ -8,13 +8,13 @@ body {
   font-family: Arial, sans-serif;
   backdrop-filter: blur(15px);
 }
-
+*/
 /* Glassmorphism Form */
 .form-container {
-  background: rgba(0, 0, 0, 0.089);
+  background: rgba(0, 0, 0, 0.104);
   /* light white tint for glass */
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(10px);
   border: 2px solid rgb(0, 255, 55);
   border-radius: 0px;
   padding: 2rem;

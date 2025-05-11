@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import Login from './Login/Login';
-import Register from './Register/Register';
-import './AuthForm.css';
+import React, { useState } from "react";
+import Login from "./Login/Login";
+import Register from "./Register/Register";
+import "./AuthForm.css";
 
 const AuthForm = () => {
   const [flipped, setFlipped] = useState(false);
@@ -12,7 +12,7 @@ const AuthForm = () => {
 
   return (
     <div className="auth-wrapper">
-      <div className={`flip-card ${flipped ? 'flipped' : ''}`}>
+      <div className={`flip-card ${flipped ? "flipped" : ""}`}>
         <div className="flip-card-inner">
           <div className="flip-card-front">
             <Login onSwitch={handleSwitch} />
