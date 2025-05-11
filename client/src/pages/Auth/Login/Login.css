@@ -34,9 +34,10 @@ h2 {
   font-size: 1.75rem;
 }
 
-p {
+.form-container p {
   color: aliceblue;
 }
+
 
 .form {
   display: flex;
@@ -74,12 +75,24 @@ p {
   font-size: 0.875rem;
 }
 
-/* ✅ Terms and Conditions checkbox */
+/* Terms and Conditions checkbox */
 .terms-container {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
   font-size: 0.9rem;
+}
+
+.terms-label {
+  color: white;
+  /* or any color you want */
+  font-size: 14px;
+}
+
+.terms-label a {
+  color: #3fa2ff;
+  /* link color */
+  text-decoration: underline;
 }
 
 .terms-container input[type='checkbox'] {

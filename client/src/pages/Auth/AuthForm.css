@@ -15,7 +15,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.116);
+  background: rgba(0, 0, 0, 0.182);
   /* or any tint */
   z-index: -1;
   backdrop-filter: blur(15px);
