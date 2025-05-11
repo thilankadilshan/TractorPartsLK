@@ -38,7 +38,7 @@ const Login = ({ onSwitch }) => {
       localStorage.setItem("user", JSON.stringify(data.user));
 
       if (userRole === "admin") {
-        navigate("/admin/dashboard");
+        navigate("/admin");
       } else {
         navigate("/"); // both user and seller go home
       }

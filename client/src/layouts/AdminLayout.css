@@ -1,0 +1,40 @@
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.admin-sidebar {
+    width: 220px;
+    background-color: #222;
+    color: #fff;
+    padding: 1rem;
+}
+
+.sidebar-title {
+    margin-bottom: 1rem;
+}
+
+.admin-nav a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin: 0.5rem 0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.admin-nav a:hover {
+    background-color: #333;
+}
+
+.active-link {
+    background-color: #007bff;
+    color: white !important;
+}
+
+.admin-main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #f8f9fa;
+}

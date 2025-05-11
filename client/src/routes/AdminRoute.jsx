@@ -1,29 +1,22 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { Routes, Route } from "react-router-dom";
 import AdminLayout from "../layouts/AdminLayout";
-import Dashboard from "../pages/admin/Dashboard";
-import UsersPage from "../pages/admin/ManageUsers";
-import SettingsPage from "../pages/Admin/SiteSettings";
-import NotFound from "../pages/404/NotFound404";
+import AdminDashboard from "../pages/Admin/Dashboard";
+import ManageUsers from "../pages/Admin/ManageUsers";
+import ManageProducts from "../pages/Admin/ManageProducts";
+import SiteSettings from "../pages/Admin/SiteSettings";
 
-const AdminRoute = () => {
-  const { user, loading } = useAuth();
-
-  if (loading) return <div>Loading...</div>;
-  if (!user || user.role !== "admin") return <Navigate to="/auth" />;
-
+const AdminRoutes = () => {
   return (
-    <AdminLayout>
-      <Routes>
-        <Route path="/" element={<Navigate to="dashboard" />} />
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="users" element={<UsersPage />} />
-        <Route path="settings" element={<SettingsPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </AdminLayout>
+    <Routes>
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<AdminDashboard />} />
+        <Route path="users" element={<ManageUsers />} />
+        <Route path="products" element={<ManageProducts />} />
+        <Route path="settings" element={<SiteSettings />} />
+      </Route>
+    </Routes>
   );
 };
 
-export default AdminRoute;
+export default AdminRoutes;
