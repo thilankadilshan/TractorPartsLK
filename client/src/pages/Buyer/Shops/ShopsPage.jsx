@@ -27,5 +27,4 @@ function ShopsPage() {
     </div>
   );
 }
-
 export default ShopsPage;
