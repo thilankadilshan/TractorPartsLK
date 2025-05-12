@@ -12,7 +12,7 @@ import EventsPage from "../pages/Buyer/Events/EventsPage";
 import SearchByImage from "../pages/Buyer/SearchByImage/SearchByImage";
 import Chatbot from "../components/Chatbot/Chatbot"; // Chatbot component
 import { useChatBot } from "../context/ChatBotContext"; // Import useChatBot
-import SellerRegister from "../pages/Seller/SellerRegister";
+import SellerRegister from "../pages/Seller/SellerRegister/SellerRegister";
 
 const AppRoutes = () => {
   const location = useLocation();

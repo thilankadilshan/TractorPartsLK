@@ -1,0 +1,83 @@
+/* SellerRegister.css */
+
+.form-container {
+    max-width: 500px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form input,
+.register-form textarea {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+.register-form input:focus,
+.register-form textarea:focus {
+    border-color: #0077cc;
+    outline: none;
+}
+
+button {
+    background-color: #0077cc;
+    color: white;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .form-container {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+
+    .register-form input,
+    .register-form textarea {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.95rem;
+    }
+}
