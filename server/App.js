@@ -17,6 +17,6 @@ app.use('/api/chatbot', chatbotRoutes);
 app.use("/api/auth", authRoutes);
 
 // Static files (uploads)
-app.use("/uploads", express.static("uploads"));
+app.use("uploads/seller/profile", express.static("uploads"));
 
 module.exports = app;

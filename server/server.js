@@ -1,3 +1,4 @@
+// ==== ✅ SERVER ENTRYPOINT: server.js ====
 const mongoose = require("mongoose");
 const app = require("./App");
 require("dotenv").config();
@@ -5,10 +6,7 @@ require("dotenv").config();
 // MongoDB Connection
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        await mongoose.connect(process.env.MONGO_URI); // ✅ No deprecated options
         console.log("MongoDB Connected:", mongoose.connection.host);
     } catch (err) {
         console.error("MongoDB connection error:", err);
