@@ -7,6 +7,7 @@ import HowItWorks from "../../../components/HowItWorks/HowItWorks";
 import StatsSection from "../../../components/StatsSection/StatsSection";
 import TractorBrands from "../../../components/TractorBrands/TractorBrands";
 import Footer from "../../../components/Footer/Footer";
+import BecomeSellerBanner from "../../../components/BecomeSellerBanner/BecomeSellerBanner";
 
 function ShopsPage() {
   return (
@@ -21,6 +22,7 @@ function ShopsPage() {
       </div>
       <TractorBrands />
       <StatsSection />
+      <BecomeSellerBanner />
       <Footer />
     </div>
   );
