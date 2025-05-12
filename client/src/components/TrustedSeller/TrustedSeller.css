@@ -65,11 +65,11 @@
 
 /* Seller logo inside the card */
 .seller-logo {
-    width: 130px;
-    height: 130px;
+    width: 170px;
+    height: 170px;
     object-fit: contain;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 2px;
     transition: transform 0.3s ease;
 }
 
@@ -84,7 +84,7 @@
     color: #184c35;
     margin-bottom: 10px;
     text-align: center;
-    min-height: 40px;
+    min-height: 10px;
 }
 
 /* Shop button inside the card */
