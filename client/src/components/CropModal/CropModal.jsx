@@ -1,9 +1,7 @@
-// components/CropModal.jsx
 import React, { useState, useCallback } from "react";
 import Cropper from "react-easy-crop";
-import Slider from "react-slider";
-import getCroppedImg from "../utils/cropImage";
-import "../styles/CropModal.css";
+import getCroppedImg from "../../utils/cropImage";
+import "./CropModal.css";
 
 const CropModal = ({ image, onClose, onCropComplete }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
@@ -15,14 +13,21 @@ const CropModal = ({ image, onClose, onCropComplete }) => {
   }, []);
 
   const handleDone = async () => {
-    const croppedBlob = await getCroppedImg(image, croppedAreaPixels);
-    onCropComplete(croppedBlob);
-    onClose();
+    if (!croppedAreaPixels) return alert("Crop not ready yet!");
+
+    try {
+      const croppedBlob = await getCroppedImg(image, croppedAreaPixels);
+      onCropComplete(croppedBlob);
+      onClose();
+    } catch (err) {
+      console.error("Crop error:", err);
+      alert("Failed to crop image");
+    }
   };
 
   return (
     <div className="crop-modal">
-      <div className="crop-container">
+      <div className="cropper-wrapper">
         <Cropper
           image={image}
           crop={crop}
@@ -31,19 +36,30 @@ const CropModal = ({ image, onClose, onCropComplete }) => {
           onCropChange={setCrop}
           onZoomChange={setZoom}
           onCropComplete={onCropCompleteInternal}
+          cropShape="rect"
+          showGrid={false}
         />
-        <Slider
-          className="zoom-slider"
+      </div>
+
+      <div className="controls">
+        <label>Zoom</label>
+        <input
+          type="range"
           min={1}
           max={3}
           step={0.1}
           value={zoom}
-          onChange={setZoom}
+          onChange={(e) => setZoom(Number(e.target.value))}
         />
-        <div className="crop-buttons">
-          <button onClick={handleDone}>Crop</button>
-          <button onClick={onClose}>Cancel</button>
-        </div>
+      </div>
+
+      <div className="crop-buttons">
+        <button className="btn primary" onClick={handleDone}>
+          Crop
+        </button>
+        <button className="btn secondary" onClick={onClose}>
+          Cancel
+        </button>
       </div>
     </div>
   );

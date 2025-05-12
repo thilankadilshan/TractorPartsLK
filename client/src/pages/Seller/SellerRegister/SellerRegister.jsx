@@ -1,10 +1,10 @@
 // pages/SellerRegister.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import CropModal from "../components/CropModal";
-import "../styles/SellerRegister.css";
+import Header from "../../../components/Header/Header";
+import Footer from "../../../components/Footer/Footer";
+import CropModal from "../../../components/CropModal/CropModal";
+import "./SellerRegister.css";
 
 const SellerRegister = () => {
   const navigate = useNavigate();
@@ -94,7 +94,7 @@ const SellerRegister = () => {
 
   return (
     <>
-      <Navbar />
+      <Header />
       <div className="register-container">
         <h2>Seller Registration</h2>
         <form

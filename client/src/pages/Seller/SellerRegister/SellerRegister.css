@@ -5,8 +5,9 @@
     margin: 2rem auto;
     padding: 2rem;
     background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 2px solid rgb(0, 255, 55);
+    border-radius: 1px;
+    box-shadow: 0 4px 20px rgba(51, 255, 0, 0.27);
 }
 
 .register-container h2 {
