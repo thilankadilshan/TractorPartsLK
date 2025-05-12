@@ -29,9 +29,9 @@ const TrustedSeller = () => {
       {error && <p className="error">{error}</p>}
 
       <div className="seller-flex-container">
-        {sellers.map((seller, index) => (
+        {sellers.map((seller) => (
           <div
-            key={index}
+            key={seller._id}
             className="seller-card block"
             onClick={() => navigate(`/sellers/${seller._id}`)}
           >
@@ -44,6 +44,8 @@ const TrustedSeller = () => {
               alt={seller.companyName}
               className="seller-logo"
             />
+
+            <h3 className="company-name">{seller.companyName}</h3>
 
             <button className="shop-btn">Shop</button>
           </div>

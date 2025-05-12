@@ -44,7 +44,9 @@ const SellerRegister = () => {
   };
 
   const handleCropComplete = (croppedBlob) => {
-    setForm({ ...form, profilePicture: croppedBlob });
+    // Convert the cropped Blob into a File with the correct extension
+    const file = new File([croppedBlob], "profile.jpg", { type: "image/jpeg" });
+    setForm({ ...form, profilePicture: file });
   };
 
   const handleSubmit = async (e) => {
