@@ -55,10 +55,10 @@ const Dashboard = () => {
           <h4>Total Sellers</h4>
           <p>104</p>
         </div>
-        <div className="dashboard-card card-purple">
+        {/* <div className="dashboard-card card-purple">
           <h4>Revenue</h4>
           <p>$76,450</p>
-        </div>
+        </div> */}
       </div>
 
       <div className="dashboard-charts">
