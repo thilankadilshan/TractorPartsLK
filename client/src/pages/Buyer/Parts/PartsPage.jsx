@@ -2,6 +2,7 @@ import React from "react";
 import "./PartsPage.css";
 import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
+import NewestProducts from "../../../components/NewestProducts/NewestProducts";
 
 function PartsPage() {
   return (
@@ -39,6 +40,10 @@ function PartsPage() {
           <li>✅ Delivery Across Rural & Urban Areas</li>
         </ul>
       </section>
+      <div>
+        <h1>Parts</h1>
+        <NewestProducts />
+      </div>
 
       <Footer />
     </div>
