@@ -36,15 +36,9 @@ const SellerDashboard = () => {
       <p>
         <strong>Welcome:</strong> {dashboard.sellerName}
       </p>
-      <p>
-        <strong>Total Products:</strong> {dashboard.productCount}
-      </p>
-      <p>
-        <strong>Pending Orders:</strong> {dashboard.pendingOrders}
-      </p>
-      <p>
-        <strong>Total Sales:</strong> ${dashboard.totalSales}
-      </p>
+      <p>{/* <strong>Total Products:</strong> {dashboard.productCount} */}</p>
+      <p>{/* <strong>Pending Orders:</strong> {dashboard.pendingOrders} */}</p>
+      <p>{/* <strong>Total Sales:</strong> ${dashboard.totalSales} */}</p>
       {/* Add more dashboard stats */}
     </div>
   );
