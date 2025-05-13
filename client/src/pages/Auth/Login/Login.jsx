@@ -37,10 +37,14 @@ const Login = ({ onSwitch }) => {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
+      // ✅ Notify AuthContext about login change
+      window.dispatchEvent(new Event("authChange"));
+
+      // ✅ Navigate after login
       if (userRole === "admin") {
         navigate("/admin");
       } else {
-        navigate("/"); // both user and seller go home
+        navigate("/home");
       }
     } catch (err) {
       setError("Server error. Please try again later.");
@@ -53,7 +57,7 @@ const Login = ({ onSwitch }) => {
         <img src={cog1} alt="cog1" className="cog1" />
         <img src={cog2} alt="cog2" className="cog2" />
       </div>
-      <h2>Login TracktorpartsLk</h2>
+      <h2>Login TractorPartsLk</h2>
       <form className="form" onSubmit={handleLogin}>
         <input
           type="email"
