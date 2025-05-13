@@ -30,6 +30,13 @@ const SellerLayout = () => {
             Messages
           </NavLink>
           <NavLink
+            to="/seller/add-products"
+            end
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
+            Add Products
+          </NavLink>
+          <NavLink
             to="/seller/manage-products"
             end
             className={({ isActive }) => (isActive ? "active-link" : "")}

@@ -22,6 +22,7 @@ import SellerDashboard from "../pages/Seller/SellerDashboard/SellerDashboard";
 import EditProfile from "../pages/Seller/SellerDashboard/EditProfile";
 import Messages from "../pages/Seller/SellerDashboard/Messages";
 import ManageProducts from "../pages/Seller/SellerDashboard/ManageProducts";
+import AddProducts from "../pages/Seller/SellerDashboard/AddProduts";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -68,6 +69,7 @@ const AppRoutes = () => {
           <Route path="edit-profile" element={<EditProfile />} />
           <Route path="messages" element={<Messages />} />
           <Route path="manage-products" element={<ManageProducts />} />
+          <Route path="add-products" element={<AddProducts />} />
         </Route>
 
         {/* 404 Not Found */}
