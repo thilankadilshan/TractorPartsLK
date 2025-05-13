@@ -20,6 +20,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/sellers', sellerRoutes); // Public-facing seller routes (listing/register)
 app.use('/api/seller', sellerDashboardRoutes); // Seller dashboard (stats, management)
 
+
 // Static file serving (logos, images)
 app.use('/uploads', express.static('uploads'));
 

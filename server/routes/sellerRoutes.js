@@ -1,14 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Seller = require('../models/SellerProfile');
-const upload = require('../middleware/upload'); // Multer config for image uploads
-const { getSellerDashboard } = require('../controllers/sellerDashboardController'); // ✅ IMPORT ADDED
-
-// ✅ NEW route added
-router.get("/dashboard", getSellerDashboard);
+const upload = require('../middleware/upload');
 
 // @route   GET /api/sellers
-// @desc    Get all sellers
+// @desc    Get all sellers (public-facing info)
 // @access  Public
 router.get('/', async (req, res) => {
     try {
@@ -25,7 +21,7 @@ router.get('/', async (req, res) => {
 });
 
 // @route   POST /api/sellers
-// @desc    Register new seller
+// @desc    Register new seller (uploads logo too)
 // @access  Public
 router.post('/', upload.single('logo'), async (req, res) => {
     try {

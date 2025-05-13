@@ -1,30 +1,16 @@
-// const Product = require("../models/Product");
-// const Order = require("../models/Order");
-const User = require("../models/User");
+// controllers/sellerDashboardController.js
+const SellerProfile = require("../models/SellerProfile");
 
 const getSellerDashboard = async (req, res) => {
     try {
         const sellerId = req.user._id;
-
-        // Get seller full name
-        const seller = await User.findById(sellerId);
-        const sellerName = `${seller.firstName} ${seller.lastName}`;
-
-        // Count seller's products
-        // const productCount = await Product.countDocuments({ sellerId });
-
-        // Count pending orders for this seller
-        // const pendingOrders = await Order.countDocuments({ sellerId, status: "pending" });
-
-        // // Calculate total sales (sum of paid orders)
-        // const paidOrders = await Order.find({ sellerId, status: "paid" });
-        // const totalSales = paidOrders.reduce((sum, order) => sum + order.totalPrice, 0);
+        const seller = await SellerProfile.findOne({ userId: sellerId });
+        if (!seller) {
+            return res.status(404).json({ message: "Seller profile not found" });
+        }
 
         res.json({
-            sellerName,
-            // productCount,
-            // pendingOrders,
-            // totalSales,
+            sellerName: seller.companyName,
         });
     } catch (err) {
         console.error("Dashboard error:", err);
@@ -32,4 +18,49 @@ const getSellerDashboard = async (req, res) => {
     }
 };
 
-module.exports = { getSellerDashboard };
+// ✅ GET profile controller
+const getSellerProfile = async (req, res) => {
+    try {
+        const seller = await SellerProfile.findOne({ userId: req.user._id });
+
+        if (!seller) {
+            return res.status(404).json({ message: "Seller profile not found" });
+        }
+
+        res.json(seller);
+    } catch (error) {
+        console.error("Profile fetch error:", error);
+        res.status(500).json({ message: "Server error while fetching profile" });
+    }
+};
+
+// ✅ PUT profile update controller
+const updateSellerProfile = async (req, res) => {
+    try {
+        const seller = await SellerProfile.findOne({ userId: req.user._id });
+
+        if (!seller) {
+            return res.status(404).json({ message: "Seller not found" });
+        }
+
+        seller.companyName = req.body.companyName || seller.companyName;
+        seller.description = req.body.description || seller.description;
+
+        // If you're using multer for logo update
+        if (req.file) {
+            seller.logo = req.file.path.replace(/\\/g, "/");
+        }
+
+        await seller.save();
+        res.json(seller);
+    } catch (err) {
+        console.error("Update error:", err);
+        res.status(500).json({ message: "Error updating profile" });
+    }
+};
+
+module.exports = {
+    getSellerDashboard,
+    getSellerProfile,
+    updateSellerProfile,
+};
