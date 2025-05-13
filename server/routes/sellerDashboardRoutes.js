@@ -1,7 +1,7 @@
-// routes/sellerDashboardRoutes.js
 const express = require("express");
 const router = express.Router();
 const { protect, isSeller } = require("../middleware/authMiddleware");
+const upload = require("../middleware/upload"); // <-- Make sure this is imported
 const {
     getSellerDashboard,
     getSellerProfile,
@@ -14,7 +14,7 @@ router.get("/dashboard", protect, isSeller, getSellerDashboard);
 // ✅ GET /api/seller/profile
 router.get("/profile", protect, isSeller, getSellerProfile);
 
-// ✅ PUT /api/seller/profile
-router.put("/profile", protect, isSeller, updateSellerProfile);
+// ✅ FIXED PUT route (now using multer for file + form fields)
+router.put("/profile", protect, isSeller, upload.single("logo"), updateSellerProfile);
 
 module.exports = router;
