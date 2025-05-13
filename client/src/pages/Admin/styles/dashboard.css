@@ -1,8 +1,9 @@
-/* src/styles/dashboard.css */
+/* src/pages/styles/dashboard.css */
 .dashboard-wrapper {
     padding: 2rem;
-    background: #f4f6f9;
     font-family: "Segoe UI", sans-serif;
+    min-height: 100%;
+    box-sizing: border-box;
 }
 
 .dashboard-title {
