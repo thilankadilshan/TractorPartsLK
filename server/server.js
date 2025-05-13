@@ -1,24 +1,21 @@
-// ==== ✅ SERVER ENTRYPOINT: server.js ====
+// server.js
 const mongoose = require("mongoose");
 const app = require("./App");
 require("dotenv").config();
 
-// MongoDB Connection
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI); // ✅ No deprecated options
+        await mongoose.connect(process.env.MONGO_URI);
         console.log("MongoDB Connected:", mongoose.connection.host);
     } catch (err) {
         console.error("MongoDB connection error:", err);
-        process.exit(1); // Exit the process if the DB connection fails
+        process.exit(1);
     }
 };
 
-// Start the Server
 const startServer = () => {
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 };
 
-// Connect to MongoDB and then start the server
 connectDB().then(startServer);

@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Seller = require('../models/SellerProfile');
 const upload = require('../middleware/upload'); // Multer config for image uploads
+const { getSellerDashboard } = require('../controllers/sellerDashboardController'); // ✅ IMPORT ADDED
+
+// ✅ NEW route added
+router.get("/dashboard", getSellerDashboard);
 
 // @route   GET /api/sellers
 // @desc    Get all sellers
@@ -9,13 +13,10 @@ const upload = require('../middleware/upload'); // Multer config for image uploa
 router.get('/', async (req, res) => {
     try {
         const sellers = await Seller.find().select('companyName logo description');
-
-        // Fix path slashes before sending
         const cleanedSellers = sellers.map(seller => ({
             ...seller._doc,
             logo: seller.logo ? seller.logo.replace(/\\/g, '/') : null
         }));
-
         res.json(cleanedSellers);
     } catch (error) {
         console.error(error);
@@ -25,12 +26,10 @@ router.get('/', async (req, res) => {
 
 // @route   POST /api/sellers
 // @desc    Register new seller
-// @access  Public (or protected if you want)
-// Make sure frontend sends multipart/form-data with a 'logo' field
+// @access  Public
 router.post('/', upload.single('logo'), async (req, res) => {
     try {
         const { companyName, description } = req.body;
-
         const logoPath = req.file?.path ? req.file.path.replace(/\\/g, '/') : null;
 
         const newSeller = new Seller({
