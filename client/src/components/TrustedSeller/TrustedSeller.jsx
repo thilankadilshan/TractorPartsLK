@@ -1,39 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { fetchSellers } from "../../services/sellerService";
 import "./TrustedSeller.css";
-
-// Image imports
-import nandhaLogo from "../../assets/sellers/nandha.jpg";
-import brownsLogo from "../../assets/sellers/browns.png";
-import asianLogo from "../../assets/sellers/asian.jpg";
-import avrLogo from "../../assets/sellers/avr.jpg";
-
-const sellers = [
-  { name: "Nandha Trac Group", logo: nandhaLogo, link: "/sellers/nandha" },
-  { name: "Browns Agriculture", logo: brownsLogo, link: "/sellers/browns" },
-  { name: "Asian Global Ltd", logo: asianLogo, link: "/sellers/asian" },
-  { name: "AVR Holdings", logo: avrLogo, link: "/sellers/avr" },
-  { name: "Nandha Trac Group", logo: nandhaLogo, link: "/sellers/nandha" },
-  { name: "Browns Agriculture", logo: brownsLogo, link: "/sellers/browns" },
-  { name: "Asian Global Ltd", logo: asianLogo, link: "/sellers/asian" },
-  { name: "AVR Holdings", logo: avrLogo, link: "/sellers/avr" },
-];
 
 const TrustedSeller = () => {
   const navigate = useNavigate();
+  const [sellers, setSellers] = useState([]);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const getSellers = async () => {
+      try {
+        const data = await fetchSellers();
+        setSellers(data);
+      } catch (err) {
+        console.error(err);
+        setError("Failed to load sellers");
+      }
+    };
+
+    getSellers();
+  }, []);
 
   return (
     <div className="trusted-sellers-section">
-      <h2 className="section-title block">TRUSTED SELLERS</h2>{" "}
-      {/* Added block class here */}
+      <h2 className="section-title block">TRUSTED SELLERS</h2>
+
+      {error && <p className="error">{error}</p>}
+
       <div className="seller-flex-container">
-        {sellers.map((seller, index) => (
+        {sellers.map((seller) => (
           <div
-            key={index}
+            key={seller._id}
             className="seller-card block"
-            onClick={() => navigate(seller.link)}
+            onClick={() => navigate(`/sellers/${seller._id}`)}
           >
-            <img src={seller.logo} alt={seller.name} className="seller-logo" />
+            <img
+              src={
+                seller.logo
+                  ? `http://localhost:5000/${seller.logo.replace(/\\/g, "/")}`
+                  : "/placeholder.jpg"
+              }
+              alt={seller.companyName}
+              className="seller-logo"
+            />
+
+            <h3 className="company-name">{seller.companyName}</h3>
+
             <button className="shop-btn">Shop</button>
           </div>
         ))}

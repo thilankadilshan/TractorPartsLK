@@ -58,7 +58,7 @@ TractorPartsLK/
 │ ├── routes/ # React Router setup
 │ │ └── AppRoutes.jsx
 │ ├── services/ # API handlers
-│ │ ├── authService.js
+│ │ ├── sellerService.js
 │ │ ├── productService.js
 │ │ └── orderService.js
 │ ├── utils/ # Helper functions
@@ -80,19 +80,24 @@ TractorPartsLK/
 │ ├── middleware/
 │ │ ├── authMiddleware.js
 │ │ ├── roleMiddleware.js
-│ │ └── errorHandler.js
+│ │ ├──errorHandler.js
+│ │ └──upload.js
 │ ├── models/
 │ │ ├── User.js
 │ │ ├── Product.js
 │ │ ├── Order.js
+│ │ ├── SellerProfile.js
 │ │ └── Category.js
 │ ├── routes/
 │ │ ├── authRoutes.js
 │ │ ├── buyerRoutes.js
 │ │ ├── sellerRoutes.js
 │ │ ├── adminRoutes.js
+│ │ ├── achatbotRoutes.js
 │ │ └── productRoutes.js
-│ ├── uploads/ # For image uploads
+│ ├── uploads/
+│ │ ├──seller/profile # For image uploads
+│ │ └──events
 │ ├── utils/
 │ │ └── generateToken.js
 │ ├── App.js # Main Express app config

@@ -12,6 +12,7 @@ import EventsPage from "../pages/Buyer/Events/EventsPage";
 import SearchByImage from "../pages/Buyer/SearchByImage/SearchByImage";
 import Chatbot from "../components/Chatbot/Chatbot"; // Chatbot component
 import { useChatBot } from "../context/ChatBotContext"; // Import useChatBot
+import SellerRegister from "../pages/Seller/SellerRegister/SellerRegister";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -52,6 +53,8 @@ const AppRoutes = () => {
         {/* 404 Not Found */}
         <Route path="/404" element={<NotFound404 />} />
         <Route path="*" element={<Navigate to="/404" />} />
+
+        <Route path="/seller/register" element={<SellerRegister />} />
       </Routes>
 
       {/* 🚀 Show AIChatButton */}

@@ -1,26 +1,43 @@
-/* Default styles - desktop/tablet */
-.body {
+/* Full page background image
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url('../../../assets/bg1.jpg') no-repeat center center/cover;
   touch-action: manipulation;
+  font-family: Arial, sans-serif;
+  backdrop-filter: blur(15px);
 }
-
+*/
+/* Glassmorphism Form */
 .form-container {
-  background: rgb(244, 255, 244);
-  border: 3px solid #00ff37;
-  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.104);
+  /* light white tint for glass */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgb(0, 255, 55);
+  border-radius: 0px;
   padding: 2rem;
   box-shadow: 0 0 20px #00ff37;
   position: relative;
-  height: 100%;
   max-width: 500px;
-  margin: 0 auto;
+  margin-top: -10px;
+  min-height: 550px;
+  transform: translateY(-40px);
 }
+
 
 h2 {
   text-align: center;
-  color: #1D4F28;
-  margin-bottom: 1.5rem;
+  color: #31ba4f;
+  margin-bottom: 10px;
   font-size: 1.75rem;
 }
+
+.form-container p {
+  color: aliceblue;
+}
+
 
 .form {
   display: flex;
@@ -36,7 +53,7 @@ h2 {
 }
 
 .form button {
-  background-color: #1D4F28;
+  background-color: #289840;
   color: white;
   border: none;
   padding: 0.75rem;
@@ -44,16 +61,60 @@ h2 {
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 1rem;
+  margin-bottom: 10px;
 }
 
+
 .form button:hover {
-  background-color: #28bf53;
+  background-color: #025118;
 }
 
 .error {
   color: red;
   margin-bottom: 1rem;
   font-size: 0.875rem;
+}
+
+/* Terms and Conditions checkbox */
+.terms-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.terms-label {
+  color: white;
+  /* or any color you want */
+  font-size: 14px;
+}
+
+.terms-label a {
+  color: #3fa2ff;
+  /* link color */
+  text-decoration: underline;
+}
+
+.terms-container input[type='checkbox'] {
+  margin-right: 0.5rem;
+}
+
+/* 🏠 Back to Home button */
+.back-home-btn {
+  background-color: transparent;
+  color: #3ba152;
+  border: 2px solid #1D4F28;
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.back-home-btn:hover {
+  background-color: #1D4F28;
+  color: white;
 }
 
 .switch-text {
@@ -108,9 +169,13 @@ h2 {
 @media (max-width: 430px) {
   .form-container {
     padding: 1rem;
-    margin: 1rem;
-    max-width: 50%;
+    margin: 1rem auto;
+    max-width: 80%;
     box-shadow: 0 0 10px #00ff37;
+    min-height: 500px;
+    /* Adjusted height for mobile */
+    transform: translateY(-20px);
+    /* Less upward shift on mobile */
   }
 
   h2 {
@@ -125,6 +190,15 @@ h2 {
 
   .switch-text {
     font-size: 13px;
+  }
+
+  .terms-container {
+    font-size: 0.8rem;
+  }
+
+  .back-home-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem;
   }
 
   .cog-container {

@@ -1,0 +1,57 @@
+.seller-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 30px auto;
+    max-width: 900px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.seller-banner.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.seller-text h2 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+}
+
+.seller-text p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.seller-button {
+    background-color: white;
+    color: #2575fc;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.seller-button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .seller-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .seller-button {
+        margin-top: 20px;
+    }
+}

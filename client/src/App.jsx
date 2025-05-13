@@ -1,14 +1,21 @@
 // App.jsx
 import React from "react";
-import { ChatBotProvider } from "./context/ChatBotContext"; // only ChatBotProvider
+import { useLocation } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
+import AdminRoutes from "./routes/AdminRoute";
+import { ChatBotProvider } from "./context/ChatBotContext";
 import BackToTop from "./components/BackToTop/BackToTop";
 
-const App = () => {
+const RouterWrapper = () => {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith("/admin");
+
+  if (isAdmin) {
+    return <AdminRoutes />;
+  }
+
   return (
     <ChatBotProvider>
-      {" "}
-      {/* ✅ Only wrap with ChatBotProvider */}
       <>
         <AppRoutes />
         <BackToTop />
@@ -16,5 +23,7 @@ const App = () => {
     </ChatBotProvider>
   );
 };
+
+const App = () => <RouterWrapper />;
 
 export default App;
