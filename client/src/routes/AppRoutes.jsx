@@ -10,9 +10,11 @@ import ShopsPage from "../pages/Buyer/Shops/ShopsPage";
 import PartsPage from "../pages/Buyer/Parts/PartsPage";
 import EventsPage from "../pages/Buyer/Events/EventsPage";
 import SearchByImage from "../pages/Buyer/SearchByImage/SearchByImage";
+import Profile from "../pages/Buyer/Profile/Profile";
 import Chatbot from "../components/Chatbot/Chatbot"; // Chatbot component
 import { useChatBot } from "../context/ChatBotContext"; // Import useChatBot
 import SellerRegister from "../pages/Seller/SellerRegister/SellerRegister";
+import SellerDashboard from "../pages/Seller/SellerDashboard/SellerDashboard";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -38,6 +40,7 @@ const AppRoutes = () => {
         <Route path="/parts" element={<PartsPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/search-by-image" element={<SearchByImage />} />
+        <Route path="/profile" element={<Profile />} />
 
         {/* ❌ Do not show chatbot page anymore (optional: you can keep it for testing if you want) */}
         {/* <Route path="/chatbot" element={<div />} /> */}
@@ -55,6 +58,7 @@ const AppRoutes = () => {
         <Route path="*" element={<Navigate to="/404" />} />
 
         <Route path="/seller/register" element={<SellerRegister />} />
+        <Route path="/seller/dashboard" element={<SellerDashboard />} />
       </Routes>
 
       {/* 🚀 Show AIChatButton */}
