@@ -1,10 +1,9 @@
-// /*
-// STEP 3: Controller Logic (controllers/productController.js)
-// -----------------------------------------------------------
-// */
+
+// // controllers/productController.js
 
 // const Product = require('../models/Product');
 
+// // CREATE product
 // exports.createProduct = async (req, res) => {
 //     try {
 //         const { name, description, price, partNumber, brand, model } = req.body;
@@ -27,15 +26,12 @@
 //         console.error("Create Product Error:", err);
 //         res.status(500).json({ error: 'Server error creating product' });
 //     }
-
 // };
 
-// // controllers/productController.js
-// const Product = require('../models/Product');
-
+// // GET Newest Products
 // exports.getNewestProducts = async (req, res) => {
 //     try {
-//         const products = await Product.find().sort({ createdAt: -1 }).limit(8); // Get 8 newest products
+//         const products = await Product.find().sort({ createdAt: -1 }).limit(8);
 //         res.status(200).json(products);
 //     } catch (err) {
 //         console.error("Error fetching newest products:", err);
@@ -43,7 +39,6 @@
 //     }
 // };
 
-// controllers/productController.js
 
 const Product = require('../models/Product');
 
@@ -80,5 +75,19 @@ exports.getNewestProducts = async (req, res) => {
     } catch (err) {
         console.error("Error fetching newest products:", err);
         res.status(500).json({ error: 'Server error fetching newest products' });
+    }
+};
+
+// ✅ GET Product by ID
+exports.getProductById = async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+        if (!product) {
+            return res.status(404).json({ error: 'Product not found' });
+        }
+        res.status(200).json(product);
+    } catch (err) {
+        console.error("Error fetching product by ID:", err);
+        res.status(500).json({ error: 'Server error fetching product' });
     }
 };

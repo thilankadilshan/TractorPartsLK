@@ -12,7 +12,7 @@
 
 const express = require('express');
 const router = express.Router();
-const { createProduct, getNewestProducts } = require('../controllers/productController'); // ✅ Import both functions
+const { createProduct, getNewestProducts, getProductById } = require('../controllers/productController');
 const { protect } = require('../middleware/authMiddleware');
 const { uploadProduct } = require('../middleware/upload');
 
@@ -21,5 +21,10 @@ router.post('/add-product', protect, uploadProduct.single('image'), createProduc
 
 // ✅ Route to get newest products
 router.get('/newest-products', getNewestProducts);
+
+// ✅ Route to get a single product by ID
+router.get('/view/:id', getProductById); // Notice the /view to avoid conflict
+
+
 
 module.exports = router;
