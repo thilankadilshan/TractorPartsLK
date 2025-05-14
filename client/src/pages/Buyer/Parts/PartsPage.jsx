@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./PartsPage.css";
 import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
 import NewestProducts from "../../../components/NewestProducts/NewestProducts";
 
 function PartsPage() {
+  const newestProductsRef = useRef(null);
+
+  const handleScrollToProducts = () => {
+    if (newestProductsRef.current) {
+      newestProductsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="parts-page">
       <Header />
@@ -13,7 +21,9 @@ function PartsPage() {
         <div className="hero-content">
           <h1>Find Genuine Tractor Spare Parts</h1>
           <p>Connecting Farmers with Trusted Sellers Across the Country</p>
-          <button className="cta-button">Browse Parts</button>
+          <button className="cta-button" onClick={handleScrollToProducts}>
+            Browse Parts
+          </button>
         </div>
       </section>
 
@@ -40,8 +50,9 @@ function PartsPage() {
           <li>✅ Delivery Across Rural & Urban Areas</li>
         </ul>
       </section>
-      <div>
-        <h1>Parts</h1>
+
+      {/* Scroll target section */}
+      <div ref={newestProductsRef}>
         <NewestProducts />
       </div>
 
