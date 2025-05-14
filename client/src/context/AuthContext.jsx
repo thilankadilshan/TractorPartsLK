@@ -1,34 +1,43 @@
+// src/context/AuthContext.js
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-// Create Context
 const AuthContext = createContext();
-
-// Hook to use AuthContext
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); // e.g., { name, email, role }
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Auto login from localStorage
+  // Load user from localStorage initially
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser) setUser(storedUser);
+    setUser(storedUser);
     setLoading(false);
   }, []);
 
-  const login = (userData) => {
-    setUser(userData);
-    localStorage.setItem("user", JSON.stringify(userData));
-  };
+  // Listen for login updates via custom event
+  useEffect(() => {
+    const handleAuthChange = () => {
+      const updatedUser = JSON.parse(localStorage.getItem("user"));
+      setUser(updatedUser);
+    };
+
+    window.addEventListener("authChange", handleAuthChange);
+
+    return () => {
+      window.removeEventListener("authChange", handleAuthChange);
+    };
+  }, []);
 
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    window.dispatchEvent(new Event("authChange")); // <-- Notify logout
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
+    <AuthContext.Provider value={{ user, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

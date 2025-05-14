@@ -74,14 +74,15 @@ TractorPartsLK/
 │ ├── controllers/
 │ │ ├── authController.js
 │ │ ├── buyerController.js
+│ │ ├── sellerDashboardController.js
 │ │ ├── sellerController.js
 │ │ ├── adminController.js
 │ │ └── productController.js
 │ ├── middleware/
 │ │ ├── authMiddleware.js
 │ │ ├── roleMiddleware.js
-│ │ ├──errorHandler.js
-│ │ └──upload.js
+│ │ ├── errorHandler.js
+│ │ └── upload.js
 │ ├── models/
 │ │ ├── User.js
 │ │ ├── Product.js
@@ -94,6 +95,7 @@ TractorPartsLK/
 │ │ ├── sellerRoutes.js
 │ │ ├── adminRoutes.js
 │ │ ├── achatbotRoutes.js
+│ │ ├── sellerDashboardRoutes.js
 │ │ └── productRoutes.js
 │ ├── uploads/
 │ │ ├──seller/profile # For image uploads
