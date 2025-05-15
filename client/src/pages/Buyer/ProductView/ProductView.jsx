@@ -9,22 +9,32 @@ import "./ProductView.css";
 const ProductView = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [seller, setSeller] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const fetchProduct = async () => {
+    const fetchProductAndSeller = async () => {
       try {
+        // Step 1: Get product details
         const res = await axios.get(
           `http://localhost:5000/api/seller/view/${id}`
         );
         setProduct(res.data);
+
+        // Step 2: Get seller info based on product.seller (MongoDB ID)
+        if (res.data.seller) {
+          const sellerRes = await axios.get(
+            `http://localhost:5000/api/sellers/${res.data.seller}`
+          );
+          setSeller(sellerRes.data);
+        }
       } catch (err) {
         console.error(err);
-        setError("Failed to load product details");
+        setError("Failed to load product or seller details.");
       }
     };
 
-    fetchProduct();
+    fetchProductAndSeller();
   }, [id]);
 
   return (
@@ -70,13 +80,37 @@ const ProductView = () => {
 
             <div className="seller-info">
               <h3>Seller Info</h3>
-              <p>
-                <strong>Seller ID:</strong> {product.seller}
-              </p>
-              <p>
-                More seller details will be shown here if API allows fetching by
-                ID.
-              </p>
+              {seller ? (
+                <>
+                  {seller.logo && (
+                    <img
+                      src={`http://localhost:5000/${seller.logo}`}
+                      alt="Seller Logo"
+                      className="seller-logo"
+                    />
+                  )}
+                  <p>
+                    <strong>Company:</strong> {seller.companyName}
+                  </p>
+                  <p>
+                    <strong>Contact:</strong> {seller.contactNumber || "N/A"}
+                  </p>
+                  <p>
+                    <strong>Address:</strong> {seller.address || "N/A"}
+                  </p>
+                  <p>{seller.description}</p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    <strong>Seller ID:</strong> {product.seller}
+                  </p>
+                  <p>
+                    More seller details will be shown here if API allows
+                    fetching by ID.
+                  </p>
+                </>
+              )}
               <button className="message-button">Send Message</button>
             </div>
           </div>
