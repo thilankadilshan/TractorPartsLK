@@ -1,0 +1,31 @@
+.seller-details-container {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.seller-details-card {
+    text-align: center;
+}
+
+.seller-details-logo {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.loading {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
