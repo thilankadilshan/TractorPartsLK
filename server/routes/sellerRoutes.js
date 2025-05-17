@@ -72,6 +72,8 @@ const express = require('express');
 const router = express.Router();
 const Seller = require('../models/SellerProfile');
 const upload = require('../middleware/upload');
+const SellerProfile = Seller;
+
 
 // ✅ Moved up: Get seller public profile by ID (avoid route conflict)
 router.get('/:id', async (req, res) => {
@@ -126,6 +128,16 @@ router.post('/', upload.single('logo'), async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Error registering seller' });
+    }
+});
+
+router.get("/user/:userId", async (req, res) => {
+    try {
+        const seller = await SellerProfile.findOne({ userId: req.params.userId });
+        if (!seller) return res.status(404).json({ message: "Seller not found" });
+        res.json(seller);
+    } catch (error) {
+        res.status(500).json({ message: "Server Error", error });
     }
 });
 

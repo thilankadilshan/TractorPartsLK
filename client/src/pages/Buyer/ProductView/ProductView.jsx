@@ -1,4 +1,3 @@
-// src/pages/ProductView.jsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -15,16 +14,15 @@ const ProductView = () => {
   useEffect(() => {
     const fetchProductAndSeller = async () => {
       try {
-        // Step 1: Get product details
         const res = await axios.get(
           `http://localhost:5000/api/seller/view/${id}`
         );
         setProduct(res.data);
 
-        // Step 2: Get seller info based on product.seller (MongoDB ID)
+        // 🔥 Fetch seller using product.seller (which is userId)
         if (res.data.seller) {
           const sellerRes = await axios.get(
-            `http://localhost:5000/api/sellers/${res.data.seller}`
+            `http://localhost:5000/api/sellers/user/${res.data.seller}`
           );
           setSeller(sellerRes.data);
         }
