@@ -41,6 +41,8 @@
 
 
 const Product = require('../models/Product');
+const SellerProfile = require('../models/SellerProfile');
+
 
 // CREATE product
 exports.createProduct = async (req, res) => {
@@ -91,3 +93,23 @@ exports.getProductById = async (req, res) => {
         res.status(500).json({ error: 'Server error fetching product' });
     }
 };
+
+// GET products by seller ID
+exports.getProductsBySeller = async (req, res) => {
+    try {
+        const sellerProfileId = req.params.sellerId.trim();
+        // Find the Seller Profile
+        const sellerProfile = await SellerProfile.findById(sellerProfileId);
+        if (!sellerProfile) {
+            return res.status(404).json({ message: 'Seller profile not found' });
+        }
+
+        // Use userId to find products
+        const products = await Product.find({ seller: sellerProfile.userId });
+        res.status(200).json(products);
+    } catch (error) {
+        console.error('Error fetching seller products:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+

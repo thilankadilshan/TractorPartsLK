@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
+import SellerProducts from "../../../components/SellerProducts/SellerProducts";
+
 import "./SellerDetails.css";
 
 const SellerDetails = () => {
@@ -56,6 +58,8 @@ const SellerDetails = () => {
           !error && <p className="loading">Loading seller details...</p>
         )}
       </div>
+      {seller && <SellerProducts sellerId={id} />}
+
       <Footer />
     </>
   );
