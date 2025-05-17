@@ -15,6 +15,7 @@ import Profile from "../pages/Buyer/Profile/Profile";
 import Chatbot from "../components/Chatbot/Chatbot";
 import { useChatBot } from "../context/ChatBotContext";
 import ProductView from "../pages/Buyer/ProductView/ProductView";
+import SellerDetails from "../pages/Buyer/SellerDetails/SellerDetails";
 
 // Seller components
 import SellerRegister from "../pages/Seller/SellerRegister/SellerRegister";
@@ -52,6 +53,7 @@ const AppRoutes = () => {
         <Route path="/search-by-image" element={<SearchByImage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/product/:id" element={<ProductView />} />
+        <Route path="/sellers/:id" element={<SellerDetails />} />
 
         {/* Tractor Brand Route */}
         <Route path="/brands/:brandName" element={<BrandPage />} />
