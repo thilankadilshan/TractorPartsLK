@@ -27,14 +27,14 @@ const SellerProducts = ({ sellerId }) => {
 
   return (
     <div className="seller-products-section">
-      <h3>Products by this Seller</h3>
-      {error && <p className="error">{error}</p>}
+      <h3 className="seller-products-title">Products by this Seller</h3>
+      {error && <p className="seller-products-error">{error}</p>}
 
-      <div className="product-flex-container">
+      <div className="seller-products-flex-container">
         {products.map((product) => (
           <div
             key={product._id}
-            className="product-card"
+            className="seller-product-card"
             onClick={() => navigate(`/product/${product._id}`)}
           >
             <img
@@ -43,10 +43,10 @@ const SellerProducts = ({ sellerId }) => {
                 "/"
               )}`}
               alt={product.name}
-              className="product-image"
+              className="seller-product-image"
             />
-            <h4 className="product-name">{product.name}</h4>
-            <p className="product-price">${product.price}</p>
+            <h4 className="seller-product-name">{product.name}</h4>
+            <p className="seller-product-price">${product.price}</p>
           </div>
         ))}
       </div>
