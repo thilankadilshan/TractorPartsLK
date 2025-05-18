@@ -1,7 +1,10 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/seller"; // 👈 Include backend URL
+// Correct API endpoint for public product search
+const PRODUCT_API = "http://localhost:5000/api/products";
+const SELLER_API = "http://localhost:5000/api/seller"; // for adding product
 
+// ✅ For adding products (with auth)
 export const addProduct = async (formData, token) => {
     const config = {
         headers: {
@@ -10,12 +13,12 @@ export const addProduct = async (formData, token) => {
         },
     };
 
-    const response = await axios.post(`${API_URL}/add-product`, formData, config);
+    const response = await axios.post(`${SELLER_API}/add-product`, formData, config);
     return response.data;
 };
 
-// ✅ Added searchProducts function
+// ✅ FIXED: Now points to correct search route
 export const searchProducts = async (query) => {
-    const response = await axios.get(`${API_URL}/search?query=${encodeURIComponent(query)}`);
+    const response = await axios.get(`${PRODUCT_API}/search?q=${encodeURIComponent(query)}`);
     return response.data;
 };
