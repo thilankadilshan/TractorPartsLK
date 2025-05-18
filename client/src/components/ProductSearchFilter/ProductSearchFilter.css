@@ -1,57 +1,52 @@
-/* Container styles */
-.product-search-filter {
-    padding: 1rem;
-    background-color: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    align-items: end;
-    margin-bottom: 2rem;
-}
-
-/* Input and select */
-.product-search-filter input,
-.product-search-filter select {
-    padding: 0.6rem 0.75rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.5rem;
-    font-size: 0.95rem;
-    background-color: #f9fafb;
-    transition: border 0.2s ease;
-}
-
-.product-search-filter input:focus,
-.product-search-filter select:focus {
-    border-color: #2563eb;
-    outline: none;
-    background-color: #ffffff;
-}
-
-/* Price input group */
-.price-range-inputs {
+.product-filter-sidebar {
+    width: 280px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", sans-serif;
     display: flex;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 16px;
 }
 
-.price-range-inputs input {
-    flex: 1;
-}
-
-/* Button styles */
-.filter-button {
-    grid-column: 1 / -1;
-    padding: 0.7rem 1rem;
-    background-color: #2563eb;
-    color: #ffffff;
+.filter-title {
+    font-size: 18px;
     font-weight: 600;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.filter-input,
+.filter-select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.price-input-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.price-input-group input {
+    flex: 1 1 120px;
+    min-width: 0;
+}
+
+.filter-button {
+    background-color: #2563eb;
+    color: white;
+    padding: 12px;
+    font-weight: 500;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.25s ease;
+    transition: background 0.3s ease;
 }
 
 .filter-button:hover {
-    background-color: #1e40af;
+    background-color: #1d4ed8;
 }

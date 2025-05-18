@@ -10,10 +10,9 @@ const ProductSearchFilter = ({ onResults }) => {
   const [maxPrice, setMaxPrice] = useState("");
   const [allProducts, setAllProducts] = useState([]);
 
-  // Load all products to extract unique brands/models for dropdowns
   useEffect(() => {
     const loadProducts = async () => {
-      const results = await searchProducts(""); // get all
+      const results = await searchProducts("");
       setAllProducts(results);
     };
     loadProducts();
@@ -42,66 +41,63 @@ const ProductSearchFilter = ({ onResults }) => {
   };
 
   return (
-    <div className="product-search-filter">
-      <div className="p-4 bg-white shadow-md rounded-xl grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+    <div className="product-filter-sidebar">
+      <h3 className="filter-title">Filter Products</h3>
+
+      <input
+        type="text"
+        placeholder="Search by name, brand, model, ID..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        className="filter-input"
+      />
+
+      <select
+        value={brand}
+        onChange={(e) => setBrand(e.target.value)}
+        className="filter-select"
+      >
+        <option value="">All Brands</option>
+        {uniqueBrands.map((b, i) => (
+          <option key={i} value={b}>
+            {b}
+          </option>
+        ))}
+      </select>
+
+      <select
+        value={model}
+        onChange={(e) => setModel(e.target.value)}
+        className="filter-select"
+      >
+        <option value="">All Models</option>
+        {uniqueModels.map((m, i) => (
+          <option key={i} value={m}>
+            {m}
+          </option>
+        ))}
+      </select>
+
+      <div className="price-input-group">
         <input
-          type="text"
-          placeholder="Search by name, brand, model, ID..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="p-2 border rounded"
+          type="number"
+          placeholder="Min Rs"
+          value={minPrice}
+          onChange={(e) => setMinPrice(e.target.value)}
+          className="filter-input"
         />
-
-        <select
-          value={brand}
-          onChange={(e) => setBrand(e.target.value)}
-          className="p-2 border rounded"
-        >
-          <option value="">All Brands</option>
-          {uniqueBrands.map((b, i) => (
-            <option key={i} value={b}>
-              {b}
-            </option>
-          ))}
-        </select>
-
-        <select
-          value={model}
-          onChange={(e) => setModel(e.target.value)}
-          className="p-2 border rounded"
-        >
-          <option value="">All Models</option>
-          {uniqueModels.map((m, i) => (
-            <option key={i} value={m}>
-              {m}
-            </option>
-          ))}
-        </select>
-
-        <div className="flex gap-2">
-          <input
-            type="number"
-            placeholder="Min ₹"
-            value={minPrice}
-            onChange={(e) => setMinPrice(e.target.value)}
-            className="w-1/2 p-2 border rounded"
-          />
-          <input
-            type="number"
-            placeholder="Max ₹"
-            value={maxPrice}
-            onChange={(e) => setMaxPrice(e.target.value)}
-            className="w-1/2 p-2 border rounded"
-          />
-        </div>
-
-        <button
-          onClick={handleSearch}
-          className="col-span-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-        >
-          Search / Filter
-        </button>
+        <input
+          type="number"
+          placeholder="Max Rs"
+          value={maxPrice}
+          onChange={(e) => setMaxPrice(e.target.value)}
+          className="filter-input"
+        />
       </div>
+
+      <button onClick={handleSearch} className="filter-button">
+        Apply Filters
+      </button>
     </div>
   );
 };
