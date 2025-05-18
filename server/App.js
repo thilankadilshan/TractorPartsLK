@@ -25,6 +25,8 @@ app.use('/api/sellers', sellerRoutes); // Public-facing seller routes (listing/r
 app.use('/api/seller', sellerDashboardRoutes); // Seller dashboard (stats, management)
 app.use('/api/seller', productRoutes); // ✅ Product routes for sellers
 app.use("/api/users", userRoutes);
+app.use("/api/products", productRoutes);
+
 
 
 

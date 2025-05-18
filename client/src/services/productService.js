@@ -13,3 +13,9 @@ export const addProduct = async (formData, token) => {
     const response = await axios.post(`${API_URL}/add-product`, formData, config);
     return response.data;
 };
+
+// ✅ Added searchProducts function
+export const searchProducts = async (query) => {
+    const response = await axios.get(`${API_URL}/search?query=${encodeURIComponent(query)}`);
+    return response.data;
+};
