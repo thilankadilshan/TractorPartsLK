@@ -5,11 +5,10 @@
     background-color: #ffffff;
     position: relative;
     z-index: 20;
-    /* Higher than any blur/background */
 }
 
 /* Title */
-.section-title {
+.newest-products-section .section-title {
     font-size: 2.2rem;
     font-weight: bold;
     margin-bottom: 30px;
@@ -17,7 +16,7 @@
 }
 
 /* Flex Container */
-.product-flex-container {
+.newest-products-section .product-flex-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -27,7 +26,7 @@
 }
 
 /* Product Card */
-.product-card {
+.newest-products-section .product-card {
     background-color: #e6f3ea;
     border: 1px solid #60905c;
     border-radius: 12px;
@@ -42,13 +41,13 @@
     z-index: 10;
 }
 
-.product-card:hover {
+.newest-products-section .product-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 /* Product Image Styling */
-.product-image {
+.newest-products-section .product-image {
     width: 100%;
     max-width: 180px;
     max-height: 180px;
@@ -58,7 +57,7 @@
 }
 
 /* Product Name */
-.product-name {
+.newest-products-section .product-name {
     font-size: 1rem;
     font-weight: 600;
     color: #184c35;
@@ -67,7 +66,7 @@
 }
 
 /* Product Price */
-.product-price {
+.newest-products-section .product-price {
     font-size: 0.95rem;
     font-weight: 500;
     color: #2d6a4f;
@@ -76,20 +75,20 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .product-card {
+    .newest-products-section .product-card {
         width: 180px;
     }
 
-    .product-image {
+    .newest-products-section .product-image {
         max-width: 140px;
         max-height: 140px;
     }
 
-    .product-name {
+    .newest-products-section .product-name {
         font-size: 0.95rem;
     }
 
-    .product-price {
+    .newest-products-section .product-price {
         font-size: 0.9rem;
     }
 }
@@ -99,16 +98,16 @@
         padding: 30px 15px;
     }
 
-    .section-title {
+    .newest-products-section .section-title {
         font-size: 1.8rem;
     }
 
-    .product-card {
+    .newest-products-section .product-card {
         width: 160px;
         padding: 10px;
     }
 
-    .product-image {
+    .newest-products-section .product-image {
         max-width: 120px;
         max-height: 120px;
     }
