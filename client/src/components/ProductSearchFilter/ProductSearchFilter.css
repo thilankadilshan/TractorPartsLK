@@ -1,0 +1,57 @@
+/* Container styles */
+.product-search-filter {
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    align-items: end;
+    margin-bottom: 2rem;
+}
+
+/* Input and select */
+.product-search-filter input,
+.product-search-filter select {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    background-color: #f9fafb;
+    transition: border 0.2s ease;
+}
+
+.product-search-filter input:focus,
+.product-search-filter select:focus {
+    border-color: #2563eb;
+    outline: none;
+    background-color: #ffffff;
+}
+
+/* Price input group */
+.price-range-inputs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.price-range-inputs input {
+    flex: 1;
+}
+
+/* Button styles */
+.filter-button {
+    grid-column: 1 / -1;
+    padding: 0.7rem 1rem;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.filter-button:hover {
+    background-color: #1e40af;
+}
