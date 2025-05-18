@@ -1,65 +1,98 @@
+// src/components/FilterComponent.jsx
 import React, { useEffect, useState } from "react";
-import { searchProducts, filterProducts } from "../../services/productService";
+import { filterProducts } from "../../services/productService";
 import "./ProductSearchFilter.css";
 
-const ProductSearchFilter = ({ onResults }) => {
-  const [query, setQuery] = useState("");
+const brandModelMap = {
+  TAFE: [
+    "TAFE 45 DI DRUM BRAKE",
+    "TAFE 45 DI DISC BRAKE",
+    "TAFE 7250 2WD",
+    "TAFE 5245 4WD",
+    "TAFE 45DI Side Shift",
+    "TAFE 9500",
+    "TAFE 8515 Magna",
+    "TAFE 9515 Magna",
+    "TAFE Dynatrack",
+  ],
+  SONALIKA: [
+    "SONALIKA DI 50RX 2WD",
+    "SONALIKA DI 50RX 4WD",
+    "SONALIKA 60RX",
+    "SONALIKA DI 75RX 2WD",
+    "SONALIKA S 90",
+    "SONALIKA GT 22",
+    "SONALIKA GT 26",
+  ],
+  Mahindra: [
+    "MAHINDRA 595 DI NST",
+    "MAHINDRA 575 4WD",
+    "MAHINDRA 9500 4WD",
+    "MAHINDRA 755 4WD",
+  ],
+  "John Deere": [
+    "John Deere JD-5045D-WRT",
+    "John Deere 5047D",
+    "John Deere 5050D",
+  ],
+  Kubota: ["Kubota L4508 4WD", "Kubota EK3 - 471 4WD", "Kubota L3408 4WD"],
+  "Massey Ferguson": [
+    "Massey Ferguson 1552",
+    "Massey Ferguson 1650E",
+    "Massey Ferguson 4708",
+    "Massey Ferguson 5710",
+    "Massey Ferguson 6713",
+    "Massey Ferguson 7615",
+  ],
+};
+
+const FilterComponent = ({ onResults }) => {
+  const [searchTerm, setSearchTerm] = useState("");
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-  const [allProducts, setAllProducts] = useState([]);
 
-  useEffect(() => {
-    const loadProducts = async () => {
-      const results = await searchProducts("");
-      setAllProducts(results);
+  const handleFilter = async () => {
+    const filters = {
+      ...(brand && { brand }),
+      ...(model && { model }),
+      ...(minPrice && { minPrice }),
+      ...(maxPrice && { maxPrice }),
     };
-    loadProducts();
-  }, []);
 
-  const uniqueBrands = [
-    ...new Set(allProducts.map((p) => p.brand).filter(Boolean)),
-  ];
-  const uniqueModels = [
-    ...new Set(allProducts.map((p) => p.model).filter(Boolean)),
-  ];
-
-  const handleSearch = async () => {
-    if (query.trim()) {
-      const results = await searchProducts(query);
-      onResults(results);
-    } else {
-      const results = await filterProducts({
-        brand,
-        model,
-        minPrice,
-        maxPrice,
-      });
-      onResults(results);
+    try {
+      const data = await filterProducts(filters);
+      onResults(data);
+    } catch (error) {
+      console.error("Filter failed:", error);
     }
   };
 
-  return (
-    <div className="product-filter-sidebar">
-      <h3 className="filter-title">Filter Products</h3>
+  useEffect(() => {
+    handleFilter(); // Load products initially or when filter changes
+  }, []);
 
+  return (
+    <div className="filter-box">
+      <h3>Filter Products</h3>
       <input
         type="text"
-        placeholder="Search by name, brand, model, ID..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="filter-input"
+        placeholder="Search name, brand, model..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleFilter()}
       />
-
       <select
         value={brand}
-        onChange={(e) => setBrand(e.target.value)}
-        className="filter-select"
+        onChange={(e) => {
+          setBrand(e.target.value);
+          setModel(""); // reset model when brand changes
+        }}
       >
         <option value="">All Brands</option>
-        {uniqueBrands.map((b, i) => (
-          <option key={i} value={b}>
+        {Object.keys(brandModelMap).map((b) => (
+          <option key={b} value={b}>
             {b}
           </option>
         ))}
@@ -68,38 +101,33 @@ const ProductSearchFilter = ({ onResults }) => {
       <select
         value={model}
         onChange={(e) => setModel(e.target.value)}
-        className="filter-select"
+        disabled={!brand}
       >
         <option value="">All Models</option>
-        {uniqueModels.map((m, i) => (
-          <option key={i} value={m}>
-            {m}
-          </option>
-        ))}
+        {brand &&
+          brandModelMap[brand]?.map((m) => (
+            <option key={m} value={m}>
+              {m}
+            </option>
+          ))}
       </select>
 
-      <div className="price-input-group">
-        <input
-          type="number"
-          placeholder="Min Rs"
-          value={minPrice}
-          onChange={(e) => setMinPrice(e.target.value)}
-          className="filter-input"
-        />
-        <input
-          type="number"
-          placeholder="Max Rs"
-          value={maxPrice}
-          onChange={(e) => setMaxPrice(e.target.value)}
-          className="filter-input"
-        />
-      </div>
+      <input
+        type="number"
+        placeholder="Min Rs"
+        value={minPrice}
+        onChange={(e) => setMinPrice(e.target.value)}
+      />
+      <input
+        type="number"
+        placeholder="Max Rs"
+        value={maxPrice}
+        onChange={(e) => setMaxPrice(e.target.value)}
+      />
 
-      <button onClick={handleSearch} className="filter-button">
-        Apply Filters
-      </button>
+      <button onClick={handleFilter}>Apply Filters</button>
     </div>
   );
 };
 
-export default ProductSearchFilter;
+export default FilterComponent;

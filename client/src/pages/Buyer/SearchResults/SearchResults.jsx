@@ -57,7 +57,7 @@ const SearchResults = () => {
                   <p className="product-meta">
                     {product.brand} | {product.model}
                   </p>
-                  <p className="product-price">₹{product.price}</p>
+                  <p className="product-price">Rs{product.price}</p>
                 </div>
               ))
             ) : (
