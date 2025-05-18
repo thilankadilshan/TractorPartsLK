@@ -9,6 +9,7 @@ const sellerRoutes = require('./routes/sellerRoutes');
 const sellerDashboardRoutes = require('./routes/sellerDashboardRoutes');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require("./routes/userRoutes");
+const adminRoutes = require("./routes/adminRoutes"); // ✅ correct path
 
 
 dotenv.config();
@@ -26,6 +27,8 @@ app.use('/api/seller', sellerDashboardRoutes); // Seller dashboard (stats, manag
 app.use('/api/seller', productRoutes); // ✅ Product routes for sellers
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
+
+app.use("/api/admin", adminRoutes);
 
 
 

@@ -1,47 +1,92 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./styles/manageUsers.css";
+import { getAllUsers, verifySeller } from "../../services/adminService";
+import { AuthContext } from "../../context/AuthContext.jsx";
 
 const ManageUsers = () => {
-  const allUsers = [
-    { id: 1, name: "Admin One", email: "admin1@example.com", role: "admin" },
-    { id: 2, name: "User A", email: "usera@example.com", role: "buyer" },
-    { id: 3, name: "Seller B", email: "sellerb@example.com", role: "seller" },
-    { id: 4, name: "User B", email: "userb@example.com", role: "buyer" },
-    { id: 5, name: "Admin Two", email: "admin2@example.com", role: "admin" },
-  ];
-
-  const [users, setUsers] = useState(allUsers);
-  const [selectedRole, setSelectedRole] = useState("all"); // initially show all users
+  const { user, loading } = useContext(AuthContext);
+  const [users, setUsers] = useState([]);
+  const [selectedRole, setSelectedRole] = useState("all");
   const [editingUser, setEditingUser] = useState(null);
   const [formData, setFormData] = useState({ name: "", email: "" });
+  const [error, setError] = useState(null);
 
-  // Filter users based on role
-  const filteredUsers = users.filter((user) => {
-    if (selectedRole === "all") return true;
-    return user.role === selectedRole;
-  });
+  // Extract token directly from localStorage, fallback if not in user object
+  const token = user?.token || localStorage.getItem("token");
 
-  const handleDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this user?")) {
-      setUsers(users.filter((u) => u.id !== id));
+  useEffect(() => {
+    const fetchUsers = async () => {
+      if (!token) {
+        console.warn("No token found, aborting fetchUsers");
+        return;
+      }
+
+      try {
+        const data = await getAllUsers(token);
+        console.log("✅ Users received from backend:", data); // Check if data arrives
+        if (Array.isArray(data)) {
+          setUsers(data);
+          setError(null);
+        } else {
+          setError("Invalid data format received");
+          setUsers([]);
+        }
+      } catch (err) {
+        console.error(
+          "❌ Failed to load users",
+          err.response?.data || err.message
+        );
+        setError("Failed to load users");
+        setUsers([]);
+      }
+    };
+
+    fetchUsers();
+  }, [token]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user) {
+    return <div>You must be logged in to view this page.</div>;
+  }
+
+  const filteredUsers = users.filter((u) =>
+    selectedRole === "all" ? true : u.role === selectedRole
+  );
+
+  const handleVerifySeller = async (userId) => {
+    try {
+      await verifySeller(userId, token);
+      alert("Seller Verified");
+      setUsers((prev) =>
+        prev.map((u) => (u._id === userId ? { ...u, isVerified: true } : u))
+      );
+    } catch (err) {
+      console.error("Verification failed", err);
+      alert("Seller verification failed");
     }
   };
 
-  const handleRoleChange = (id, newRole) => {
-    setUsers((prev) =>
-      prev.map((u) => (u.id === id ? { ...u, role: newRole } : u))
-    );
+  const handleDelete = (id) => {
+    if (window.confirm("Delete user?")) {
+      setUsers(users.filter((u) => u._id !== id));
+    }
   };
 
   const handleEdit = (user) => {
     setEditingUser(user);
-    setFormData({ name: user.name, email: user.email });
+    setFormData({
+      name: `${user.firstName} ${user.lastName}`,
+      email: user.email,
+    });
   };
 
   const handleUpdate = () => {
     setUsers((prev) =>
       prev.map((u) =>
-        u.id === editingUser.id
+        u._id === editingUser._id
           ? { ...u, name: formData.name, email: formData.email }
           : u
       )
@@ -53,13 +98,14 @@ const ManageUsers = () => {
     <div className="manage-users-wrapper">
       <h1>Manage Users</h1>
 
-      {/* Role Filter Buttons */}
       <div className="role-buttons">
         <button onClick={() => setSelectedRole("all")}>All</button>
         <button onClick={() => setSelectedRole("admin")}>Admins</button>
-        <button onClick={() => setSelectedRole("buyer")}>Buyers</button>
+        <button onClick={() => setSelectedRole("user")}>Buyers</button>
         <button onClick={() => setSelectedRole("seller")}>Sellers</button>
       </div>
+
+      {error && <p style={{ color: "red" }}>{error}</p>}
 
       <table className="user-table">
         <thead>
@@ -71,9 +117,18 @@ const ManageUsers = () => {
           </tr>
         </thead>
         <tbody>
+          {filteredUsers.length === 0 && (
+            <tr>
+              <td colSpan="4" style={{ textAlign: "center" }}>
+                No users found.
+              </td>
+            </tr>
+          )}
           {filteredUsers.map((u) => (
-            <tr key={u.id}>
-              <td>{u.name}</td>
+            <tr key={u._id}>
+              <td>
+                {u.firstName} {u.lastName}
+              </td>
               <td>{u.email}</td>
               <td>{u.role}</td>
               <td>
@@ -82,10 +137,23 @@ const ManageUsers = () => {
                 </button>
                 <button
                   className="btn-delete"
-                  onClick={() => handleDelete(u.id)}
+                  onClick={() => handleDelete(u._id)}
                 >
                   Delete
                 </button>
+                {u.role === "seller" &&
+                  (u.isVerified ? (
+                    <span style={{ color: "green", marginLeft: 10 }}>
+                      Verified
+                    </span>
+                  ) : (
+                    <button
+                      className="btn-verify"
+                      onClick={() => handleVerifySeller(u._id)}
+                    >
+                      Verify
+                    </button>
+                  ))}
               </td>
             </tr>
           ))}
@@ -102,7 +170,7 @@ const ManageUsers = () => {
                 type="text"
                 value={formData.name}
                 onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, name: e.target.value }))
+                  setFormData({ ...formData, name: e.target.value })
                 }
               />
             </label>
@@ -112,7 +180,7 @@ const ManageUsers = () => {
                 type="email"
                 value={formData.email}
                 onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, email: e.target.value }))
+                  setFormData({ ...formData, email: e.target.value })
                 }
               />
             </label>

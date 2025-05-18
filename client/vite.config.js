@@ -9,14 +9,18 @@ export default defineConfig({
             '@': path.resolve(__dirname, './src'),
         },
     },
-    // 👇 Correct handling for React Router in Vite
     build: {
         rollupOptions: {
             input: './index.html',
         },
     },
     server: {
-        // 👇 This ensures routing works on browser refresh
-        historyApiFallback: true, // ❌ won't work in Vite, remove this
-    }
+        proxy: {
+            '/api': {
+                target: 'http://localhost:5000',
+                changeOrigin: true,
+                secure: false,
+            },
+        },
+    },
 });
