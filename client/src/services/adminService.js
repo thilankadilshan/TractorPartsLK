@@ -17,3 +17,19 @@ export const verifySeller = async (userId, token) => {
     const response = await axios.put(`${API_URL}/verify-seller/${userId}`, {}, config);
     return response.data;
 };
+
+export const deleteUser = async (userId, token) => {
+    const config = {
+        headers: { Authorization: `Bearer ${token}` },
+    };
+    const response = await axios.delete(`${API_URL}/user/${userId}`, config);
+    return response.data;
+};
+
+export const updateUser = async (userId, updatedData, token) => {
+    const config = {
+        headers: { Authorization: `Bearer ${token}` },
+    };
+    const response = await axios.put(`${API_URL}/user/${userId}`, updatedData, config);
+    return response.data;
+};

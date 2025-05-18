@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./styles/manageUsers.css";
-import { getAllUsers, verifySeller } from "../../services/adminService";
+import {
+  getAllUsers,
+  verifySeller,
+  deleteUser,
+  updateUser,
+} from "../../services/adminService";
+
 import { AuthContext } from "../../context/AuthContext.jsx";
 
 const ManageUsers = () => {
@@ -69,9 +75,15 @@ const ManageUsers = () => {
     }
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     if (window.confirm("Delete user?")) {
-      setUsers(users.filter((u) => u._id !== id));
+      try {
+        await deleteUser(id, token);
+        setUsers(users.filter((u) => u._id !== id));
+      } catch (err) {
+        console.error("Failed to delete user", err);
+        alert("Failed to delete user");
+      }
     }
   };
 
@@ -83,15 +95,26 @@ const ManageUsers = () => {
     });
   };
 
-  const handleUpdate = () => {
-    setUsers((prev) =>
-      prev.map((u) =>
-        u._id === editingUser._id
-          ? { ...u, name: formData.name, email: formData.email }
-          : u
-      )
-    );
-    setEditingUser(null);
+  const handleUpdate = async () => {
+    try {
+      await updateUser(editingUser._id, formData, token);
+      setUsers((prev) =>
+        prev.map((u) =>
+          u._id === editingUser._id
+            ? {
+                ...u,
+                email: formData.email,
+                firstName: formData.name.split(" ")[0],
+                lastName: formData.name.split(" ").slice(1).join(" "),
+              }
+            : u
+        )
+      );
+      setEditingUser(null);
+    } catch (err) {
+      console.error("Failed to update user", err);
+      alert("Failed to update user");
+    }
   };
 
   return (
