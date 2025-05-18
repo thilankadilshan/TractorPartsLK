@@ -5,24 +5,26 @@ const BecomeSellerBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Trigger animation when component mounts
-    setTimeout(() => setIsVisible(true), 100);
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClick = () => {
-    window.location.href = "/seller/register"; // adjust route as needed
+    window.location.href = "/seller/register";
   };
 
   return (
-    <div className={`seller-banner ${isVisible ? "show" : ""}`}>
-      <div className="seller-text">
-        <h2>Become a Seller Today!</h2>
-        <p>Join our marketplace and grow your business with us.</p>
+    <section className={`seller-banner-section ${isVisible ? "show" : ""}`}>
+      <div className="seller-banner-card">
+        <div className="seller-text">
+          <h2>Become a Seller Today!</h2>
+          <p>Join our marketplace and grow your business with us.</p>
+        </div>
+        <button className="seller-button" onClick={handleClick}>
+          Start Selling
+        </button>
       </div>
-      <button className="seller-button" onClick={handleClick}>
-        Start Selling
-      </button>
-    </div>
+    </section>
   );
 };
 
