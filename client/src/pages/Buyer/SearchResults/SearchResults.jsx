@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
 import { searchProducts } from "../../../services/productService";
+import ProductSearchFilter from "../../../components/ProductSearchFilter/ProductSearchFilter";
+import "./SearchResults.css"; // 🧠 custom page-only styles
 
 const useQuery = () => new URLSearchParams(useLocation().search);
 
@@ -10,6 +12,7 @@ const SearchResults = () => {
   const query = useQuery().get("q");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     if (query) {
@@ -17,6 +20,7 @@ const SearchResults = () => {
       searchProducts(query)
         .then((data) => {
           setResults(data);
+          setFilteredProducts(data); // also show in filter
           setLoading(false);
         })
         .catch((err) => {
@@ -29,32 +33,32 @@ const SearchResults = () => {
   return (
     <>
       <Header />
-      <div className="p-4 min-h-screen bg-gray-50">
-        <h2 className="text-xl font-semibold mb-4">
+      <div className="search-results-page p-6 space-y-8 bg-gray-50 min-h-screen">
+        <h2 className="text-2xl font-semibold">
           Search Results for: <span className="text-blue-600">"{query}"</span>
         </h2>
 
+        <ProductSearchFilter
+          products={results}
+          onResults={setFilteredProducts}
+        />
+
         {loading ? (
           <p className="text-gray-600">Loading...</p>
-        ) : results.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {results.map((product) => (
-              <div
-                key={product._id}
-                className="border rounded-lg bg-white p-4 shadow hover:shadow-md transition"
-              >
+        ) : filteredProducts.length > 0 ? (
+          <div className="product-grid">
+            {filteredProducts.map((product) => (
+              <div key={product._id} className="product-card">
                 <img
                   src={product.imageUrl || "/placeholder.jpg"}
                   alt={product.name}
-                  className="w-full h-48 object-cover mb-3 rounded"
+                  className="product-image"
                 />
-                <h3 className="text-lg font-bold">{product.name}</h3>
-                <p className="text-gray-600 line-clamp-2">
-                  {product.description}
+                <h3 className="product-title">{product.name}</h3>
+                <p className="product-meta">
+                  {product.brand} | {product.model}
                 </p>
-                <p className="text-green-600 font-semibold mt-2">
-                  Rs. {product.price}
-                </p>
+                <p className="product-price">Rs. {product.price}</p>
               </div>
             ))}
           </div>

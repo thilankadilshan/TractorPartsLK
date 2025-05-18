@@ -22,3 +22,9 @@ export const searchProducts = async (query) => {
     const response = await axios.get(`${PRODUCT_API}/search?q=${encodeURIComponent(query)}`);
     return response.data;
 };
+
+export const filterProducts = async (filters) => {
+    const queryString = new URLSearchParams(filters).toString();
+    const response = await axios.get(`http://localhost:5000/api/products/filter?${queryString}`);
+    return response.data;
+};

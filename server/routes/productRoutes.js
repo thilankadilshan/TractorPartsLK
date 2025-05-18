@@ -4,7 +4,8 @@ const router = express.Router();
 const { createProduct, getNewestProducts, getProductById, getProductsBySeller } = require('../controllers/productController');
 const { protect } = require('../middleware/authMiddleware');
 const { uploadProduct } = require('../middleware/upload');
-const { searchProducts } = require("../controllers/productController");
+const { searchProducts, filterProducts } = require("../controllers/productController");
+
 
 router.get("/search", searchProducts);
 
@@ -19,6 +20,8 @@ router.get('/newest-products', getNewestProducts);
 
 // ✅ Route to get a single product by ID
 router.get('/view/:id', getProductById); // Notice the /view to avoid conflict
+
+router.get('/filter', filterProducts);
 
 
 router.get('/by-seller/:sellerId', getProductsBySeller);

@@ -1,5 +1,6 @@
 const Product = require('../models/Product');
 const SellerProfile = require('../models/SellerProfile');
+const mongoose = require('mongoose');
 
 
 // CREATE product
@@ -71,42 +72,74 @@ exports.getProductsBySeller = async (req, res) => {
     }
 };
 
-const searchProducts = async (req, res) => {
-    const { q } = req.query;
-    try {
-        const regex = new RegExp(q, "i");
-        const results = await Product.find({
-            $or: [
-                { name: regex },
-                { partNumber: regex },
-                { description: regex },
-            ],
-        });
+exports.filterProducts = async (req, res) => {
+    const { minPrice, maxPrice, brand, model } = req.query;
+    const filter = {};
 
-        // Add full image URL
+    if (minPrice || maxPrice) {
+        filter.price = {};
+        if (minPrice) filter.price.$gte = Number(minPrice);
+        if (maxPrice) filter.price.$lte = Number(maxPrice);
+    }
+
+    if (brand) filter.brand = new RegExp(brand, "i");
+    if (model) filter.model = new RegExp(model, "i");
+
+    try {
+        const results = await Product.find(filter);
         const updatedResults = results.map((product) => {
             const imageUrl = product.image
                 ? `${req.protocol}://${req.get('host')}/${product.image}`
                 : '';
-
-            return {
-                ...product.toObject(),
-                imageUrl,
-            };
+            return { ...product.toObject(), imageUrl };
         });
 
         res.json(updatedResults);
     } catch (error) {
-        res.status(500).json({ error: "Search failed." });
+        res.status(500).json({ error: "Filtering failed." });
     }
 };
 
+
+const searchProducts = async (req, res) => {
+    const { q } = req.query;
+
+    try {
+        const regex = new RegExp(q, "i");
+        const conditions = [
+            { name: regex },
+            { description: regex },
+            { partNumber: regex },
+            { brand: regex },
+            { model: regex },
+        ];
+
+        // Also allow searching by _id if valid ObjectId
+        if (mongoose.Types.ObjectId.isValid(q)) {
+            conditions.push({ _id: q });
+        }
+
+        const results = await Product.find({ $or: conditions });
+
+        const updatedResults = results.map((product) => {
+            const imageUrl = product.image
+                ? `${req.protocol}://${req.get('host')}/${product.image}`
+                : '';
+            return { ...product.toObject(), imageUrl };
+        });
+
+        res.json(updatedResults);
+    } catch (error) {
+        console.error("Search failed:", error);
+        res.status(500).json({ error: "Search failed." });
+    }
+};
 
 module.exports = {
     createProduct: exports.createProduct,
     getNewestProducts: exports.getNewestProducts,
     getProductById: exports.getProductById,
     getProductsBySeller: exports.getProductsBySeller,
-    searchProducts,
+    searchProducts: searchProducts,       // this is a const function, so just assign it here
+    filterProducts: exports.filterProducts // add this here
 };
-
