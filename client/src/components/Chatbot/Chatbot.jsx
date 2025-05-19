@@ -28,7 +28,7 @@ const ChatBot = () => {
       console.error(error.response || error.message); // helps you debug
       const botMessage = {
         sender: "bot",
-        text: "Error! Please try againnn later.",
+        text: "i dont undertand.",
       };
       setMessages((prev) => [...prev, botMessage]);
     }

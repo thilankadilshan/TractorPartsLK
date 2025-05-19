@@ -3,7 +3,8 @@
     bottom: 80px;
     right: 20px;
     width: 350px;
-    max-height: 800px;
+    max-height: 600px;
+    min-height: 550px;
     background: #fff;
     border: 2px solid #ccc;
     border-radius: 10px;
