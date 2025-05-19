@@ -39,7 +39,14 @@
 /* Info text */
 .seller-details-card p {
     font-size: 1rem;
-    color: #444;
+    color: #153100;
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.seller-details-card h3 {
+    font-size: 1rem;
+    color: #ff0000;
     margin: 0.5rem 0;
     line-height: 1.6;
 }

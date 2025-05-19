@@ -43,6 +43,15 @@ const SellerDetails = () => {
               />
             )}
             <h2>{seller.companyName}</h2>
+
+            <h3
+              className={`verified-status ${
+                seller.isVerified ? "verified" : "not-verified"
+              }`}
+            >
+              {seller.isVerified ? "Verified Seller" : "Not Verified"}
+            </h3>
+
             <p>
               <strong>Contact Number:</strong> {seller.contactNumber || "N/A"}
             </p>

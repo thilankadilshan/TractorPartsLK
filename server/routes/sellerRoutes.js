@@ -79,7 +79,7 @@ const SellerProfile = Seller;
 router.get('/:id', async (req, res) => {
     try {
         const seller = await Seller.findById(req.params.id).select(
-            'companyName logo description contactNumber address whatsappLink facebookLink websiteLink'
+            'companyName logo description contactNumber address whatsappLink facebookLink websiteLink isVerified'
         );
 
         if (!seller) {
@@ -99,10 +99,9 @@ router.get('/:id', async (req, res) => {
 });
 
 
-// ✅ Keep this below — no change
 router.get('/', async (req, res) => {
     try {
-        const sellers = await Seller.find().select('companyName logo description');
+        const sellers = await Seller.find().select('companyName logo description isVerified');
         const cleanedSellers = sellers.map(seller => ({
             ...seller._doc,
             logo: seller.logo ? seller.logo.replace(/\\/g, '/') : null
@@ -113,6 +112,7 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: 'Server error while fetching sellers' });
     }
 });
+
 
 // ✅ Keep this below — no change
 router.post('/', upload.single('logo'), async (req, res) => {
