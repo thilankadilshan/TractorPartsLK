@@ -2,6 +2,8 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+dotenv.config();
+
 
 const authRoutes = require('./routes/authRoutes');
 const chatbotRoutes = require('./routes/chatbotRoutes');
@@ -12,7 +14,6 @@ const userRoutes = require("./routes/userRoutes");
 const adminRoutes = require("./routes/adminRoutes"); // ✅ correct path
 const imageSearchRoutes = require('./routes/imageSearchRoutes');
 
-dotenv.config();
 
 const app = express(); // ✅ MUST come before using `app.use(...)`
 
