@@ -1,7 +1,83 @@
-/* .dashboard-page {
+.seller-dashboard-wrapper {
     padding: 2rem;
-    max-width: 700px;
-    margin: auto;
-    background: #eafaf1;
-    border-radius: 12px;
-} */
+    background-color: #f2f4f8;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 75%;
+}
+
+.seller-dashboard__title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+.seller-dashboard__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.seller-dashboard__card {
+    flex: 1;
+    min-width: 220px;
+    padding: 1rem;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    transition: transform 0.2s;
+}
+
+.seller-dashboard__card:hover {
+    transform: translateY(-4px);
+}
+
+.card-blue {
+    background-color: #007bff;
+}
+
+.card-yellow {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.card-green {
+    background-color: #28a745;
+}
+
+.card-cyan {
+    background-color: #17a2b8;
+}
+
+.seller-dashboard__card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.seller-dashboard__card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.seller-dashboard__charts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.seller-dashboard__chart-box {
+    flex: 1;
+    min-width: 320px;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+}
+
+.seller-dashboard__chart-box h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #333;
+}
