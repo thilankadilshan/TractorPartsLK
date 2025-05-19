@@ -10,7 +10,7 @@ const sellerDashboardRoutes = require('./routes/sellerDashboardRoutes');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require("./routes/userRoutes");
 const adminRoutes = require("./routes/adminRoutes"); // ✅ correct path
-
+const imageSearchRoutes = require('./routes/imageSearchRoutes');
 
 dotenv.config();
 
@@ -31,6 +31,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/admin", adminRoutes);
 
 
+app.use('/api/image-search', imageSearchRoutes);
 
 
 // Static file serving (logos, images)
