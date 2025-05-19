@@ -1,99 +1,110 @@
-/* Scroll Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Container */
+/* Container styles */
 .seller-details-container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0px 0px;
-    background-color: #ffffff;
-    animation: fadeInUp 0.6s ease both;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #dcffd8;
+    min-height: 100vh;
 }
 
-/* Error & Loading Text */
-.seller-details-container .error,
-.seller-details-container .loading {
-    color: #e63946;
-    background-color: #ffe6e6;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    font-weight: 500;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Seller Info Card */
+/* Card wrapper */
 .seller-details-card {
-    background: linear-gradient(135deg, #ffffff, #b8ffbf);
-    border: 1px solid #c9e3d6;
-    border-radius: 1px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0);
-    padding: 30px 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
     text-align: center;
-    transition: transform 0.3s ease;
-    animation: fadeInUp 0.5s ease-in-out;
 }
 
-/* Seller Logo */
+/* Logo */
 .seller-details-logo {
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    border: 2px solid #eee;
 }
 
-.seller-details-logo:hover {
-    transform: scale(1.05) rotate(-1deg);
-}
-
-/* Company Name */
+/* Heading */
 .seller-details-card h2 {
     font-size: 2rem;
-    color: #184c35;
-    margin-bottom: 15px;
+    color: #333;
+    margin-bottom: 1rem;
 }
 
-/* Seller Info Paragraphs */
+/* Info text */
 .seller-details-card p {
     font-size: 1rem;
-    color: #333;
-    margin-bottom: 10px;
-    line-height: 1.5;
+    color: #444;
+    margin: 0.5rem 0;
+    line-height: 1.6;
 }
 
-/* Highlighted labels */
 .seller-details-card strong {
-    color: #1b4332;
+    color: #222;
 }
 
-/* ----------------------------- */
-/* Responsive Design */
-/* ----------------------------- */
+/* Error message */
+.error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
 
+.loading {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Social links section */
+.social-links {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.social-links h3 {
+    font-size: 1.1rem;
+    color: #222;
+    margin: 0;
+    font-weight: 600;
+}
+
+.social-icons-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.social-icon {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon:hover {
+    transform: scale(1.15);
+    opacity: 0.9;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
-    .seller-details-container {
-        padding: 30px 15px;
-    }
-
     .seller-details-card {
-        padding: 25px 15px;
+        padding: 1.5rem;
     }
 
     .seller-details-logo {
-        width: 110px;
-        height: 110px;
+        width: 100px;
+        height: 100px;
     }
 
     .seller-details-card h2 {
@@ -103,17 +114,24 @@
     .seller-details-card p {
         font-size: 0.95rem;
     }
-}
 
-@media (max-width: 430px) {
-    .seller-details-card {
-        padding: 20px 10px;
+    .social-links {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .seller-details-logo {
-        width: 90px;
-        height: 90px;
-        margin-bottom: 15px;
+    .social-icons-wrapper {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .seller-details-container {
+        padding: 1rem 0.5rem;
+    }
+
+    .seller-details-card {
+        padding: 1rem;
     }
 
     .seller-details-card h2 {

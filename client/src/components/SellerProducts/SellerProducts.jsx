@@ -46,7 +46,7 @@ const SellerProducts = ({ sellerId }) => {
               className="seller-product-image"
             />
             <h4 className="seller-product-name">{product.name}</h4>
-            <p className="seller-product-price">${product.price}</p>
+            <p className="seller-product-price">RS {product.price}</p>
           </div>
         ))}
       </div>

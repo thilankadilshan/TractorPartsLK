@@ -75,10 +75,12 @@ const upload = require('../middleware/upload');
 const SellerProfile = Seller;
 
 
-// ✅ Moved up: Get seller public profile by ID (avoid route conflict)
+// ✅ Get seller public profile by ID with social links
 router.get('/:id', async (req, res) => {
     try {
-        const seller = await Seller.findById(req.params.id).select('companyName logo description contactNumber address');
+        const seller = await Seller.findById(req.params.id).select(
+            'companyName logo description contactNumber address whatsappLink facebookLink websiteLink'
+        );
 
         if (!seller) {
             return res.status(404).json({ message: 'Seller not found' });
@@ -95,6 +97,7 @@ router.get('/:id', async (req, res) => {
         res.status(500).json({ message: 'Server error while fetching seller info' });
     }
 });
+
 
 // ✅ Keep this below — no change
 router.get('/', async (req, res) => {
