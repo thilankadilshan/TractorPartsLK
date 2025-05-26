@@ -2,14 +2,13 @@
 .newest-products-section {
     padding: 40px 20px;
     text-align: center;
-    background-color: #ffffff;
-    position: relative;
-    z-index: 20;
+    background-color: #ecfff2;
+    /* match brand section bg */
 }
 
 /* Title */
 .newest-products-section .section-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 30px;
     color: #184c35;
@@ -27,32 +26,46 @@
 
 /* Product Card */
 .newest-products-section .product-card {
-    background-color: #e6f3ea;
-    border: 1px solid #60905c;
+    background: white;
     border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 12px rgba(48, 255, 1, 0.3);
-    width: 220px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 190px;
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 10;
+
+    /* Scroll appear animation */
+    animation: appear 0.6s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
 }
 
 .newest-products-section .product-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 128, 0, 0.25);
 }
 
-/* Product Image Styling */
+/* Product Image */
 .newest-products-section .product-image {
     width: 100%;
-    max-width: 180px;
-    max-height: 180px;
+    height: 100px;
     object-fit: contain;
-    margin-bottom: 10px;
+    margin: 15px 0;
     border-radius: 8px;
 }
 
@@ -67,7 +80,7 @@
 
 /* Product Price */
 .newest-products-section .product-price {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: #2d6a4f;
     text-align: center;
@@ -77,11 +90,11 @@
 @media (max-width: 768px) {
     .newest-products-section .product-card {
         width: 180px;
+        padding: 15px 8px;
     }
 
     .newest-products-section .product-image {
-        max-width: 140px;
-        max-height: 140px;
+        height: 90px;
     }
 
     .newest-products-section .product-name {
@@ -89,7 +102,7 @@
     }
 
     .newest-products-section .product-price {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -108,7 +121,6 @@
     }
 
     .newest-products-section .product-image {
-        max-width: 120px;
-        max-height: 120px;
+        height: 80px;
     }
 }
