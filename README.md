@@ -2,100 +2,98 @@
 
 A full-stack web application built with the MERN (MongoDB, Express, React, Node.js) stack for buying and selling tractor parts. Includes separate dashboards for Buyers, Sellers, and Admins.
 
-## 📁 Folder Structure
-
 TractorPartsLK/
-├── client/ # Frontend - React
-│ ├── public/
-│ │ ├── index.html
-│ │ ├── favicon.ico
-│ │ └── logo.png
-│ └── src/
-│ ├── assets/ # Images, logos, etc.
-│ │ └── placeholder.jpg
-│ ├── components/ # Shared UI components
-│ │ ├── Header.jsx
-│ │ ├── Footer.jsx
-│ │ ├── ProductCard.jsx
-│ │ └── Sidebar.jsx
-│ ├── context/ # React Context (auth, cart, etc.)
-│ │ ├── AuthContext.js
-│ │ └── CartContext.js
-│ ├── layouts/ # Layouts per role
-│ │ ├── BuyerLayout.jsx
-│ │ ├── SellerLayout.jsx
-│ │ └── AdminLayout.jsx
-│ ├── pages/
-│ │ ├── Buyer/
-│ │ │ ├── Dashboard.jsx
-│ │ │ ├── ProductList.jsx
-│ │ │ ├── Cart.jsx
-│ │ │ └── Orders.jsx
-│ │ ├── Seller/
-│ │ │ ├── Dashboard.jsx
-│ │ │ ├── AddProduct.jsx
-│ │ │ ├── MyProducts.jsx
-│ │ │ └── Orders.jsx
-│ │ ├── Admin/
-│ │ │ ├── Dashboard.jsx
-│ │ │ ├── ManageUsers.jsx
-│ │ │ ├── ManageProducts.jsx
-│ │ │ └── SiteSettings.jsx
-│ │ └── Auth/
-│ │ ├── Login.jsx
-│ │ ├── Register.jsx
-│ │ └── ForgotPassword.jsx
-│ ├── routes/ # React Router setup
-│ │ └── AppRoutes.jsx
-│ ├── services/ # API handlers
-│ │ ├── sellerService.js
-│ │ ├── productService.js
-│ │ └── orderService.js
-│ ├── utils/ # Helper functions
-│ │ └── validators.js
-│ ├── App.js
-│ ├── index.js
-│ └── main.css
+├── client/                     # Frontend - React
+│   ├── public/                 # Static files
+│   │   ├── index.html
+│   │   ├── favicon.ico
+│   │   └── logo.png
+│   └── src/
+│       ├── assets/             # Images, logos, etc.
+│       │   └── placeholder.jpg
+│       ├── components/         # Shared UI components
+│       │   ├── Header.jsx
+│       │   ├── Footer.jsx
+│       │   ├── ProductCard.jsx
+│       │   └── Sidebar.jsx
+│       ├── context/            # React Context APIs
+│       │   ├── AuthContext.js
+│       │   └── CartContext.js
+│       ├── layouts/            # Layouts for roles
+│       │   ├── BuyerLayout.jsx
+│       │   ├── SellerLayout.jsx
+│       │   └── AdminLayout.jsx
+│       ├── pages/              # Role-based pages
+│       │   ├── Buyer/
+│       │   │   ├── Dashboard.jsx
+│       │   │   ├── ProductList.jsx
+│       │   │   ├── Cart.jsx
+│       │   │   └── Orders.jsx
+│       │   ├── Seller/
+│       │   │   ├── Dashboard.jsx
+│       │   │   ├── AddProduct.jsx
+│       │   │   ├── MyProducts.jsx
+│       │   │   └── Orders.jsx
+│       │   ├── Admin/
+│       │   │   ├── Dashboard.jsx
+│       │   │   ├── ManageUsers.jsx
+│       │   │   ├── ManageProducts.jsx
+│       │   │   └── SiteSettings.jsx
+│       │   └── Auth/
+│       │       ├── Login.jsx
+│       │       ├── Register.jsx
+│       │       └── ForgotPassword.jsx
+│       ├── routes/             # React Router setup
+│       │   └── AppRoutes.jsx
+│       ├── services/           # API service handlers
+│       │   ├── sellerService.js
+│       │   ├── productService.js
+│       │   └── orderService.js
+│       ├── utils/              # Helper functions
+│       │   └── validators.js
+│       ├── App.js
+│       ├── index.js
+│       └── main.css
 │
-├── server/ # Backend - Node.js & Express
-│ ├── config/
-│ │ ├── db.js # MongoDB connection
-│ │ └── cloudinary.js # (optional) for image uploads
-│ ├── controllers/
-│ │ ├── authController.js
-│ │ ├── buyerController.js
-│ │ ├── sellerDashboardController.js
-│ │ ├── sellerController.js
-│ │ ├── adminController.js
-│ │ └── productController.js
-│ ├── middleware/
-│ │ ├── authMiddleware.js
-│ │ ├── roleMiddleware.js
-│ │ ├── errorHandler.js
-│ │ └── upload.js
-│ ├── models/
-│ │ ├── User.js
-│ │ ├── Product.js
-│ │ ├── Order.js
-│ │ ├── SellerProfile.js
-│ │ └── Category.js
-│ ├── routes/
-│ │ ├── authRoutes.js
-│ │ ├── buyerRoutes.js
-│ │ ├── sellerRoutes.js
-│ │ ├── adminRoutes.js
-│ │ ├── achatbotRoutes.js
-│ │ ├── sellerDashboardRoutes.js
-│ │ └── productRoutes.js
-│ ├── uploads/
-│ │ ├──seller/profile # For image uploads
-│ │ └──events
-│ ├── utils/
-│ │ └── generateToken.js
-│ ├── App.js # Main Express app config
-│ └── server.js # Server startup
+├── server/                     # Backend - Node.js & Express
+│   ├── config/
+│   │   ├── db.js               # MongoDB connection
+│   │   └── cloudinary.js       # Image upload config
+│   ├── controllers/           # Business logic
+│   │   ├── authController.js
+│   │   ├── buyerController.js
+│   │   ├── sellerDashboardController.js
+│   │   ├── sellerController.js
+│   │   ├── adminController.js
+│   │   └── productController.js
+│   ├── middleware/
+│   │   ├── authMiddleware.js
+│   │   ├── roleMiddleware.js
+│   │   ├── errorHandler.js
+│   │   └── upload.js
+│   ├── models/                # Mongoose models
+│   │   ├── User.js
+│   │   ├── Product.js
+│   │   ├── Order.js
+│   │   ├── SellerProfile.js
+│   │   └── Category.js
+│   ├── routes/                # API endpoints
+│   │   ├── authRoutes.js
+│   │   ├── buyerRoutes.js
+│   │   ├── sellerRoutes.js
+│   │   ├── adminRoutes.js
+│   │   ├── achatbotRoutes.js
+│   │   ├── sellerDashboardRoutes.js
+│   │   └── productRoutes.js
+│   ├── uploads/
+│   │   ├── seller/profile/     # Seller profile images
+│   │   └── events/             # Event-related uploads
+│   ├── utils/
+│   │   └── generateToken.js
+│   ├── App.js                  # Express app config
+│   └── server.js               # Entry point
 │
-├── .env # Environment variables
+├── .env                        # Environment variables
 ├── .gitignore
 ├── package.json
 ├── README.md
