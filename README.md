@@ -102,8 +102,9 @@ TractorPartsLK/
 ├── .env                        # Environment variables
 ├── .gitignore
 ├── package.json
-├── README.md
+├── README.md```
 
+</details> 
 
 # colours >>>>>>>>>>>>>>>>>>>>>>>>
 
