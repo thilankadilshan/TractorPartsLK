@@ -17,6 +17,11 @@ const register = async (req, res) => {
         website,
         description,
         logo,
+
+        //New fields
+        whatsappLink,
+        facebookLink,
+        websiteLink,
     } = req.body;
 
     try {
@@ -43,6 +48,10 @@ const register = async (req, res) => {
                 address,
                 website,
                 description,
+                //Social links (can be undefined or null)
+                whatsappLink,
+                facebookLink,
+                websiteLink,
             });
         }
 

@@ -1,57 +1,118 @@
-.seller-banner {
+/* Blurred full background section */
+.seller-banner-section {
+    padding: 80px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, #6a11cb, #2575fc);
-    color: white;
-    padding: 30px;
-    border-radius: 20px;
-    margin: 30px auto;
-    max-width: 900px;
+    min-height: 300px;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.seller-banner.show {
+.seller-banner-section.show {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Foreground frosted glass card */
+.seller-banner-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(43, 255, 0, 0.918);
+    border-radius: 20px;
+    padding: 40px 50px;
+    max-width: 900px;
+    width: 100%;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px rgba(21, 255, 0, 0.51);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Text styles */
+.seller-text {
+    flex: 1 1 60%;
+    color: white;
+    text-align: left;
+}
+
 .seller-text h2 {
-    font-size: 2rem;
-    margin: 0 0 10px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00e676;
+    margin-bottom: 10px;
+    margin-right: 100px;
 }
 
 .seller-text p {
     font-size: 1.2rem;
-    margin: 0;
+    color: #ffffffcc;
+    margin-left: 20px;
 }
 
+/* CTA Button */
 .seller-button {
-    background-color: white;
-    color: #2575fc;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 10px;
+    flex: 1 1 30%;
+    padding: 14px 30px;
+    background-color: rgb(57, 143, 44);
+    color: #ffffff;
     font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .seller-button:hover {
-    background-color: #f0f0f0;
+    background-color: #1b7600;
     transform: scale(1.05);
 }
 
+/* Responsive styles */
 @media (max-width: 768px) {
-    .seller-banner {
+    .seller-banner-card {
         flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .seller-text {
         text-align: center;
     }
 
+    .seller-text h2 {
+        font-size: 2rem;
+    }
+
+    .seller-text p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
     .seller-button {
-        margin-top: 20px;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .seller-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .seller-text p {
+        font-size: 0.95rem;
+    }
+
+    .seller-button {
+        padding: 12px 20px;
     }
 }

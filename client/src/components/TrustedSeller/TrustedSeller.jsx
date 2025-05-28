@@ -24,15 +24,15 @@ const TrustedSeller = () => {
 
   return (
     <div className="trusted-sellers-section">
-      <h2 className="section-title block">TRUSTED SELLERS</h2>
+      <h2 className="section-title trusted-animated">BEST SELLERS</h2>
 
       {error && <p className="error">{error}</p>}
 
-      <div className="seller-flex-container">
+      <div className="seller-flex-container trusted-animated">
         {sellers.map((seller) => (
           <div
             key={seller._id}
-            className="seller-card block"
+            className="seller-card"
             onClick={() => navigate(`/sellers/${seller._id}`)}
           >
             <img
@@ -46,6 +46,14 @@ const TrustedSeller = () => {
             />
 
             <h3 className="company-name">{seller.companyName}</h3>
+
+            <p
+              className={`verified-status ${
+                seller.isVerified ? "verified" : "not-verified"
+              }`}
+            >
+              {seller.isVerified ? "Verified Seller" : "Not Verified"}
+            </p>
 
             <button className="shop-btn">Shop</button>
           </div>

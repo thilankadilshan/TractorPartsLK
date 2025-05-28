@@ -1,12 +1,15 @@
 import React from "react";
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, useNavigate } from "react-router-dom";
 import "./AdminLayout.css";
 
 const AdminLayout = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="admin-layout">
       <aside className="admin-sidebar">
         <h2 className="sidebar-title">Admin Panel</h2>
+
         <nav className="admin-nav">
           <NavLink
             to="/admin"
@@ -34,6 +37,13 @@ const AdminLayout = () => {
             Site Settings
           </NavLink>
         </nav>
+        <button
+          className="back-home-btn"
+          onClick={() => navigate("/")}
+          type="button"
+        >
+          ← Back to Home
+        </button>
       </aside>
       <main className="admin-main-content">
         <Outlet />

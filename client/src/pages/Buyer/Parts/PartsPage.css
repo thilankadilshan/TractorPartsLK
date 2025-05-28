@@ -22,33 +22,33 @@
 }
 
 /* Ensure content is above overlay */
-.hero-section,
-.features-section,
-.info-section,
-header,
-footer {
+.parts-page .hero-section,
+.parts-page .features-section,
+.parts-page .info-section,
+.parts-page header,
+.parts-page footer {
     position: relative;
     z-index: 1;
 }
 
 /* Hero Section */
-.hero-section {
+.parts-page .hero-section {
     padding: 5rem 2rem 3rem;
     text-align: center;
     color: #fff;
 }
 
-.hero-content h1 {
+.parts-page .hero-content h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-.hero-content p {
+.parts-page .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
 
-.cta-button {
+.parts-page .cta-button {
     padding: 0.8rem 1.6rem;
     font-size: 1rem;
     background-color: #00c853;
@@ -59,12 +59,12 @@ footer {
     transition: background-color 0.3s ease;
 }
 
-.cta-button:hover {
+.parts-page .cta-button:hover {
     background-color: #009624;
 }
 
 /* Features Section */
-.features-section {
+.parts-page .features-section {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -73,7 +73,7 @@ footer {
     color: #fff;
 }
 
-.feature-card {
+.parts-page .feature-card {
     background: rgba(255, 255, 255, 0.9);
     color: #1b5e20;
     padding: 1.5rem;
@@ -84,43 +84,43 @@ footer {
 }
 
 /* Info Section */
-.info-section {
+.parts-page .info-section {
     padding: 2rem;
     color: white;
     text-align: center;
 }
 
-.info-section h2 {
+.parts-page .info-section h2 {
     margin-bottom: 1rem;
     font-size: 2rem;
 }
 
-.info-section ul {
+.parts-page .info-section ul {
     list-style: none;
     padding: 0;
 }
 
-.info-section li {
+.parts-page .info-section li {
     margin: 0.5rem 0;
     font-size: 1.1rem;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero-content h1 {
+    .parts-page .hero-content h1 {
         font-size: 2rem;
     }
 
-    .hero-content p {
+    .parts-page .hero-content p {
         font-size: 1rem;
     }
 
-    .features-section {
+    .parts-page .features-section {
         flex-direction: column;
         align-items: center;
     }
 
-    .feature-card {
+    .parts-page .feature-card {
         width: 90%;
     }
 }

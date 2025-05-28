@@ -1,6 +1,8 @@
 // src/pages/Buyer/Profile/Profile.jsx
 import React, { useEffect, useState } from "react";
-import "./Profile.css";
+import Header from "../../../components/Header/Header"; // adjust paths as needed
+import Footer from "../../../components/Footer/Footer";
+import "./Profile.css"; // regular CSS import, no "styles"
 
 const Profile = () => {
   const [userData, setUserData] = useState(null);
@@ -28,26 +30,36 @@ const Profile = () => {
   }, []);
 
   if (error) return <p className="error">{error}</p>;
-  if (!userData) return <p>Loading profile...</p>;
+  if (!userData) return <p className="loading">Loading profile...</p>;
+
+  // Format timestamps
+  const createdAt = new Date(userData.createdAt).toLocaleDateString();
+  const updatedAt = new Date(userData.updatedAt).toLocaleDateString();
 
   return (
-    <div className="profile-page">
-      <h2>User Profile</h2>
-      <p>
-        <strong>Name:</strong> {userData.name}
-      </p>
-      <p>
-        <strong>Email:</strong> {userData.email}
-      </p>
-      <p>
-        <strong>Role:</strong> {userData.role}
-      </p>
-      {/* Add more fields as needed */}
-    </div>
+    <>
+      <Header />
+      <div className="profilePage">
+        <h2>User Profile</h2>
+        <p>
+          <strong>Name:</strong> {userData.firstName} {userData.lastName}
+        </p>
+        <p>
+          <strong>Email:</strong> {userData.email}
+        </p>
+        <p>
+          <strong>Role:</strong> {userData.role}
+        </p>
+        <p>
+          <strong>Account Created:</strong> {createdAt}
+        </p>
+        <p>
+          <strong>Last Updated:</strong> {updatedAt}
+        </p>
+      </div>
+      <Footer />
+    </>
   );
 };
 
 export default Profile;
-{
-  /* This is the default export */
-}

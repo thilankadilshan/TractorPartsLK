@@ -8,6 +8,7 @@ import StatsSection from "../../../components/StatsSection/StatsSection";
 import TractorBrands from "../../../components/TractorBrands/TractorBrands";
 import Footer from "../../../components/Footer/Footer";
 import BecomeSellerBanner from "../../../components/BecomeSellerBanner/BecomeSellerBanner";
+import NewestProducts from "../../../components/NewestProducts/NewestProducts";
 
 function ShopsPage() {
   return (
@@ -22,7 +23,9 @@ function ShopsPage() {
       </div>
       <TractorBrands />
       <StatsSection />
+      <NewestProducts />
       <BecomeSellerBanner />
+
       <Footer />
     </div>
   );

@@ -9,20 +9,42 @@ const Messages = () => {
       content: "Can I get delivery to Galle?",
       date: "2025-05-11",
     },
+    {
+      from: "Buyer B",
+      content: "Can I get delivery to Galle?",
+      date: "2025-05-11",
+    },
+    {
+      from: "Buyer B",
+      content: "Can I get delivery to Galle?",
+      date: "2025-05-11",
+    },
+    {
+      from: "Buyer B",
+      content: "Can I get delivery to Galle?",
+      date: "2025-05-11",
+    },
+    {
+      from: "Buyer B",
+      content: "Can I get delivery to Galle?",
+      date: "2025-05-11",
+    },
   ];
 
   return (
-    <div className="messages">
-      <h2>Messages</h2>
-      {messages.map((msg, idx) => (
-        <div key={idx} className="message">
-          <p>
-            <strong>From:</strong> {msg.from}
-          </p>
-          <p>{msg.content}</p>
-          <span>{msg.date}</span>
-        </div>
-      ))}
+    <div className="messages-page">
+      <h2 className="messages-title">Messages</h2>
+      <div className="messages-container">
+        {messages.map((msg, idx) => (
+          <div key={idx} className="message-card">
+            <div className="message-header">
+              <span className="message-from">From: {msg.from}</span>
+              <span className="message-date">{msg.date}</span>
+            </div>
+            <div className="message-content">{msg.content}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

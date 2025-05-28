@@ -53,7 +53,7 @@ router.post('/', async (req, res) => {
     // Use DialoGPT-medium via Hugging Face
     try {
         const response = await axios.post(
-            'https://api-inference.huggingface.co/models/google/flan-t5-large',
+            'https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct',
             { inputs: message },
             {
                 headers: {

@@ -20,6 +20,9 @@ const SellerRegister = () => {
     companyAddress: "",
     description: "",
     profilePicture: null,
+    whatsappLink: "",
+    facebookLink: "",
+    websiteLink: "",
   });
 
   const [error, setError] = useState("");
@@ -44,7 +47,6 @@ const SellerRegister = () => {
   };
 
   const handleCropComplete = (croppedBlob) => {
-    // Convert the cropped Blob into a File with the correct extension
     const file = new File([croppedBlob], "profile.jpg", { type: "image/jpeg" });
     setForm({ ...form, profilePicture: file });
   };
@@ -53,8 +55,20 @@ const SellerRegister = () => {
     e.preventDefault();
     setError("");
 
-    // Validate all fields
-    for (const key in form) {
+    const requiredFields = [
+      "firstName",
+      "lastName",
+      "email",
+      "password",
+      "confirmPassword",
+      "contactNumber",
+      "companyName",
+      "companyAddress",
+      "description",
+      "profilePicture",
+    ];
+
+    for (const key of requiredFields) {
       if (!form[key]) {
         setError(`Please fill in ${key}`);
         return;
@@ -172,6 +186,26 @@ const SellerRegister = () => {
             accept="image/*"
             onChange={handleChange}
             required
+          />
+
+          {/* Optional social links */}
+          <input
+            type="text"
+            name="whatsappLink"
+            placeholder="WhatsApp Link (optional)"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="facebookLink"
+            placeholder="Facebook Link (optional)"
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="websiteLink"
+            placeholder="Website Link (optional)"
+            onChange={handleChange}
           />
 
           {error && <p className="error">{error}</p>}
