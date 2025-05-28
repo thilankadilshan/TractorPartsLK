@@ -2,6 +2,12 @@
 
 A full-stack web application built with the MERN (MongoDB, Express, React, Node.js) stack for buying and selling tractor parts. Includes separate dashboards for Buyers, Sellers, and Admins.
 
+## 📁 Folder Structure
+
+<details>
+<summary>Click to expand full project structure</summary>
+
+```plaintext
 TractorPartsLK/
 ├── client/                     # Frontend - React
 │   ├── public/                 # Static files
@@ -56,28 +62,28 @@ TractorPartsLK/
 │       └── main.css
 │
 ├── server/                     # Backend - Node.js & Express
-│   ├── config/
-│   │   ├── db.js               # MongoDB connection
-│   │   └── cloudinary.js       # Image upload config
-│   ├── controllers/           # Business logic
+│   ├── config/                 # DB and cloud settings
+│   │   ├── db.js
+│   │   └── cloudinary.js
+│   ├── controllers/            # Business logic
 │   │   ├── authController.js
 │   │   ├── buyerController.js
 │   │   ├── sellerDashboardController.js
 │   │   ├── sellerController.js
 │   │   ├── adminController.js
 │   │   └── productController.js
-│   ├── middleware/
+│   ├── middleware/             # Middleware functions
 │   │   ├── authMiddleware.js
 │   │   ├── roleMiddleware.js
 │   │   ├── errorHandler.js
 │   │   └── upload.js
-│   ├── models/                # Mongoose models
+│   ├── models/                 # Mongoose schemas
 │   │   ├── User.js
 │   │   ├── Product.js
 │   │   ├── Order.js
 │   │   ├── SellerProfile.js
 │   │   └── Category.js
-│   ├── routes/                # API endpoints
+│   ├── routes/                 # API endpoints
 │   │   ├── authRoutes.js
 │   │   ├── buyerRoutes.js
 │   │   ├── sellerRoutes.js
@@ -85,18 +91,19 @@ TractorPartsLK/
 │   │   ├── achatbotRoutes.js
 │   │   ├── sellerDashboardRoutes.js
 │   │   └── productRoutes.js
-│   ├── uploads/
-│   │   ├── seller/profile/     # Seller profile images
-│   │   └── events/             # Event-related uploads
+│   ├── uploads/                # Uploaded assets
+│   │   ├── seller/profile/
+│   │   └── events/
 │   ├── utils/
 │   │   └── generateToken.js
 │   ├── App.js                  # Express app config
-│   └── server.js               # Entry point
+│   └── server.js               # Server startup
 │
 ├── .env                        # Environment variables
 ├── .gitignore
 ├── package.json
 ├── README.md
+
 
 # colours >>>>>>>>>>>>>>>>>>>>>>>>
 
