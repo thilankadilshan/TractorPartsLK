@@ -102,10 +102,10 @@ TractorPartsLK/
 ├── .env                        # Environment variables
 ├── .gitignore
 ├── package.json
-├── README.md```
+├── README.md
 
 </details> 
-
+```
 # colours >>>>>>>>>>>>>>>>>>>>>>>>
 
 #3da065
@@ -116,7 +116,6 @@ TractorPartsLK/
 #addaad
 #e8f5e9
 
----
 
 ## ✨ Features
 
@@ -137,7 +136,7 @@ TractorPartsLK/
 
 - Node.js & npm
 - MongoDB (local or cloud)
-- (Optional) Cloudinary account for image uploads
+- (Optional) Cloudinary account for image uploads 
 
 ### Clone the Repository
 
@@ -146,7 +145,7 @@ git clone https://github.com/thilankadilshan/TractorPartsLK.git
 cd TractorPartsLK
 ```
 
-# Install Dependencies
+# Install Dependencies```
 
 # Frontend
 
